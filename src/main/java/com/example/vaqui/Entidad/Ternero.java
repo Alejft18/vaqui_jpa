@@ -17,6 +17,9 @@ public class Ternero {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
+
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id_madre;
 
     @Column(nullable = false)
@@ -29,8 +32,9 @@ public class Ternero {
     @Column(nullable = false, length = 20)
     private String categoria;
 
-    public Ternero(General tbl_general, int id_madre, Double peso_kilos, Date fecha_Revision, String categoria) {
+    public Ternero(General tbl_general, int id, int id_madre, Double peso_kilos, Date fecha_Revision, String categoria) {
         this.tbl_general = tbl_general;
+        this.id = id;
         this.id_madre = id_madre;
         this.peso_kilos = peso_kilos;
         this.fecha_Revision = fecha_Revision;
@@ -46,6 +50,14 @@ public class Ternero {
 
     public void setTbl_general(General tbl_general) {
         this.tbl_general = tbl_general;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public int getId_madre() {
@@ -80,10 +92,12 @@ public class Ternero {
         this.categoria = categoria;
     }
 
+
     @Override
     public String toString() {
         return "Ternero{" +
                 "tbl_general=" + tbl_general +
+                ", id=" + id +
                 ", id_madre=" + id_madre +
                 ", peso_kilos=" + peso_kilos +
                 ", fecha_Revision=" + fecha_Revision +
