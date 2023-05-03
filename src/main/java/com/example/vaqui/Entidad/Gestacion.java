@@ -5,6 +5,8 @@ import jakarta.persistence.*;
 
 import java.util.Date;
 
+@Entity
+@Table(name = "tbl_gestacion")
 public class Gestacion {
     @Id
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
@@ -25,7 +27,7 @@ public class Gestacion {
     @Column(nullable = false, length = 20)
     private String categoria;
 
-    public Gestacion(com.example.vaqui.Entidad.General tbl_general, Double peso_kilos, Date fecha_inseminacion, Date fecha_ultimoParto, Date fecha_Revision, String categoria) {
+    public Gestacion(General tbl_general, Double peso_kilos, Date fecha_inseminacion, Date fecha_ultimoParto, Date fecha_Revision, String categoria) {
         this.tbl_general = tbl_general;
         this.peso_kilos = peso_kilos;
         this.fecha_inseminacion = fecha_inseminacion;
@@ -37,11 +39,11 @@ public class Gestacion {
     public Gestacion() {
     }
 
-    public com.example.vaqui.Entidad.General getTbl_general() {
+    public General getTbl_general() {
         return tbl_general;
     }
 
-    public void setTbl_general(com.example.vaqui.Entidad.General tbl_general) {
+    public void setTbl_general(General tbl_general) {
         this.tbl_general = tbl_general;
     }
 
