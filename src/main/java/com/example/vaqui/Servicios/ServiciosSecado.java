@@ -21,7 +21,7 @@ public class ServiciosSecado {
 
     public String agregarSecado(Secado secado){
         repository.save(secado);
-        return "Se ingreso esta vaquita de secado con exito";
+        return "Se ingreso esta vaquita con exito";
     }
 
 
