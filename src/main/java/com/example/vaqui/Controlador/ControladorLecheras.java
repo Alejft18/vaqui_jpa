@@ -15,7 +15,7 @@ public class ControladorLecheras {
     public ControladorLecheras(ServiciosLecheras servicios){this.servicios = servicios;}
 
     @GetMapping("/listarLecheras")
-    public ArrayList<Lechera> listarLechera(){return servicios.listar();}
+    public ArrayList<Lechera> listarLechera(){return servicios.listarLecheras();}
 
     @PostMapping("/agregarLecheras")
     public String agregarLecheras(@RequestBody Lechera lechera){return servicios.agregarLecheras(lechera);}
