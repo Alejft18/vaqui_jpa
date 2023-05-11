@@ -37,15 +37,14 @@ public class ServiciosLecheras {
     }
 
 
-    public String actualizarLecheras(Lechera lechera){
-        String mensaje = "Error al actualizar";
-        if (repository.existsById(lechera.getId())){
-            repository.save(lechera);
-            mensaje = "Se actualizo exitosamente";
-        }
-        return mensaje;
-    }
-
+//    public String actualizarLecheras(Lechera lechera){
+//        String mensaje = "Error al actualizar";
+//        if (repository.existsById(lechera.getId())){
+//            repository.save(lechera);
+//            mensaje = "Se actualizo exitosamente";
+//        }
+//        return mensaje;
+//    }
 
 
 }

@@ -35,7 +35,9 @@ public class Secado {
     @Column(nullable = false, length = 20)
     private String categoria;
 
-    public Secado(Date fecha_ultParto, Double peso_kilos, Date fecha_revision, Date fecha_ordeño, String categoria) {
+
+    public Secado(General tbl_general, Date fecha_ultParto, Double peso_kilos, Date fecha_revision, Date fecha_ordeño, String categoria) {
+        this.tbl_general = tbl_general;
         this.fecha_ultParto = fecha_ultParto;
         this.peso_kilos = peso_kilos;
         this.fecha_revision = fecha_revision;
@@ -44,6 +46,14 @@ public class Secado {
     }
 
     public Secado() {
+    }
+
+    public General getTbl_general() {
+        return tbl_general;
+    }
+
+    public void setTbl_general(General tbl_general) {
+        this.tbl_general = tbl_general;
     }
 
     public Date getFecha_ultParto() {
@@ -89,6 +99,7 @@ public class Secado {
     @Override
     public String toString() {
         return "Secado{" +
+                "tbl_general=" + tbl_general +
                 ", fecha_ultParto=" + fecha_ultParto +
                 ", peso_kilos=" + peso_kilos +
                 ", fecha_revision=" + fecha_revision +

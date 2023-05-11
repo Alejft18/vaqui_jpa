@@ -35,13 +35,13 @@ public class ServiciosSecado {
     }
 
 
-    public String actualizarSecado(Secado secado){
-        String mensaje = "Error al actualizaar";
-        if (repository.existsById(secado.getId())){
-            repository.save(secado);
-            mensaje = "Se actualizo exitosamente";
-        }
-        return mensaje;
-    }
+//    public String actualizarSecado(Secado secado){
+//        String mensaje = "Error al actualizaar";
+//        if (repository.existsById(secado.getId())){
+//            repository.save(secado);
+//            mensaje = "Se actualizo exitosamente";
+//        }
+//        return mensaje;
+//    }
 
 }

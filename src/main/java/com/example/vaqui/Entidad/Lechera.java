@@ -37,7 +37,8 @@ public class Lechera
     @Column(nullable = false, length = 20)
     private String categoria;
 
-    public Lechera(Double litro_Producidos, Date fecha_ordeño, Double peso_kilos, Date fecha_revision, Date fecha_parto, int cant_partos, String categoria) {
+    public Lechera(General tbl_general, Double litro_Producidos, Date fecha_ordeño, Double peso_kilos, Date fecha_revision, Date fecha_parto, int cant_partos, String categoria) {
+        this.tbl_general = tbl_general;
         this.litro_Producidos = litro_Producidos;
         this.fecha_ordeño = fecha_ordeño;
         this.peso_kilos = peso_kilos;
@@ -48,6 +49,14 @@ public class Lechera
     }
 
     public Lechera() {
+    }
+
+    public General getTbl_general() {
+        return tbl_general;
+    }
+
+    public void setTbl_general(General tbl_general) {
+        this.tbl_general = tbl_general;
     }
 
     public Double getLitro_Producidos() {
@@ -109,6 +118,7 @@ public class Lechera
     @Override
     public String toString() {
         return "Lechera{" +
+                "tbl_general=" + tbl_general +
                 ", litro_Producidos=" + litro_Producidos +
                 ", fecha_ordeño=" + fecha_ordeño +
                 ", peso_kilos=" + peso_kilos +
