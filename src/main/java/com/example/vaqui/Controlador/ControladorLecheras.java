@@ -23,7 +23,7 @@ public class ControladorLecheras {
     @DeleteMapping("/eliminarLecheras/{id}")
     public String eliminarLecheras(@PathVariable("id")int id){return servicios.eliminarLecheras(id);}
 
-    @PutMapping("/actualizarLecheras")
-    public String actualizarLecheras(@RequestBody Lechera lechera){return servicios.actualizarLecheras(lechera);}
+//    @PutMapping("/actualizarLecheras")
+//    public String actualizarLecheras(@RequestBody Lechera lechera){return servicios.actualizarLecheras(lechera);}
 
 }
