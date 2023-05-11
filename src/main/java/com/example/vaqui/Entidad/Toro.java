@@ -15,10 +15,6 @@ public class Toro {
     @JsonIgnore
     private General tbl_general;
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
-
     @Column(nullable = false)
     private Double peso_kilos;
 
@@ -35,25 +31,13 @@ public class Toro {
     @Column(nullable = false, length = 20)
     private String categoria;
 
-    public Toro(General tbl_general, int id, Double peso_kilos, Date fecha_extraccion, int vacas_montadas, Date fecha_Revision, String categoria) {
+    public Toro(General tbl_general, Double peso_kilos, Date fecha_extraccion, int vacas_montadas, Date fecha_Revision, String categoria) {
         this.tbl_general = tbl_general;
-        this.id = id;
         this.peso_kilos = peso_kilos;
         this.fecha_extraccion = fecha_extraccion;
         this.vacas_montadas = vacas_montadas;
         this.fecha_Revision = fecha_Revision;
         this.categoria = categoria;
-    }
-
-    public Toro() {
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public General getTbl_general() {
@@ -108,7 +92,6 @@ public class Toro {
     public String toString() {
         return "Toro{" +
                 "tbl_general=" + tbl_general +
-                ", id=" + id +
                 ", peso_kilos=" + peso_kilos +
                 ", fecha_extraccion=" + fecha_extraccion +
                 ", vacas_montadas=" + vacas_montadas +

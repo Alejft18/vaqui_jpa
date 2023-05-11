@@ -15,12 +15,11 @@ public class Ternero {
     @JsonIgnore
     private General tbl_general;
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
 
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id_madre;
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "id_madre", referencedColumnName = "id", nullable = false)
+    @JsonIgnore
+    private General madre;
 
     @Column(nullable = false)
     private Double peso_kilos;
@@ -32,10 +31,9 @@ public class Ternero {
     @Column(nullable = false, length = 20)
     private String categoria;
 
-    public Ternero(General tbl_general, int id, int id_madre, Double peso_kilos, Date fecha_Revision, String categoria) {
+    public Ternero(General tbl_general, General madre, Double peso_kilos, Date fecha_Revision, String categoria) {
         this.tbl_general = tbl_general;
-        this.id = id;
-        this.id_madre = id_madre;
+        this.madre = madre;
         this.peso_kilos = peso_kilos;
         this.fecha_Revision = fecha_Revision;
         this.categoria = categoria;
@@ -52,20 +50,12 @@ public class Ternero {
         this.tbl_general = tbl_general;
     }
 
-    public int getId() {
-        return id;
+    public General getMadre() {
+        return madre;
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public int getId_madre() {
-        return id_madre;
-    }
-
-    public void setId_madre(int id_madre) {
-        this.id_madre = id_madre;
+    public void setMadre(General madre) {
+        this.madre = madre;
     }
 
     public Double getPeso_kilos() {
@@ -92,13 +82,11 @@ public class Ternero {
         this.categoria = categoria;
     }
 
-
     @Override
     public String toString() {
         return "Ternero{" +
                 "tbl_general=" + tbl_general +
-                ", id=" + id +
-                ", id_madre=" + id_madre +
+                ", madre=" + madre +
                 ", peso_kilos=" + peso_kilos +
                 ", fecha_Revision=" + fecha_Revision +
                 ", categoria='" + categoria + '\'' +
