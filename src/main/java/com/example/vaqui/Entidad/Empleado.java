@@ -18,6 +18,9 @@ public class Empleado {
     @Column(nullable = false)
     private String Apellido;
 
+    @Column(nullable = false, length = 40)
+    private String correo;
+
     @Column(nullable = false, length = 10,unique = true)
     private BigInteger telefono;
 
@@ -27,10 +30,11 @@ public class Empleado {
     @OneToOne(mappedBy = "id_empleado",cascade = CascadeType.ALL,fetch = FetchType.LAZY)
     private Usuario usuarios;
 
-    public Empleado(BigInteger id, String nombre, String apellido, BigInteger telefono, String rol) {
+    public Empleado(BigInteger id, String nombre, String apellido, String correo, BigInteger telefono, String rol) {
         this.id = id;
         this.nombre = nombre;
         Apellido = apellido;
+        this.correo = correo;
         this.telefono = telefono;
         this.rol = rol;
     }
@@ -60,6 +64,14 @@ public class Empleado {
 
     public void setApellido(String apellido) {
         Apellido = apellido;
+    }
+
+    public String getCorreo() {
+        return correo;
+    }
+
+    public void setCorreo(String correo) {
+        this.correo = correo;
     }
 
     public BigInteger getTelefono() {
@@ -92,6 +104,7 @@ public class Empleado {
                 "id=" + id +
                 ", nombre='" + nombre + '\'' +
                 ", Apellido='" + Apellido + '\'' +
+                ", correo='" + correo + '\'' +
                 ", telefono=" + telefono +
                 ", rol='" + rol + '\'' +
                 '}';

@@ -18,15 +18,20 @@ public class Administrador {
     @Column(nullable = false)
     private String Apellido;
 
+    @Column(nullable = false,length = 40)
+    private String correo;
+
     @Column(nullable = false, length = 10, unique = true)
     private BigInteger telefono;
 
     @OneToOne(mappedBy = "id_administrador",cascade = CascadeType.ALL,fetch = FetchType.LAZY)
     private Usuario usuarios;
-    public Administrador(BigInteger id, String nombre, String apellido, BigInteger telefono) {
+
+    public Administrador(BigInteger id, String nombre, String apellido, String correo, BigInteger telefono) {
         this.id = id;
         this.nombre = nombre;
         Apellido = apellido;
+        this.correo = correo;
         this.telefono = telefono;
     }
 
@@ -55,6 +60,10 @@ public class Administrador {
         Apellido = apellido;
     }
 
+    public String getCorreo() {return correo;}
+
+    public void setCorreo(String correo) {this.correo = correo;}
+
     public BigInteger getTelefono() {
         return telefono;
     }
@@ -77,6 +86,7 @@ public class Administrador {
                 "id=" + id +
                 ", nombre='" + nombre + '\'' +
                 ", Apellido='" + Apellido + '\'' +
+                ", correo='" + correo + '\'' +
                 ", telefono=" + telefono +
                 '}';
     }
