@@ -36,7 +36,7 @@ public class ServiciosSecado {
 
 
     public String actualizarSecado(Secado secado){
-        String mensaje = "Error al actualizar";
+        String mensaje = "Error al actualizaaaar";
         if (repository.existsById(secado.getId())){
             repository.save(secado);
             mensaje = "Se actualizo exitosamente";
