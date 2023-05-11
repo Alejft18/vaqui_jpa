@@ -14,7 +14,7 @@ public class Lechera
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "id", referencedColumnName = "id", nullable = false)
     @JsonIgnore
-    private General tbl_general;
+    private General id_lecheras;
 
     @Column(nullable = false)
     private Double litro_Producidos;
@@ -37,8 +37,8 @@ public class Lechera
     @Column(nullable = false, length = 20)
     private String categoria;
 
-    public Lechera(General tbl_general, Double litro_Producidos, Date fecha_ordeño, Double peso_kilos, Date fecha_revision, Date fecha_parto, int cant_partos, String categoria) {
-        this.tbl_general = tbl_general;
+    public Lechera(General id_lecheras, Double litro_Producidos, Date fecha_ordeño, Double peso_kilos, Date fecha_revision, Date fecha_parto, int cant_partos, String categoria) {
+        this.id_lecheras = id_lecheras;
         this.litro_Producidos = litro_Producidos;
         this.fecha_ordeño = fecha_ordeño;
         this.peso_kilos = peso_kilos;
@@ -51,12 +51,12 @@ public class Lechera
     public Lechera() {
     }
 
-    public General getTbl_general() {
-        return tbl_general;
+    public General getId_lecheras() {
+        return id_lecheras;
     }
 
-    public void setTbl_general(General tbl_general) {
-        this.tbl_general = tbl_general;
+    public void setId_lecheras(General id_lecheras) {
+        this.id_lecheras = id_lecheras;
     }
 
     public Double getLitro_Producidos() {
@@ -118,7 +118,7 @@ public class Lechera
     @Override
     public String toString() {
         return "Lechera{" +
-                "tbl_general=" + tbl_general +
+                "id_lecheras=" + id_lecheras +
                 ", litro_Producidos=" + litro_Producidos +
                 ", fecha_ordeño=" + fecha_ordeño +
                 ", peso_kilos=" + peso_kilos +

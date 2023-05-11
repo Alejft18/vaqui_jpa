@@ -31,8 +31,8 @@ public class ControladorTernero {
         return servicio.eliminarTernero(id);
     }
 
-    @PutMapping("/actualizarTernero")
+    /*@PutMapping("/actualizarTernero")
     public String actualizarTernero(@RequestBody Ternero ternero){
         return servicio.actualizarTernero(ternero);
-    }
+    }*/
 }

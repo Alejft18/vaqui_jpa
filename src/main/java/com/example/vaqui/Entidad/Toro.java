@@ -13,7 +13,7 @@ public class Toro {
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "id", referencedColumnName = "id", nullable = false)
     @JsonIgnore
-    private General tbl_general;
+    private General id_toros;
 
     @Column(nullable = false)
     private Double peso_kilos;
@@ -31,8 +31,8 @@ public class Toro {
     @Column(nullable = false, length = 20)
     private String categoria;
 
-    public Toro(General tbl_general, Double peso_kilos, Date fecha_extraccion, int vacas_montadas, Date fecha_Revision, String categoria) {
-        this.tbl_general = tbl_general;
+    public Toro(General id_toros, Double peso_kilos, Date fecha_extraccion, int vacas_montadas, Date fecha_Revision, String categoria) {
+        this.id_toros = id_toros;
         this.peso_kilos = peso_kilos;
         this.fecha_extraccion = fecha_extraccion;
         this.vacas_montadas = vacas_montadas;
@@ -40,12 +40,15 @@ public class Toro {
         this.categoria = categoria;
     }
 
-    public General getTbl_general() {
-        return tbl_general;
+    public Toro() {
     }
 
-    public void setTbl_general(General tbl_general) {
-        this.tbl_general = tbl_general;
+    public General getId_toros() {
+        return id_toros;
+    }
+
+    public void setId_toros(General id_toros) {
+        this.id_toros = id_toros;
     }
 
     public Double getPeso_kilos() {
@@ -91,7 +94,7 @@ public class Toro {
     @Override
     public String toString() {
         return "Toro{" +
-                "tbl_general=" + tbl_general +
+                "id_toros=" + id_toros +
                 ", peso_kilos=" + peso_kilos +
                 ", fecha_extraccion=" + fecha_extraccion +
                 ", vacas_montadas=" + vacas_montadas +

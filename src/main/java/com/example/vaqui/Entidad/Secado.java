@@ -14,7 +14,7 @@ public class Secado {
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "id", referencedColumnName = "id", nullable = false)
     @JsonIgnore
-    private General tbl_general;
+    private General id_secado;
 
 
     @Column(nullable = false)
@@ -36,8 +36,8 @@ public class Secado {
     private String categoria;
 
 
-    public Secado(General tbl_general, Date fecha_ultParto, Double peso_kilos, Date fecha_revision, Date fecha_ordeño, String categoria) {
-        this.tbl_general = tbl_general;
+    public Secado(General id_secado, Date fecha_ultParto, Double peso_kilos, Date fecha_revision, Date fecha_ordeño, String categoria) {
+        this.id_secado = id_secado;
         this.fecha_ultParto = fecha_ultParto;
         this.peso_kilos = peso_kilos;
         this.fecha_revision = fecha_revision;
@@ -48,12 +48,12 @@ public class Secado {
     public Secado() {
     }
 
-    public General getTbl_general() {
-        return tbl_general;
+    public General getId_secado() {
+        return id_secado;
     }
 
-    public void setTbl_general(General tbl_general) {
-        this.tbl_general = tbl_general;
+    public void setId_secado(General id_secado) {
+        this.id_secado = id_secado;
     }
 
     public Date getFecha_ultParto() {
@@ -99,7 +99,7 @@ public class Secado {
     @Override
     public String toString() {
         return "Secado{" +
-                "tbl_general=" + tbl_general +
+                "id_secado=" + id_secado +
                 ", fecha_ultParto=" + fecha_ultParto +
                 ", peso_kilos=" + peso_kilos +
                 ", fecha_revision=" + fecha_revision +

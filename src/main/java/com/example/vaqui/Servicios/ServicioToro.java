@@ -34,12 +34,12 @@ public class ServicioToro {
         return mensaje;
     }
 
-    public String actualizarToro(Toro toro){
+    /*public String actualizarToro(Toro toro){
         String mensaje = "Error al actualizar";
         if (repository.existsById(toro.getId())){
             repository.save(toro);
             mensaje ="Se actualizo correctamente";
         }
         return mensaje;
-    }
+    }*/
 }

@@ -9,10 +9,10 @@ import java.util.Date;
 @Table(name = "tbl_engorde")
 public class Engorde {
     @Id
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @OneToOne (fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "id", referencedColumnName = "id", nullable = false)
     @JsonIgnore
-    private General tbl_general;
+    private General id_Engorde;
     @Column(nullable = false)
     private Double peso_kilos;
     @Column(nullable = false)
@@ -23,8 +23,8 @@ public class Engorde {
     @Column(nullable = false, length = 20)
     private String categoria;
 
-    public Engorde(General tbl_general, Double peso_kilos, Date fecha_Revision, String alimento, String categoria) {
-        this.tbl_general = tbl_general;
+    public Engorde(General id_Engorde, Double peso_kilos, Date fecha_Revision, String alimento, String categoria) {
+        this.id_Engorde = id_Engorde;
         this.peso_kilos = peso_kilos;
         this.fecha_Revision = fecha_Revision;
         this.alimento = alimento;
@@ -34,12 +34,12 @@ public class Engorde {
     public Engorde() {
     }
 
-    public General getTbl_general() {
-        return tbl_general;
+    public General getId_Engorde() {
+        return id_Engorde;
     }
 
-    public void setTbl_general(General tbl_general) {
-        this.tbl_general = tbl_general;
+    public void setId_Engorde(General id_Engorde) {
+        this.id_Engorde = id_Engorde;
     }
 
     public Double getPeso_kilos() {
@@ -77,7 +77,7 @@ public class Engorde {
     @Override
     public String toString() {
         return "Engorde{" +
-                "tbl_general=" + tbl_general +
+                "id_Engorde=" + id_Engorde +
                 ", peso_kilos=" + peso_kilos +
                 ", fecha_Revision=" + fecha_Revision +
                 ", alimento='" + alimento + '\'' +

@@ -13,13 +13,13 @@ public class Ternero {
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "id", referencedColumnName = "id", nullable = false)
     @JsonIgnore
-    private General tbl_general;
+    private General id_terneros;
 
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "id_madre", referencedColumnName = "id", nullable = false)
     @JsonIgnore
-    private General madre;
+    private General id_madre;
 
     @Column(nullable = false)
     private Double peso_kilos;
@@ -31,9 +31,9 @@ public class Ternero {
     @Column(nullable = false, length = 20)
     private String categoria;
 
-    public Ternero(General tbl_general, General madre, Double peso_kilos, Date fecha_Revision, String categoria) {
-        this.tbl_general = tbl_general;
-        this.madre = madre;
+    public Ternero(General id_terneros, General id_madre, Double peso_kilos, Date fecha_Revision, String categoria) {
+        this.id_terneros = id_terneros;
+        this.id_madre = id_madre;
         this.peso_kilos = peso_kilos;
         this.fecha_Revision = fecha_Revision;
         this.categoria = categoria;
@@ -42,20 +42,20 @@ public class Ternero {
     public Ternero() {
     }
 
-    public General getTbl_general() {
-        return tbl_general;
+    public General getId_terneros() {
+        return id_terneros;
     }
 
-    public void setTbl_general(General tbl_general) {
-        this.tbl_general = tbl_general;
+    public void setId_terneros(General id_terneros) {
+        this.id_terneros = id_terneros;
     }
 
-    public General getMadre() {
-        return madre;
+    public General getId_madre() {
+        return id_madre;
     }
 
-    public void setMadre(General madre) {
-        this.madre = madre;
+    public void setId_madre(General id_madre) {
+        this.id_madre = id_madre;
     }
 
     public Double getPeso_kilos() {
@@ -85,8 +85,8 @@ public class Ternero {
     @Override
     public String toString() {
         return "Ternero{" +
-                "tbl_general=" + tbl_general +
-                ", madre=" + madre +
+                "id_terneros=" + id_terneros +
+                ", id_madre=" + id_madre +
                 ", peso_kilos=" + peso_kilos +
                 ", fecha_Revision=" + fecha_Revision +
                 ", categoria='" + categoria + '\'' +

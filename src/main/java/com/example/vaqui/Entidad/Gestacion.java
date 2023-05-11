@@ -9,10 +9,10 @@ import java.util.Date;
 @Table(name = "tbl_gestacion")
 public class Gestacion {
     @Id
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @OneToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "id", referencedColumnName = "id", nullable = false)
     @JsonIgnore
-    private General tbl_general;
+    private General id_gestacion;
     @Column(nullable = false)
     private Double peso_kilos;
     @Column(nullable = false)
@@ -27,8 +27,8 @@ public class Gestacion {
     @Column(nullable = false, length = 20)
     private String categoria;
 
-    public Gestacion(General tbl_general, Double peso_kilos, Date fecha_inseminacion, Date fecha_ultimoParto, Date fecha_Revision, String categoria) {
-        this.tbl_general = tbl_general;
+    public Gestacion(General id_gestacion, Double peso_kilos, Date fecha_inseminacion, Date fecha_ultimoParto, Date fecha_Revision, String categoria) {
+        this.id_gestacion = id_gestacion;
         this.peso_kilos = peso_kilos;
         this.fecha_inseminacion = fecha_inseminacion;
         this.fecha_ultimoParto = fecha_ultimoParto;
@@ -39,12 +39,12 @@ public class Gestacion {
     public Gestacion() {
     }
 
-    public General getTbl_general() {
-        return tbl_general;
+    public General getId_gestacion() {
+        return id_gestacion;
     }
 
-    public void setTbl_general(General tbl_general) {
-        this.tbl_general = tbl_general;
+    public void setId_gestacion(General id_gestacion) {
+        this.id_gestacion = id_gestacion;
     }
 
     public Double getPeso_kilos() {
@@ -90,7 +90,7 @@ public class Gestacion {
     @Override
     public String toString() {
         return "Gestacion{" +
-                "tbl_general=" + tbl_general +
+                "id_gestacion=" + id_gestacion +
                 ", peso_kilos=" + peso_kilos +
                 ", fecha_inseminacion=" + fecha_inseminacion +
                 ", fecha_ultimoParto=" + fecha_ultimoParto +

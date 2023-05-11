@@ -32,12 +32,12 @@ public class ServicioTernero {
         return mensaje;
     }
 
-    public String actualizarTernero(Ternero ternero){
+    /*public String actualizarTernero(Ternero ternero){
         String mensaje = "Error al actualizar";
         if (repository.existsById(ternero.getId())){
             repository.save(ternero);
             mensaje ="Se actualizo correctamente";
         }
         return mensaje;
-    }
+    }*/
 }

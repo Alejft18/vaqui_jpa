@@ -11,7 +11,7 @@ public class General {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Integer id;
     @Column(nullable = false, length = 40)
     private String raza;
     @Column(nullable = false, length = 40)
@@ -22,23 +22,26 @@ public class General {
     @Column(nullable = false, length = 40)
     private String procedencia;
 
-    @OneToMany(mappedBy = "tbl_general", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private Set<Lechera> tbl_lechera;
+    @OneToOne(mappedBy = "id_lecheras", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private Set<Lechera> lecheras;
 
-    @OneToMany(mappedBy = "tbl_general", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private Set<Secado> tbl_secado;
+    @OneToOne(mappedBy = "id_secado", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private Set<Secado> secado;
 
-    @OneToMany(mappedBy = "tbl_general", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private Set<Gestacion> tbl_gestacion;
+    @OneToOne(mappedBy = "id_gestacion", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private Set<Gestacion> gestacion;
 
-    @OneToMany(mappedBy = "tbl_general", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private Set<Ternero> tbl_ternero;
+    @OneToOne(mappedBy = "id_terneros", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private Set<Ternero> ternero;
 
-    @OneToMany(mappedBy = "tbl_general", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private Set<Toro> tbl_toro;
+    @OneToMany(mappedBy = "id_madre", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private Set<Ternero> id_madre;
 
-    @OneToMany(mappedBy = "tbl_general", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private Set<Engorde> tbl_engorde;;
+    @OneToOne(mappedBy = "id_toros", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private Set<Toro> toro;
+
+    @OneToOne(mappedBy = "id_engorde", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private Set<Engorde> engorde;;
 
     public General(int id, String raza, String genero, Date fecha_nacimiento, String procedencia) {
         this.id = id;
@@ -51,11 +54,11 @@ public class General {
     public General() {
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -91,52 +94,60 @@ public class General {
         this.procedencia = procedencia;
     }
 
-    public Set<Lechera> getTbl_lechera() {
-        return tbl_lechera;
+    public Set<Lechera> getLecheras() {
+        return lecheras;
     }
 
-    public void setTbl_lechera(Set<Lechera> tbl_lechera) {
-        this.tbl_lechera = tbl_lechera;
+    public void setLecheras(Set<Lechera> lecheras) {
+        this.lecheras = lecheras;
     }
 
-    public Set<Secado> getTbl_secado() {
-        return tbl_secado;
+    public Set<Secado> getSecado() {
+        return secado;
     }
 
-    public void setTbl_secado(Set<Secado> tbl_secado) {
-        this.tbl_secado = tbl_secado;
+    public void setSecado(Set<Secado> secado) {
+        this.secado = secado;
     }
 
-    public Set<Gestacion> getTbl_gestacion() {
-        return tbl_gestacion;
+    public Set<Gestacion> getGestacion() {
+        return gestacion;
     }
 
-    public void setTbl_gestacion(Set<Gestacion> tbl_gestacion) {
-        this.tbl_gestacion = tbl_gestacion;
+    public void setGestacion(Set<Gestacion> gestacion) {
+        this.gestacion = gestacion;
     }
 
-    public Set<Ternero> getTbl_ternero() {
-        return tbl_ternero;
+    public Set<Ternero> getTernero() {
+        return ternero;
     }
 
-    public void setTbl_ternero(Set<Ternero> tbl_ternero) {
-        this.tbl_ternero = tbl_ternero;
+    public void setTernero(Set<Ternero> ternero) {
+        this.ternero = ternero;
     }
 
-    public Set<Toro> getTbl_toro() {
-        return tbl_toro;
+    public Set<Ternero> getId_madre() {
+        return id_madre;
     }
 
-    public void setTbl_toro(Set<Toro> tbl_toro) {
-        this.tbl_toro = tbl_toro;
+    public void setId_madre(Set<Ternero> id_madre) {
+        this.id_madre = id_madre;
     }
 
-    public Set<Engorde> getTbl_engorde() {
-        return tbl_engorde;
+    public Set<Toro> getToro() {
+        return toro;
     }
 
-    public void setTbl_engorde(Set<Engorde> tbl_engorde) {
-        this.tbl_engorde = tbl_engorde;
+    public void setToro(Set<Toro> toro) {
+        this.toro = toro;
+    }
+
+    public Set<Engorde> getEngorde() {
+        return engorde;
+    }
+
+    public void setEngorde(Set<Engorde> engorde) {
+        this.engorde = engorde;
     }
 
     @Override

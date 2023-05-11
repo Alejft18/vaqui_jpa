@@ -5,5 +5,5 @@ import org.springframework.data.repository.CrudRepository;
 
 import java.math.BigInteger;
 
-public interface EngordeRepository extends CrudRepository<Engorde, BigInteger> {
+public interface EngordeRepository extends CrudRepository<Engorde, Integer> {
 }
