@@ -16,10 +16,6 @@ public class Lechera
     @JsonIgnore
     private General tbl_general;
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY )
-    private int id;
-
     @Column(nullable = false)
     private Double litro_Producidos;
 
@@ -41,8 +37,7 @@ public class Lechera
     @Column(nullable = false, length = 20)
     private String categoria;
 
-    public Lechera(int id, Double litro_Producidos, Date fecha_ordeño, Double peso_kilos, Date fecha_revision, Date fecha_parto, int cant_partos, String categoria) {
-        this.id = id;
+    public Lechera(Double litro_Producidos, Date fecha_ordeño, Double peso_kilos, Date fecha_revision, Date fecha_parto, int cant_partos, String categoria) {
         this.litro_Producidos = litro_Producidos;
         this.fecha_ordeño = fecha_ordeño;
         this.peso_kilos = peso_kilos;
@@ -53,14 +48,6 @@ public class Lechera
     }
 
     public Lechera() {
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public Double getLitro_Producidos() {
@@ -122,7 +109,6 @@ public class Lechera
     @Override
     public String toString() {
         return "Lechera{" +
-                "id=" + id +
                 ", litro_Producidos=" + litro_Producidos +
                 ", fecha_ordeño=" + fecha_ordeño +
                 ", peso_kilos=" + peso_kilos +

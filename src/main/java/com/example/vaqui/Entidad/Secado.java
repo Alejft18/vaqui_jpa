@@ -17,10 +17,6 @@ public class Secado {
     private General tbl_general;
 
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY )
-    private int id;
-
     @Column(nullable = false)
     @Temporal(TemporalType.DATE)
     private Date fecha_ultParto;
@@ -39,8 +35,7 @@ public class Secado {
     @Column(nullable = false, length = 20)
     private String categoria;
 
-    public Secado(int id, Date fecha_ultParto, Double peso_kilos, Date fecha_revision, Date fecha_ordeño, String categoria) {
-        this.id = id;
+    public Secado(Date fecha_ultParto, Double peso_kilos, Date fecha_revision, Date fecha_ordeño, String categoria) {
         this.fecha_ultParto = fecha_ultParto;
         this.peso_kilos = peso_kilos;
         this.fecha_revision = fecha_revision;
@@ -49,14 +44,6 @@ public class Secado {
     }
 
     public Secado() {
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public Date getFecha_ultParto() {
@@ -102,7 +89,6 @@ public class Secado {
     @Override
     public String toString() {
         return "Secado{" +
-                "id=" + id +
                 ", fecha_ultParto=" + fecha_ultParto +
                 ", peso_kilos=" + peso_kilos +
                 ", fecha_revision=" + fecha_revision +
