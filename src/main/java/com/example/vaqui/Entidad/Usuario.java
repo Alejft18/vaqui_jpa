@@ -30,13 +30,13 @@ public class Usuario {
     private Empleado id_empleado;
 
 
-    public Usuario(String correo, String contrasena, Administrador id_administrador, Empleado id_empleado) {
+    public Usuario(Long id, String correo, String contrasena, Administrador id_administrador, Empleado id_empleado) {
+        this.id = id;
         this.correo = correo;
         this.contrasena = contrasena;
         this.id_administrador = id_administrador;
         this.id_empleado = id_empleado;
     }
-
 
     public Usuario() {
     }
