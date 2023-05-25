@@ -13,7 +13,7 @@ public class ServicioTernero {
     TerneroRepository repository;
     GeneralRepository genrepository;
 
-    @Autowired
+
     public ServicioTernero(TerneroRepository repository, GeneralRepository genrepository){
         this.repository = repository;
         this.genrepository = genrepository;

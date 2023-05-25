@@ -16,7 +16,7 @@ public class ServiciosLecheras {
     LecherasRepository repository;
     GeneralRepository genrepository;
 
-    @Autowired
+
     public ServiciosLecheras(LecherasRepository repository, GeneralRepository genrepository){
         this.repository = repository;
         this.genrepository = genrepository;

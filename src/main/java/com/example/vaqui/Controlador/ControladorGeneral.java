@@ -21,9 +21,20 @@ public class ControladorGeneral {
         return servicio.listar();
     }
 
-    /*@PostMapping("/agregarGeneral")
+    @PostMapping("/agregarGeneral")
     public String agregarGeneral(@RequestBody General general){
         return servicio.agregarGeneral(general);
-    }*/
+    }
+
+    @PutMapping("/actualizarBovinoGeneral")
+    public String actualizarBovinoGeneral(@RequestBody General general){
+        return servicio.actualizarBovinoGeneral(general);
+    }
+
+    @DeleteMapping("/eliminarBovinoGeneral/{id}")
+    public String eliminarBovinoGeneral(@PathVariable("id") int id){
+        return servicio.eliminarBovinoGeneral(id);
+    }
+
 
 }

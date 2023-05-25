@@ -1,5 +1,6 @@
 package com.example.vaqui.Entidad;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.util.Date;
@@ -22,40 +23,52 @@ public class General {
     @Column(nullable = false, length = 40)
     private String procedencia;
 
+    @Column
+    private String imagen;
+
     @OneToOne(mappedBy = "id_lecheras", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JsonIgnore
     private Lechera lecheras;
 
     @OneToOne(mappedBy = "id_secado", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JsonIgnore
     private Secado secado;
 
     @OneToOne(mappedBy = "id_gestacion", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JsonIgnore
     private Gestacion gestacion;
 
     @OneToOne(mappedBy = "id_terneros", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JsonIgnore
     private Ternero ternero;
 
     @OneToMany(mappedBy = "id_madre", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JsonIgnore
     private Set<Ternero> id_madre;
 
     @OneToOne(mappedBy = "id_toros", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JsonIgnore
     private Toro toro;
 
     @OneToOne(mappedBy = "id_engorde", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JsonIgnore
     private Engorde engorde;
 
-    public General(int id, String raza, String genero, Date fecha_nacimiento, String procedencia) {
+    public General(int id, String raza, String genero, Date fecha_nacimiento, String procedencia, String imagen) {
         this.id = id;
         this.raza = raza;
         this.genero = genero;
         this.fecha_nacimiento = fecha_nacimiento;
         this.procedencia = procedencia;
+        this.imagen=imagen;
     }
 
-    public General(String raza, String genero, Date fecha_nacimiento, String procedencia) {
+    public General(String raza, String genero, Date fecha_nacimiento, String procedencia, String imagen) {
         this.raza = raza;
         this.genero = genero;
         this.fecha_nacimiento = fecha_nacimiento;
         this.procedencia = procedencia;
+        this.imagen = imagen;
     }
 
     public General() {
@@ -99,6 +112,14 @@ public class General {
 
     public void setProcedencia(String procedencia) {
         this.procedencia = procedencia;
+    }
+
+    public String getImagen() {
+        return imagen;
+    }
+
+    public void setImagen(String imagen) {
+        this.imagen = imagen;
     }
 
     public Lechera getLecheras() {
@@ -165,6 +186,7 @@ public class General {
                 ", genero='" + genero + '\'' +
                 ", fecha_nacimiento=" + fecha_nacimiento +
                 ", procedencia='" + procedencia + '\'' +
+                ", imagen='" + imagen + '\'' +
                 '}';
     }
 }

@@ -20,6 +20,11 @@ public class Gestacion {
     @Column(nullable = false)
     @Temporal(TemporalType.DATE)
     private Date fecha_inseminacion;
+
+    @Column(nullable = false)
+    @Temporal(TemporalType.DATE)
+    private Date fecha_aproxParto;
+
     @Column(nullable = true)
     @Temporal(TemporalType.DATE)
     private Date fecha_ultimoParto;
@@ -29,20 +34,22 @@ public class Gestacion {
     @Column(nullable = false, length = 20)
     private String categoria;
 
-    public Gestacion(General id_gestacion, Double peso_kilos, Date fecha_inseminacion, Date fecha_ultimoParto, Date fecha_Revision, String categoria) {
+    public Gestacion(General id_gestacion, Double peso_kilos, Date fecha_inseminacion, Date fecha_aproxParto, Date fecha_ultimoParto, Date fecha_Revision, String categoria) {
         this.id_gestacion = id_gestacion;
         this.peso_kilos = peso_kilos;
         this.fecha_inseminacion = fecha_inseminacion;
+        this.fecha_aproxParto = fecha_aproxParto;
         this.fecha_ultimoParto = fecha_ultimoParto;
         this.fecha_Revision = fecha_Revision;
         this.categoria = categoria;
     }
 
-    public Gestacion(Integer codigo, General id_gestacion, Double peso_kilos, Date fecha_inseminacion, Date fecha_ultimoParto, Date fecha_Revision, String categoria) {
+    public Gestacion(Integer codigo, General id_gestacion, Double peso_kilos, Date fecha_inseminacion, Date fecha_aproxParto, Date fecha_ultimoParto, Date fecha_Revision, String categoria) {
         this.codigo = codigo;
         this.id_gestacion = id_gestacion;
         this.peso_kilos = peso_kilos;
         this.fecha_inseminacion = fecha_inseminacion;
+        this.fecha_aproxParto = fecha_aproxParto;
         this.fecha_ultimoParto = fecha_ultimoParto;
         this.fecha_Revision = fecha_Revision;
         this.categoria = categoria;
@@ -83,6 +90,14 @@ public class Gestacion {
         this.fecha_inseminacion = fecha_inseminacion;
     }
 
+    public Date getFecha_aproxParto() {
+        return fecha_aproxParto;
+    }
+
+    public void setFecha_aproxParto(Date fecha_aproxParto) {
+        this.fecha_aproxParto = fecha_aproxParto;
+    }
+
     public Date getFecha_ultimoParto() {
         return fecha_ultimoParto;
     }
@@ -114,6 +129,7 @@ public class Gestacion {
                 ", id_gestacion=" + id_gestacion +
                 ", peso_kilos=" + peso_kilos +
                 ", fecha_inseminacion=" + fecha_inseminacion +
+                ", fecha_aproxParto=" + fecha_aproxParto +
                 ", fecha_ultimoParto=" + fecha_ultimoParto +
                 ", fecha_Revision=" + fecha_Revision +
                 ", categoria='" + categoria + '\'' +

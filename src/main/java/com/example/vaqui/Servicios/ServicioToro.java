@@ -15,7 +15,7 @@ public class ServicioToro {
     ToroRepository repository;
     GeneralRepository genrepository;
 
-    @Autowired
+
     public ServicioToro(ToroRepository repository, GeneralRepository genrepository){
         this.repository = repository;
         this.genrepository = genrepository;

@@ -16,7 +16,6 @@ public class ServicioGestacion {
     GestacionRepository repository;
     GeneralRepository genrepository;
 
-    @Autowired
     public ServicioGestacion(GestacionRepository repository, GeneralRepository genrepository){
         this.repository = repository;
         this.genrepository = genrepository;

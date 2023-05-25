@@ -15,7 +15,7 @@ public class ServiciosSecado {
     SecadoRepository repository;
     GeneralRepository genrepository;
 
-    @Autowired
+
     public ServiciosSecado(SecadoRepository repository, GeneralRepository genrepository){
         this.repository = repository;
         this.genrepository = genrepository;
