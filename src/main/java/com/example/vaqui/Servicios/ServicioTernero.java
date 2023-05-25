@@ -1,7 +1,9 @@
 package com.example.vaqui.Servicios;
 
 import com.example.vaqui.Entidad.Ternero;
+import com.example.vaqui.Repositorio.GeneralRepository;
 import com.example.vaqui.Repositorio.TerneroRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -9,9 +11,12 @@ import java.util.ArrayList;
 @Service
 public class ServicioTernero {
     TerneroRepository repository;
+    GeneralRepository genrepository;
 
-    public ServicioTernero(TerneroRepository repository){
+    @Autowired
+    public ServicioTernero(TerneroRepository repository, GeneralRepository genrepository){
         this.repository = repository;
+        this.genrepository = genrepository;
     }
 
     public ArrayList<Ternero> listar(){

@@ -1,6 +1,7 @@
 package com.example.vaqui.Servicios;
 
 import com.example.vaqui.Entidad.Usuario;
+import com.example.vaqui.Repositorio.GeneralRepository;
 import com.example.vaqui.Repositorio.UsuarioRepository;
 import org.springframework.stereotype.Service;
 

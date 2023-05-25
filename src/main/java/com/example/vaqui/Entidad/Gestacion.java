@@ -9,6 +9,8 @@ import java.util.Date;
 @Table(name = "tbl_gestacion")
 public class Gestacion {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer codigo;
     @OneToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "id", referencedColumnName = "id", nullable = false)
     @JsonIgnore
@@ -18,7 +20,7 @@ public class Gestacion {
     @Column(nullable = false)
     @Temporal(TemporalType.DATE)
     private Date fecha_inseminacion;
-    @Column(nullable = false)
+    @Column(nullable = true)
     @Temporal(TemporalType.DATE)
     private Date fecha_ultimoParto;
     @Column(nullable = false)
@@ -36,7 +38,25 @@ public class Gestacion {
         this.categoria = categoria;
     }
 
+    public Gestacion(Integer codigo, General id_gestacion, Double peso_kilos, Date fecha_inseminacion, Date fecha_ultimoParto, Date fecha_Revision, String categoria) {
+        this.codigo = codigo;
+        this.id_gestacion = id_gestacion;
+        this.peso_kilos = peso_kilos;
+        this.fecha_inseminacion = fecha_inseminacion;
+        this.fecha_ultimoParto = fecha_ultimoParto;
+        this.fecha_Revision = fecha_Revision;
+        this.categoria = categoria;
+    }
+
     public Gestacion() {
+    }
+
+    public Integer getCodigo() {
+        return codigo;
+    }
+
+    public void setCodigo(Integer codigo) {
+        this.codigo = codigo;
     }
 
     public General getId_gestacion() {
@@ -90,7 +110,8 @@ public class Gestacion {
     @Override
     public String toString() {
         return "Gestacion{" +
-                "id_gestacion=" + id_gestacion +
+                "codigo=" + codigo +
+                ", id_gestacion=" + id_gestacion +
                 ", peso_kilos=" + peso_kilos +
                 ", fecha_inseminacion=" + fecha_inseminacion +
                 ", fecha_ultimoParto=" + fecha_ultimoParto +

@@ -6,6 +6,7 @@ import com.example.vaqui.Entidad.Gestacion;
 import com.example.vaqui.Repositorio.EngordeRepository;
 import com.example.vaqui.Repositorio.GeneralRepository;
 import com.example.vaqui.Repositorio.GestacionRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -15,7 +16,11 @@ public class ServicioGestacion {
     GestacionRepository repository;
     GeneralRepository genrepository;
 
-    public ServicioGestacion(GestacionRepository repository){this.repository = repository;}
+    @Autowired
+    public ServicioGestacion(GestacionRepository repository, GeneralRepository genrepository){
+        this.repository = repository;
+        this.genrepository = genrepository;
+    }
 
     public ArrayList<Gestacion> listarGestacion(){
         return (ArrayList<Gestacion>) repository.findAll();

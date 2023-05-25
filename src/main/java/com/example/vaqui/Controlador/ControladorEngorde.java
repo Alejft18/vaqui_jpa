@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@CrossOrigin(origins = "*", maxAge = 3600, allowedHeaders = {"GET", "POST", "PUT", "DELETE"})
+@CrossOrigin(origins = "*", allowedHeaders = {"GET", "POST", "PUT", "DELETE"})
 public class ControladorEngorde {
     private ServicioEngorde servicio;
 
@@ -16,8 +16,8 @@ public class ControladorEngorde {
     @GetMapping("/listarEngorde")
     public List<Engorde> listarEngorde(){return servicio.listarEngorde();}
 
-    @PostMapping("/agregarEngorde/{id}")
+    /*@PostMapping("/agregarEngorde/{id}")
     public String agregarEngorde(@RequestBody Engorde engorde, @PathVariable("id") int id){
         return servicio.agregarEngorde(engorde,id);
-    }
+    }*/
 }

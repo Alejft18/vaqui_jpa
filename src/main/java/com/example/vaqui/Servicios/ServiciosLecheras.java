@@ -1,7 +1,9 @@
 package com.example.vaqui.Servicios;
 
 import com.example.vaqui.Entidad.Lechera;
+import com.example.vaqui.Repositorio.GeneralRepository;
 import com.example.vaqui.Repositorio.LecherasRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.lang.reflect.Array;
@@ -11,11 +13,14 @@ import java.util.SimpleTimeZone;
 @Service
 public class ServiciosLecheras {
 
-
     LecherasRepository repository;
+    GeneralRepository genrepository;
 
-
-    public ServiciosLecheras(LecherasRepository repository){this.repository = repository;}
+    @Autowired
+    public ServiciosLecheras(LecherasRepository repository, GeneralRepository genrepository){
+        this.repository = repository;
+        this.genrepository = genrepository;
+    }
 
     public ArrayList<Lechera> listarLecheras(){
         return (ArrayList<Lechera>) repository.findAll();

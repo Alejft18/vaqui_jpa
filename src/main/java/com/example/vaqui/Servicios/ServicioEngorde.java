@@ -4,6 +4,7 @@ import com.example.vaqui.Entidad.Engorde;
 import com.example.vaqui.Entidad.General;
 import com.example.vaqui.Repositorio.EngordeRepository;
 import com.example.vaqui.Repositorio.GeneralRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -13,13 +14,18 @@ public class ServicioEngorde {
     EngordeRepository repository;
     GeneralRepository genrepository;
 
-    public ServicioEngorde(EngordeRepository repository){this.repository = repository;}
+
+    public ServicioEngorde(EngordeRepository repository, GeneralRepository genrepository) {
+        this.repository = repository;
+        this.genrepository = genrepository;
+    }
+
 
     public ArrayList<Engorde> listarEngorde(){
         return (ArrayList<Engorde>) repository.findAll();
     }
 
-    public String agregarEngorde(Engorde engorde, int id_Engorde){
+    /*public String agregarEngorde(Engorde engorde, int id_Engorde){
 
         General Gen = genrepository.findById(id_Engorde).get();
 
@@ -38,7 +44,7 @@ public class ServicioEngorde {
             mensaje = "Se elimino correctamente al administrador";
         }
         return mensaje;
-    }
+    }*/
 
     /*public String actualizarEngorde(Engorde engorde){
         String mensaje = "Error al actualizar la informacion";

@@ -11,11 +11,13 @@ import java.util.Date;
 public class Secado {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer codigo;
+
     @OneToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "id", referencedColumnName = "id", nullable = false)
     @JsonIgnore
     private General id_secado;
-
 
     @Column(nullable = false)
     @Temporal(TemporalType.DATE)
@@ -30,22 +32,39 @@ public class Secado {
 
     @Column(nullable = false)
     @Temporal(TemporalType.DATE)
-    private Date fecha_ordeño;
+    private Date fecha_ultimoOrdeno;
 
     @Column(nullable = false, length = 20)
     private String categoria;
 
-
-    public Secado(General id_secado, Date fecha_ultParto, Double peso_kilos, Date fecha_revision, Date fecha_ordeño, String categoria) {
+    public Secado(General id_secado, Date fecha_ultParto, Double peso_kilos, Date fecha_revision, Date fecha_ultimoOrdeno, String categoria) {
         this.id_secado = id_secado;
         this.fecha_ultParto = fecha_ultParto;
         this.peso_kilos = peso_kilos;
         this.fecha_revision = fecha_revision;
-        this.fecha_ordeño = fecha_ordeño;
+        this.fecha_ultimoOrdeno = fecha_ultimoOrdeno;
+        this.categoria = categoria;
+    }
+
+    public Secado(Integer codigo, General id_secado, Date fecha_ultParto, Double peso_kilos, Date fecha_revision, Date fecha_ultimoOrdeno, String categoria) {
+        this.codigo = codigo;
+        this.id_secado = id_secado;
+        this.fecha_ultParto = fecha_ultParto;
+        this.peso_kilos = peso_kilos;
+        this.fecha_revision = fecha_revision;
+        this.fecha_ultimoOrdeno = fecha_ultimoOrdeno;
         this.categoria = categoria;
     }
 
     public Secado() {
+    }
+
+    public Integer getCodigo() {
+        return codigo;
+    }
+
+    public void setCodigo(Integer codigo) {
+        this.codigo = codigo;
     }
 
     public General getId_secado() {
@@ -80,12 +99,12 @@ public class Secado {
         this.fecha_revision = fecha_revision;
     }
 
-    public Date getFecha_ordeño() {
-        return fecha_ordeño;
+    public Date getFecha_ultimoOrdeno() {
+        return fecha_ultimoOrdeno;
     }
 
-    public void setFecha_ordeño(Date fecha_ordeño) {
-        this.fecha_ordeño = fecha_ordeño;
+    public void setFecha_ultimoOrdeno(Date fecha_ultimoOrdeno) {
+        this.fecha_ultimoOrdeno = fecha_ultimoOrdeno;
     }
 
     public String getCategoria() {
@@ -99,11 +118,12 @@ public class Secado {
     @Override
     public String toString() {
         return "Secado{" +
-                "id_secado=" + id_secado +
+                "codigo=" + codigo +
+                ", id_secado=" + id_secado +
                 ", fecha_ultParto=" + fecha_ultParto +
                 ", peso_kilos=" + peso_kilos +
                 ", fecha_revision=" + fecha_revision +
-                ", fecha_ordeño=" + fecha_ordeño +
+                ", fecha_ultimoOrdeno=" + fecha_ultimoOrdeno +
                 ", categoria='" + categoria + '\'' +
                 '}';
     }

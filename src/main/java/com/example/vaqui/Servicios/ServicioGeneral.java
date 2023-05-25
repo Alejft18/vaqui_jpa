@@ -16,8 +16,8 @@ public class ServicioGeneral {
         return (ArrayList<General>) repository.findAll();
     }
 
-    public  String agregarGeneral(General general){
+    /*public  String agregarGeneral(General general){
         repository.save(general);
         return "Ingreso exitoso";
-    }
+    }*/
 }

@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.ArrayList;
 
 @RestController
-@CrossOrigin(originPatterns = "*", maxAge = 3600)
+@CrossOrigin(originPatterns = "*", allowedHeaders = {"GET", "POST", "PUT", "DELETE"})
 public class ControladorSecado {
 
     ServiciosSecado servicios;

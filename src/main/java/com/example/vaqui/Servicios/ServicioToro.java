@@ -2,8 +2,10 @@ package com.example.vaqui.Servicios;
 
 import com.example.vaqui.Entidad.Ternero;
 import com.example.vaqui.Entidad.Toro;
+import com.example.vaqui.Repositorio.GeneralRepository;
 import com.example.vaqui.Repositorio.TerneroRepository;
 import com.example.vaqui.Repositorio.ToroRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -11,9 +13,12 @@ import java.util.ArrayList;
 @Service
 public class ServicioToro {
     ToroRepository repository;
+    GeneralRepository genrepository;
 
-    public ServicioToro(ToroRepository repository){
+    @Autowired
+    public ServicioToro(ToroRepository repository, GeneralRepository genrepository){
         this.repository = repository;
+        this.genrepository = genrepository;
     }
 
     public ArrayList<Toro> listar(){

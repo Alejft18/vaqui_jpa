@@ -10,6 +10,9 @@ import java.util.Date;
 public class Toro {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer codigo;
+
     @OneToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "id", referencedColumnName = "id", nullable = false)
     @JsonIgnore
@@ -31,6 +34,16 @@ public class Toro {
     @Column(nullable = false, length = 20)
     private String categoria;
 
+    public Toro(Integer codigo, General id_toros, Double peso_kilos, Date fecha_extraccion, int vacas_montadas, Date fecha_Revision, String categoria) {
+        this.codigo = codigo;
+        this.id_toros = id_toros;
+        this.peso_kilos = peso_kilos;
+        this.fecha_extraccion = fecha_extraccion;
+        this.vacas_montadas = vacas_montadas;
+        this.fecha_Revision = fecha_Revision;
+        this.categoria = categoria;
+    }
+
     public Toro(General id_toros, Double peso_kilos, Date fecha_extraccion, int vacas_montadas, Date fecha_Revision, String categoria) {
         this.id_toros = id_toros;
         this.peso_kilos = peso_kilos;
@@ -41,6 +54,14 @@ public class Toro {
     }
 
     public Toro() {
+    }
+
+    public Integer getCodigo() {
+        return codigo;
+    }
+
+    public void setCodigo(Integer codigo) {
+        this.codigo = codigo;
     }
 
     public General getId_toros() {
@@ -94,7 +115,8 @@ public class Toro {
     @Override
     public String toString() {
         return "Toro{" +
-                "id_toros=" + id_toros +
+                "codigo=" + codigo +
+                ", id_toros=" + id_toros +
                 ", peso_kilos=" + peso_kilos +
                 ", fecha_extraccion=" + fecha_extraccion +
                 ", vacas_montadas=" + vacas_montadas +

@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.ArrayList;
 
 @RestController
-@CrossOrigin(origins = "*", maxAge = 3600)
+@CrossOrigin(origins = "*", allowedHeaders = {"GET", "POST", "PUT", "DELETE"})
 public class ControladorGeneral {
 
     ServicioGeneral servicio;
@@ -21,9 +21,9 @@ public class ControladorGeneral {
         return servicio.listar();
     }
 
-    @PostMapping("/agregarGeneral")
+    /*@PostMapping("/agregarGeneral")
     public String agregarGeneral(@RequestBody General general){
         return servicio.agregarGeneral(general);
-    }
+    }*/
 
 }

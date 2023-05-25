@@ -7,10 +7,11 @@ import java.util.Date;
 
 @Entity
 @Table(name = "tbl_lechera")
-public class Lechera
-{
-
+public class Lechera {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer codigo;
+
     @OneToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "id", referencedColumnName = "id", nullable = false)
     @JsonIgnore
@@ -32,6 +33,8 @@ public class Lechera
     @Column(nullable = false)
     @Temporal(TemporalType.DATE)
     private Date fecha_parto;
+
+    @Column
     private int cant_partos;
 
     @Column(nullable = false, length = 20)
@@ -48,7 +51,27 @@ public class Lechera
         this.categoria = categoria;
     }
 
+    public Lechera(Integer codigo, General id_lecheras, Double litro_Producidos, Date fecha_ordeño, Double peso_kilos, Date fecha_revision, Date fecha_parto, int cant_partos, String categoria) {
+        this.codigo = codigo;
+        this.id_lecheras = id_lecheras;
+        this.litro_Producidos = litro_Producidos;
+        this.fecha_ordeño = fecha_ordeño;
+        this.peso_kilos = peso_kilos;
+        this.fecha_revision = fecha_revision;
+        this.fecha_parto = fecha_parto;
+        this.cant_partos = cant_partos;
+        this.categoria = categoria;
+    }
+
     public Lechera() {
+    }
+
+    public Integer getCodigo() {
+        return codigo;
+    }
+
+    public void setCodigo(Integer codigo) {
+        this.codigo = codigo;
     }
 
     public General getId_lecheras() {
@@ -118,7 +141,8 @@ public class Lechera
     @Override
     public String toString() {
         return "Lechera{" +
-                "id_lecheras=" + id_lecheras +
+                "codigo=" + codigo +
+                ", id_lecheras=" + id_lecheras +
                 ", litro_Producidos=" + litro_Producidos +
                 ", fecha_ordeño=" + fecha_ordeño +
                 ", peso_kilos=" + peso_kilos +

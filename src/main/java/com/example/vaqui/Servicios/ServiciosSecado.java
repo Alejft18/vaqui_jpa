@@ -2,18 +2,24 @@ package com.example.vaqui.Servicios;
 
 import com.example.vaqui.Entidad.Lechera;
 import com.example.vaqui.Entidad.Secado;
+import com.example.vaqui.Repositorio.GeneralRepository;
 import com.example.vaqui.Repositorio.LecherasRepository;
 import com.example.vaqui.Repositorio.SecadoRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 
 @Service
 public class ServiciosSecado {
-
     SecadoRepository repository;
+    GeneralRepository genrepository;
 
-    public ServiciosSecado(SecadoRepository repository){this.repository = repository;}
+    @Autowired
+    public ServiciosSecado(SecadoRepository repository, GeneralRepository genrepository){
+        this.repository = repository;
+        this.genrepository = genrepository;
+    }
 
     public ArrayList<Secado> listarSecado(){
         return (ArrayList<Secado>) repository.findAll();

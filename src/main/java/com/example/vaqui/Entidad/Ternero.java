@@ -10,6 +10,8 @@ import java.util.Date;
 public class Ternero {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer codigo;
     @OneToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "id", referencedColumnName = "id", nullable = false)
     @JsonIgnore
@@ -31,6 +33,15 @@ public class Ternero {
     @Column(nullable = false, length = 20)
     private String categoria;
 
+    public Ternero(Integer codigo, General id_terneros, General id_madre, Double peso_kilos, Date fecha_Revision, String categoria) {
+        this.codigo = codigo;
+        this.id_terneros = id_terneros;
+        this.id_madre = id_madre;
+        this.peso_kilos = peso_kilos;
+        this.fecha_Revision = fecha_Revision;
+        this.categoria = categoria;
+    }
+
     public Ternero(General id_terneros, General id_madre, Double peso_kilos, Date fecha_Revision, String categoria) {
         this.id_terneros = id_terneros;
         this.id_madre = id_madre;
@@ -40,6 +51,14 @@ public class Ternero {
     }
 
     public Ternero() {
+    }
+
+    public Integer getCodigo() {
+        return codigo;
+    }
+
+    public void setCodigo(Integer codigo) {
+        this.codigo = codigo;
     }
 
     public General getId_terneros() {
@@ -85,7 +104,8 @@ public class Ternero {
     @Override
     public String toString() {
         return "Ternero{" +
-                "id_terneros=" + id_terneros +
+                "codigo=" + codigo +
+                ", id_terneros=" + id_terneros +
                 ", id_madre=" + id_madre +
                 ", peso_kilos=" + peso_kilos +
                 ", fecha_Revision=" + fecha_Revision +
