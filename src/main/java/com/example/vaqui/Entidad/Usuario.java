@@ -48,16 +48,6 @@ public class Usuario {
         this.imagen = imagen;
     }
 
-    public Usuario(String nombre, String apellido, BigInteger telefono, String correo, String contrasena, String rol, String area, String imagen) {
-        this.nombre = nombre;
-        this.apellido = apellido;
-        this.telefono = telefono;
-        this.correo = correo;
-        this.contrasena = contrasena;
-        this.rol = rol;
-        this.area = area;
-        this.imagen = imagen;
-    }
 
     public Usuario() {
     }

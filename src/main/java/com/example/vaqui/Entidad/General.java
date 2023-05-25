@@ -51,6 +51,13 @@ public class General {
         this.procedencia = procedencia;
     }
 
+    public General(String raza, String genero, Date fecha_nacimiento, String procedencia) {
+        this.raza = raza;
+        this.genero = genero;
+        this.fecha_nacimiento = fecha_nacimiento;
+        this.procedencia = procedencia;
+    }
+
     public General() {
     }
 
