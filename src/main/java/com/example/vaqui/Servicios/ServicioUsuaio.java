@@ -1,6 +1,5 @@
 package com.example.vaqui.Servicios;
 
-import com.example.vaqui.Entidad.Empleado;
 import com.example.vaqui.Entidad.Usuario;
 import com.example.vaqui.Repositorio.UsuarioRepository;
 import org.springframework.stereotype.Service;
@@ -33,13 +32,13 @@ public class ServicioUsuaio {
         return mensaje;
     }
 
-    public String actualizarUsuario(Usuario usuario){
+    /*public String actualizarUsuario(Usuario usuario){
         String mensaje = "Error al actualizar la informacion";
         if (repository.existsById(usuario.getId())){
             repository.save(usuario);
             mensaje ="Se actualizo correctamente la informacion";
         }
         return mensaje;
-    }
+    }*/
 
 }

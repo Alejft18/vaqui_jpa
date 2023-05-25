@@ -10,43 +10,88 @@ import java.math.BigInteger;
 public class Usuario {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    @Column(unique = true,nullable = false)
+    private BigInteger id;
+
+    @Column(nullable = false)
+    private String nombre;
+
+    @Column(nullable = false)
+    private String apellido;
+
+    @Column(nullable = false,unique = true)
+    private BigInteger telefono;
+
     @Column(nullable = false, unique = true)
     private String correo;
 
     @Column(nullable = false)
     private String contrasena;
 
-    @OneToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "id_administrador")
-    @JsonIgnore
-    private Administrador id_administrador;
+    @Column(nullable = false)
+    private String rol;
 
+    private String area;
 
-    @OneToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "id_empleaado")
-    @JsonIgnore
-    private Empleado id_empleado;
+    @Column(nullable = false)
+    private String imagen;
 
-
-    public Usuario(Long id, String correo, String contrasena, Administrador id_administrador, Empleado id_empleado) {
+    public Usuario(BigInteger id, String nombre, String apellido, BigInteger telefono, String correo, String contrasena, String rol, String area, String imagen) {
         this.id = id;
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.telefono = telefono;
         this.correo = correo;
         this.contrasena = contrasena;
-        this.id_administrador = id_administrador;
-        this.id_empleado = id_empleado;
+        this.rol = rol;
+        this.area = area;
+        this.imagen = imagen;
+    }
+
+    public Usuario(String nombre, String apellido, BigInteger telefono, String correo, String contrasena, String rol, String area, String imagen) {
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.telefono = telefono;
+        this.correo = correo;
+        this.contrasena = contrasena;
+        this.rol = rol;
+        this.area = area;
+        this.imagen = imagen;
     }
 
     public Usuario() {
     }
 
-    public Long getId() {
+    public BigInteger getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(BigInteger id) {
         this.id = id;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getApellido() {
+        return apellido;
+    }
+
+    public void setApellido(String apellido) {
+        this.apellido = apellido;
+    }
+
+    public BigInteger getTelefono() {
+        return telefono;
+    }
+
+    public void setTelefono(BigInteger telefono) {
+        this.telefono = telefono;
     }
 
     public String getCorreo() {
@@ -65,19 +110,42 @@ public class Usuario {
         this.contrasena = contrasena;
     }
 
-    public Administrador getId_administrador() {
-        return id_administrador;
+    public String getRol() {
+        return rol;
     }
 
-    public void setId_administrador(Administrador id_administrador) {
-        this.id_administrador = id_administrador;
+    public void setRol(String rol) {
+        this.rol = rol;
     }
 
-    public Empleado getId_empleado() {
-        return id_empleado;
+    public String getArea() {
+        return area;
     }
 
-    public void setId_empleado(Empleado id_empleado) {
-        this.id_empleado = id_empleado;
+    public void setArea(String area) {
+        this.area = area;
+    }
+
+    public String getImagen() {
+        return imagen;
+    }
+
+    public void setImagen(String imagen) {
+        this.imagen = imagen;
+    }
+
+    @Override
+    public String toString() {
+        return "Usuario{" +
+                "id=" + id +
+                ", nombre='" + nombre + '\'' +
+                ", apellido='" + apellido + '\'' +
+                ", telefono=" + telefono +
+                ", correo='" + correo + '\'' +
+                ", contrasena='" + contrasena + '\'' +
+                ", rol='" + rol + '\'' +
+                ", area='" + area + '\'' +
+                ", imagen='" + imagen + '\'' +
+                '}';
     }
 }

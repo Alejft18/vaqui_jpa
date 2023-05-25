@@ -23,25 +23,25 @@ public class General {
     private String procedencia;
 
     @OneToOne(mappedBy = "id_lecheras", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private Set<Lechera> lecheras;
+    private Lechera lecheras;
 
     @OneToOne(mappedBy = "id_secado", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private Set<Secado> secado;
+    private Secado secado;
 
     @OneToOne(mappedBy = "id_gestacion", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private Set<Gestacion> gestacion;
+    private Gestacion gestacion;
 
     @OneToOne(mappedBy = "id_terneros", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private Set<Ternero> ternero;
+    private Ternero ternero;
 
     @OneToMany(mappedBy = "id_madre", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private Set<Ternero> id_madre;
 
     @OneToOne(mappedBy = "id_toros", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private Set<Toro> toro;
+    private Toro toro;
 
     @OneToOne(mappedBy = "id_engorde", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private Set<Engorde> engorde;;
+    private Engorde engorde;
 
     public General(int id, String raza, String genero, Date fecha_nacimiento, String procedencia) {
         this.id = id;
@@ -94,35 +94,35 @@ public class General {
         this.procedencia = procedencia;
     }
 
-    public Set<Lechera> getLecheras() {
+    public Lechera getLecheras() {
         return lecheras;
     }
 
-    public void setLecheras(Set<Lechera> lecheras) {
+    public void setLecheras(Lechera lecheras) {
         this.lecheras = lecheras;
     }
 
-    public Set<Secado> getSecado() {
+    public Secado getSecado() {
         return secado;
     }
 
-    public void setSecado(Set<Secado> secado) {
+    public void setSecado(Secado secado) {
         this.secado = secado;
     }
 
-    public Set<Gestacion> getGestacion() {
+    public Gestacion getGestacion() {
         return gestacion;
     }
 
-    public void setGestacion(Set<Gestacion> gestacion) {
+    public void setGestacion(Gestacion gestacion) {
         this.gestacion = gestacion;
     }
 
-    public Set<Ternero> getTernero() {
+    public Ternero getTernero() {
         return ternero;
     }
 
-    public void setTernero(Set<Ternero> ternero) {
+    public void setTernero(Ternero ternero) {
         this.ternero = ternero;
     }
 
@@ -134,19 +134,19 @@ public class General {
         this.id_madre = id_madre;
     }
 
-    public Set<Toro> getToro() {
+    public Toro getToro() {
         return toro;
     }
 
-    public void setToro(Set<Toro> toro) {
+    public void setToro(Toro toro) {
         this.toro = toro;
     }
 
-    public Set<Engorde> getEngorde() {
+    public Engorde getEngorde() {
         return engorde;
     }
 
-    public void setEngorde(Set<Engorde> engorde) {
+    public void setEngorde(Engorde engorde) {
         this.engorde = engorde;
     }
 

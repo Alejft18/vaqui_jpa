@@ -33,9 +33,9 @@ public class ControladorUsuario {
         return servicio.eliminarUsuario(id);
     }
 
-    @PutMapping("/actualizarUsuario")
+    /*@PutMapping("/actualizarUsuario")
     public String actualizarUsuario(@RequestBody Usuario usuario){
 
         return servicio.actualizarUsuario(usuario);
-    }
+    }*/
 }

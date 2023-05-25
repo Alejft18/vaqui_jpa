@@ -10,7 +10,7 @@ import java.util.Date;
 public class Ternero {
 
     @Id
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @OneToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "id", referencedColumnName = "id", nullable = false)
     @JsonIgnore
     private General id_terneros;

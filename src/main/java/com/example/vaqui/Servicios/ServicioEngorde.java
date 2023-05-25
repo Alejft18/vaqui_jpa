@@ -1,13 +1,11 @@
 package com.example.vaqui.Servicios;
 
-import com.example.vaqui.Entidad.Administrador;
 import com.example.vaqui.Entidad.Engorde;
 import com.example.vaqui.Entidad.General;
 import com.example.vaqui.Repositorio.EngordeRepository;
 import com.example.vaqui.Repositorio.GeneralRepository;
 import org.springframework.stereotype.Service;
 
-import java.math.BigInteger;
 import java.util.ArrayList;
 
 @Service
@@ -26,7 +24,7 @@ public class ServicioEngorde {
         General Gen = genrepository.findById(id_Engorde).get();
 
         if (genrepository.findById(id_Engorde).isPresent()){
-            engorde.setId_Engorde(Gen);
+            engorde.setId_engorde(Gen);
             repository.save(engorde);
             return "Se ingreso esta vaquita con exito";
         }
