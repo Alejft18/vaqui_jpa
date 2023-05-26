@@ -22,7 +22,7 @@ public class Lechera {
 
     @Column(nullable = false)
     @Temporal(TemporalType.DATE)
-    private Date fecha_ordeño;
+    private Date fecha_ordeno;
     @Column(nullable = false)
     private Double peso_kilos;
 
@@ -40,10 +40,10 @@ public class Lechera {
     @Column(nullable = false, length = 20)
     private String categoria;
 
-    public Lechera(General id_lecheras, Double litro_Producidos, Date fecha_ordeño, Double peso_kilos, Date fecha_revision, Date fecha_parto, int cant_partos, String categoria) {
+    public Lechera(General id_lecheras, Double litro_Producidos, Date fecha_ordeno, Double peso_kilos, Date fecha_revision, Date fecha_parto, int cant_partos, String categoria) {
         this.id_lecheras = id_lecheras;
         this.litro_Producidos = litro_Producidos;
-        this.fecha_ordeño = fecha_ordeño;
+        this.fecha_ordeno = fecha_ordeno;
         this.peso_kilos = peso_kilos;
         this.fecha_revision = fecha_revision;
         this.fecha_parto = fecha_parto;
@@ -51,11 +51,11 @@ public class Lechera {
         this.categoria = categoria;
     }
 
-    public Lechera(Integer codigo, General id_lecheras, Double litro_Producidos, Date fecha_ordeño, Double peso_kilos, Date fecha_revision, Date fecha_parto, int cant_partos, String categoria) {
+    public Lechera(Integer codigo, General id_lecheras, Double litro_Producidos, Date fecha_ordeno, Double peso_kilos, Date fecha_revision, Date fecha_parto, int cant_partos, String categoria) {
         this.codigo = codigo;
         this.id_lecheras = id_lecheras;
         this.litro_Producidos = litro_Producidos;
-        this.fecha_ordeño = fecha_ordeño;
+        this.fecha_ordeno = fecha_ordeno;
         this.peso_kilos = peso_kilos;
         this.fecha_revision = fecha_revision;
         this.fecha_parto = fecha_parto;
@@ -90,12 +90,12 @@ public class Lechera {
         this.litro_Producidos = litro_Producidos;
     }
 
-    public Date getFecha_ordeño() {
-        return fecha_ordeño;
+    public Date getFecha_ordeno() {
+        return fecha_ordeno;
     }
 
-    public void setFecha_ordeño(Date fecha_ordeño) {
-        this.fecha_ordeño = fecha_ordeño;
+    public void setFecha_ordeno(Date fecha_ordeno) {
+        this.fecha_ordeno = fecha_ordeno;
     }
 
     public Double getPeso_kilos() {
@@ -144,7 +144,7 @@ public class Lechera {
                 "codigo=" + codigo +
                 ", id_lecheras=" + id_lecheras +
                 ", litro_Producidos=" + litro_Producidos +
-                ", fecha_ordeño=" + fecha_ordeño +
+                ", fecha_ordeño=" + fecha_ordeno +
                 ", peso_kilos=" + peso_kilos +
                 ", fecha_revision=" + fecha_revision +
                 ", fecha_parto=" + fecha_parto +

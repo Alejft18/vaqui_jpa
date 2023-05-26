@@ -1,6 +1,5 @@
 package com.example.vaqui.Entidad;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.math.BigInteger;
@@ -33,7 +32,6 @@ public class Usuario {
 
     private String area;
 
-    @Column(nullable = false)
     private String imagen;
 
     public Usuario(BigInteger id, String nombre, String apellido, BigInteger telefono, String correo, String contrasena, String rol, String area, String imagen) {

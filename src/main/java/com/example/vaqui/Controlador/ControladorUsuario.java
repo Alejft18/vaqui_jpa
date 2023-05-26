@@ -2,18 +2,19 @@ package com.example.vaqui.Controlador;
 
 
 import com.example.vaqui.Entidad.Usuario;
-import com.example.vaqui.Servicios.ServicioUsuaio;
+import com.example.vaqui.Servicios.ServicioUsuario;
 import org.springframework.web.bind.annotation.*;
 
+import java.math.BigInteger;
 import java.util.ArrayList;
 
 @RestController
 @CrossOrigin(originPatterns = "*", allowedHeaders = {"GET", "POST", "PUT", "DELETE"})
 public class ControladorUsuario {
-    ServicioUsuaio servicio;
+    ServicioUsuario servicio;
 
 
-    public ControladorUsuario(ServicioUsuaio servicio) {
+    public ControladorUsuario(ServicioUsuario servicio) {
         this.servicio = servicio;
     }
 
@@ -24,18 +25,16 @@ public class ControladorUsuario {
 
     @PostMapping("/agregarUsuario")
     public String agregarUsuario(@RequestBody Usuario usuario){
-
         return servicio.agregarUsuario(usuario);
     }
 
     @DeleteMapping("/eliminarUsuario/{id}")
-    public String eliminarUsuario(@PathVariable("id") Long id){
+    public String eliminarUsuario(@PathVariable("id") BigInteger id){
         return servicio.eliminarUsuario(id);
     }
 
-    /*@PutMapping("/actualizarUsuario")
+    @PutMapping("/actualizarUsuario")
     public String actualizarUsuario(@RequestBody Usuario usuario){
-
         return servicio.actualizarUsuario(usuario);
-    }*/
+    }
 }

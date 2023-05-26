@@ -25,7 +25,7 @@ public class ControladorSecado {
     @DeleteMapping("/eliminarSecado/{id}")
     public String eliminarSecado(@PathVariable("id")int id){return servicios.eliminarSecado(id);}
 
-//    @PutMapping("/actualizarSecado")
-//    public String actualizarSecado(@RequestBody Secado secado){return servicios.actualizarSecado(secado);}
+    @PutMapping("/actualizarSecado")
+    public String actualizarSecado(@RequestBody Secado secado){return servicios.actualizarSecado(secado);}
 
 }

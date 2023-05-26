@@ -1,17 +1,17 @@
 package com.example.vaqui.Servicios;
 
 import com.example.vaqui.Entidad.Usuario;
-import com.example.vaqui.Repositorio.GeneralRepository;
 import com.example.vaqui.Repositorio.UsuarioRepository;
 import org.springframework.stereotype.Service;
 
+import java.math.BigInteger;
 import java.util.ArrayList;
 
 @Service
-public class ServicioUsuaio {
+public class ServicioUsuario {
     UsuarioRepository repository;
 
-    public ServicioUsuaio(UsuarioRepository repository) {
+    public ServicioUsuario(UsuarioRepository repository) {
         this.repository = repository;
     }
 
@@ -24,22 +24,22 @@ public class ServicioUsuaio {
         return "Ingreso esitoso del usuario";
     }
 
-    public String eliminarUsuario(Long id){
-        String mensaje = "Erroral al eliminar el usuario";
-        if (repository.existsById(id)){
-            repository.deleteById(id);
-            mensaje= "Eliminacion exotosa del usuario";
-        }
-        return mensaje;
-    }
-
-    /*public String actualizarUsuario(Usuario usuario){
+    public String actualizarUsuario(Usuario usuario){
         String mensaje = "Error al actualizar la informacion";
         if (repository.existsById(usuario.getId())){
             repository.save(usuario);
             mensaje ="Se actualizo correctamente la informacion";
         }
         return mensaje;
-    }*/
+    }
+
+    public String eliminarUsuario(BigInteger id){
+        String mensaje = "Error al eliminar el usuario";
+        if (repository.existsById(id)){
+            repository.deleteById(id);
+            mensaje= "Eliminacion exotosa del usuario";
+        }
+        return mensaje;
+    }
 
 }
