@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.SimpleTimeZone;
 
 @Service
@@ -24,6 +25,10 @@ public class ServiciosLecheras {
 
     public ArrayList<Lechera> listarLecheras(){
         return (ArrayList<Lechera>) repository.findAll();
+    }
+
+    public List<Lechera> listarLecherasId() {
+        return repository.listarLecherasId();
     }
 
     public String agregarLecheras(Lechera lechera){
