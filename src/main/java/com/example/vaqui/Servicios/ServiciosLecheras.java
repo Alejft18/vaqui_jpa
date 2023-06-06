@@ -53,7 +53,7 @@ public class ServiciosLecheras {
                 jsonObject.put("id", id);
                 jsonObject.put("litro_producidos", litro);
                 jsonObject.put("fecha_ordeno", fecha1String);
-                jsonObject.put("peso", peso);
+                jsonObject.put("peso_kilos", peso);
                 jsonObject.put("fecha_revision", fecha2String);
                 jsonObject.put("fecha_parto", fecha3String);
                 jsonObject.put("cant_partos", partos);

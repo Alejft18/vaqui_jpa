@@ -52,7 +52,7 @@ public class ServicioToro {
 
             try {
                 jsonObject.put("id", id);
-                jsonObject.put("fecha_revision",fechaExtraString);
+                jsonObject.put("fecha_extraccion",fechaExtraString);
                 jsonObject.put("vacas_montadas",vacasMontadas);
                 jsonObject.put("peso_kilos", peso);
                 jsonObject.put("fecha_revision", fechaReviString);

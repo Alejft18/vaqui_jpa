@@ -2,11 +2,13 @@ package com.example.vaqui.Servicios;
 
 import com.example.vaqui.Entidad.Engorde;
 
+import com.example.vaqui.Entidad.General;
 import com.example.vaqui.Repositorio.EngordeRepository;
 import com.example.vaqui.Repositorio.GeneralRepository;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Service;
 
 import java.text.SimpleDateFormat;
@@ -60,6 +62,36 @@ public class ServicioEngorde {
         return jsonArray;
     }
 
+    public String agregarEngorde(Engorde engorde){
+
+        String mensaje= "Bovino no ingresado";
+
+        General id = engorde.getId_engorde();
+        Double peso = engorde.getPeso_kilos();
+        Date fechaRevi = engorde.getFecha_Revision();
+        String alimento = engorde.getAlimento();
+        String categoria = engorde.getCategoria();
+
+
+
+        Engorde engorde1= new Engorde(id,peso,fechaRevi,alimento,categoria);
+        System.out.println(engorde1);
+
+        try{
+            repository.save(engorde1);
+            mensaje = "Bovino engorde ingresado con exito";
+
+        }catch (DataAccessException e){
+            System.out.println(e);
+            mensaje = "Error al guardar el bovino de engorde";
+
+        }
+
+        return mensaje;
+    }
+}
+
+
     /*public String agregarEngorde(Engorde engorde, int id_Engorde){
 
         General Gen = genrepository.findById(id_Engorde).get();
@@ -89,4 +121,3 @@ public class ServicioEngorde {
         }
         return mensaje;
     }*/
-}
