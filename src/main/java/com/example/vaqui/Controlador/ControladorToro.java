@@ -4,6 +4,10 @@ import com.example.vaqui.Entidad.Ternero;
 import com.example.vaqui.Entidad.Toro;
 import com.example.vaqui.Servicios.ServicioTernero;
 import com.example.vaqui.Servicios.ServicioToro;
+import org.json.JSONArray;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -17,9 +21,19 @@ public class ControladorToro {
         this.servicio = servicio;
     }
 
-    @GetMapping("/listarToro")
-    public ArrayList<Toro> listarToro(){
-        return servicio.listar();
+    @GetMapping("/listarToroCodigo")
+    public ArrayList<Toro> listarTorosCodigo(){
+        return servicio.listarTorosCodigo();
+    }
+
+    @GetMapping("/listarToros")
+    public ResponseEntity<String> listarToros(){
+        JSONArray jsonArray = servicio.listarToros();
+        String json= jsonArray.toString();
+
+        return ResponseEntity.status(HttpStatus.OK)
+                .contentType(MediaType.APPLICATION_JSON)
+                .body(json);
     }
 
     @PostMapping("/agregarToro")

@@ -4,6 +4,10 @@ import com.example.vaqui.Entidad.Lechera;
 import com.example.vaqui.Entidad.Secado;
 import com.example.vaqui.Servicios.ServiciosLecheras;
 import com.example.vaqui.Servicios.ServiciosSecado;
+import org.json.JSONArray;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -16,8 +20,20 @@ public class ControladorSecado {
 
     public ControladorSecado(ServiciosSecado servicios){this.servicios = servicios;}
 
+    @GetMapping("/listarSecadoCodigo")
+    public ArrayList<Secado>listarSecadoCodigo(){
+        return servicios.listarSecadoCodigo();
+    }
+
     @GetMapping("/listarSecado")
-    public ArrayList<Secado> listarSecado(){return servicios.listarSecado();}
+    public ResponseEntity<String> listarSecado(){
+        JSONArray jsonArray = servicios.listarSecado();
+        String json= jsonArray.toString();
+
+        return ResponseEntity.status(HttpStatus.OK)
+                .contentType(MediaType.APPLICATION_JSON)
+                .body(json);
+    }
 
     @PostMapping("/agregarSecado")
     public String agregarSecado(@RequestBody Secado secado){return servicios.agregarSecado(secado);}

@@ -1,14 +1,12 @@
 package com.example.vaqui.Servicios;
 
 import com.example.vaqui.Entidad.Engorde;
-import com.example.vaqui.Entidad.General;
-import com.example.vaqui.Entidad.Lechera;
+
 import com.example.vaqui.Repositorio.EngordeRepository;
 import com.example.vaqui.Repositorio.GeneralRepository;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.text.SimpleDateFormat;
