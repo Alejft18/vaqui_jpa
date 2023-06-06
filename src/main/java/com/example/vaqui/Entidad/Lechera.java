@@ -17,7 +17,7 @@ public class Lechera {
     @JsonIgnore
     private General id_lecheras;
 
-    @Column(nullable = false)
+    @Column(name = "litro_producidos",nullable = false)
     private Double litro_Producidos;
 
     @Column(nullable = false)

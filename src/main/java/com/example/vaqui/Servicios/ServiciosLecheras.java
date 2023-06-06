@@ -35,28 +35,28 @@ public class ServiciosLecheras {
         for (Lechera lechera : lecheras) {
             int id = lechera.getId_lecheras().getId();
             Double litro = lechera.getLitro_Producidos();
-            Date fecha1 = lechera.getFecha_ordeno();
+            Date fechaOrdeno = lechera.getFecha_ordeno();
             Double peso = lechera.getPeso_kilos();
-            Date fecha2 = lechera.getFecha_revision();
-            Date fecha3 = lechera.getFecha_parto();
+            Date fechaRevi = lechera.getFecha_revision();
+            Date fechaParto = lechera.getFecha_parto();
             int partos = lechera.getCant_partos();
             String categoria = lechera.getCategoria();
 
-            String fecha1String = dateFormat.format(fecha1);
-            String fecha2String = dateFormat.format(fecha2);
-            String fecha3String = dateFormat.format(fecha3);
+            String fecha1String = dateFormat.format(fechaOrdeno);
+            String fecha2String = dateFormat.format(fechaRevi);
+            String fecha3String = dateFormat.format(fechaParto);
 
 
             JSONObject jsonObject = new JSONObject();
 
             try {
                 jsonObject.put("id", id);
-                jsonObject.put("litro", litro);
-                jsonObject.put("fecha1", fecha1String);
+                jsonObject.put("litro_producidos", litro);
+                jsonObject.put("fecha_ordeno", fecha1String);
                 jsonObject.put("peso", peso);
-                jsonObject.put("fecha2", fecha2String);
-                jsonObject.put("fecha3", fecha3String);
-                jsonObject.put("partos", partos);
+                jsonObject.put("fecha_revision", fecha2String);
+                jsonObject.put("fecha_parto", fecha3String);
+                jsonObject.put("cant_partos", partos);
                 jsonObject.put("categoria", categoria);
 
                 jsonArray.put(jsonObject);

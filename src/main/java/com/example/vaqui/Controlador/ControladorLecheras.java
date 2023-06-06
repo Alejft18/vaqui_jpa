@@ -23,7 +23,7 @@ public class ControladorLecheras {
     public ControladorLecheras(ServiciosLecheras servicios){this.servicios = servicios;}
 
 
-    @GetMapping("/listarLechera")
+    @GetMapping("/listarLecheras")
     public ResponseEntity<String> listarLecheras(){
         JSONArray jsonArray=servicios.listarLecharas();
         String json= jsonArray.toString();

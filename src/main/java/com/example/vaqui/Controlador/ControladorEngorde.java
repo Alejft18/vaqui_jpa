@@ -2,6 +2,10 @@ package com.example.vaqui.Controlador;
 
 import com.example.vaqui.Entidad.Engorde;
 import com.example.vaqui.Servicios.ServicioEngorde;
+import org.json.JSONArray;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -14,7 +18,14 @@ public class ControladorEngorde {
     public ControladorEngorde(ServicioEngorde servicio){this.servicio =  servicio;}
 
     @GetMapping("/listarEngorde")
-    public List<Engorde> listarEngorde(){return servicio.listarEngorde();}
+    public ResponseEntity<String> listarEngorde(){
+        JSONArray jsonArray=servicio.listarEngorde();
+        String json= jsonArray.toString();
+
+        return ResponseEntity.status(HttpStatus.OK)
+                .contentType(MediaType.APPLICATION_JSON)
+                .body(json);
+    }
 
     /*@PostMapping("/agregarEngorde/{id}")
     public String agregarEngorde(@RequestBody Engorde engorde, @PathVariable("id") int id){

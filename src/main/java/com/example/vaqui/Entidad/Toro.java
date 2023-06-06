@@ -28,7 +28,7 @@ public class Toro {
     @Column(nullable = false)
     private int vacas_montadas;
 
-    @Column(nullable = false)
+    @Column(name = "fecha_revision",nullable = false)
     @Temporal(TemporalType.DATE)
     private Date fecha_Revision;
     @Column(nullable = false, length = 20)

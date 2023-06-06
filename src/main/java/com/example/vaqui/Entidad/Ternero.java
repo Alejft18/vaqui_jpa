@@ -26,7 +26,7 @@ public class Ternero {
     @Column(nullable = false)
     private Double peso_kilos;
 
-    @Column(nullable = false)
+    @Column(name = "fecha_revision",nullable = false)
     @Temporal(TemporalType.DATE)
     private Date fecha_Revision;
 

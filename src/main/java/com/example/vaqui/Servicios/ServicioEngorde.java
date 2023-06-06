@@ -2,12 +2,19 @@ package com.example.vaqui.Servicios;
 
 import com.example.vaqui.Entidad.Engorde;
 import com.example.vaqui.Entidad.General;
+import com.example.vaqui.Entidad.Lechera;
 import com.example.vaqui.Repositorio.EngordeRepository;
 import com.example.vaqui.Repositorio.GeneralRepository;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
 
 @Service
 public class ServicioEngorde {
@@ -21,8 +28,38 @@ public class ServicioEngorde {
     }
 
 
-    public ArrayList<Engorde> listarEngorde(){
+    public ArrayList<Engorde> listarEngordeCodigo(){
         return (ArrayList<Engorde>) repository.findAll();
+    }
+
+    public JSONArray listarEngorde(){
+        JSONArray jsonArray = new JSONArray();
+        List<Engorde> engordes = repository.findAll();
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+
+        for (Engorde engorde : engordes) {
+            int id = engorde.getId_engorde().getId();
+            Double peso = engorde.getPeso_kilos();
+            Date fechaRevi = engorde.getFecha_Revision();
+            String alimento = engorde.getAlimento();
+            String categoria = engorde.getCategoria();
+
+            String fechaReviString = dateFormat.format(fechaRevi);
+
+            JSONObject jsonObject = new JSONObject();
+
+            try {
+                jsonObject.put("id", id);
+                jsonObject.put("peso_kilos", peso);
+                jsonObject.put("fecha_revision", fechaReviString);
+                jsonObject.put("alimento",alimento);
+                jsonObject.put("categoria", categoria);
+
+                jsonArray.put(jsonObject);
+
+            } catch (JSONException e){System.out.println(e);}
+        }
+        return jsonArray;
     }
 
     /*public String agregarEngorde(Engorde engorde, int id_Engorde){
