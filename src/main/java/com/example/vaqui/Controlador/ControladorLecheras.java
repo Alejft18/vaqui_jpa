@@ -33,8 +33,8 @@ public class ControladorLecheras {
                 .body(json);
     }
 
-    @PostMapping("/agregarLecheras")
-    public String agregarLecheras(@RequestBody Lechera lechera){return servicios.agregarLecheras(lechera);}
+    @PostMapping("/agregarLecheras/{id}")
+    public String agregarLechera(@RequestBody Lechera lechera, @PathVariable("id") Integer id){return servicios.agregarLechera(lechera,id);}
 
     @DeleteMapping("/eliminarLecheras/{id}")
     public String eliminarLecheras(@PathVariable("id")int id){return servicios.eliminarLecheras(id);}

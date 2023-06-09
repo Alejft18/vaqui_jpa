@@ -17,8 +17,8 @@ public class Lechera {
     @JsonIgnore
     private General id_lecheras;
 
-    @Column(name = "litro_producidos",nullable = false)
-    private Double litro_Producidos;
+    @Column(name = "litros_producidos",nullable = false)
+    private Double litros_producidos;
 
     @Column(nullable = false)
     @Temporal(TemporalType.DATE)
@@ -40,9 +40,10 @@ public class Lechera {
     @Column(nullable = false, length = 20)
     private String categoria;
 
-    public Lechera(General id_lecheras, Double litro_Producidos, Date fecha_ordeno, Double peso_kilos, Date fecha_revision, Date fecha_parto, int cant_partos, String categoria) {
+    public Lechera(Integer codigo, General id_lecheras, Double litros_producidos, Date fecha_ordeno, Double peso_kilos, Date fecha_revision, Date fecha_parto, int cant_partos, String categoria) {
+        this.codigo = codigo;
         this.id_lecheras = id_lecheras;
-        this.litro_Producidos = litro_Producidos;
+        this.litros_producidos = litros_producidos;
         this.fecha_ordeno = fecha_ordeno;
         this.peso_kilos = peso_kilos;
         this.fecha_revision = fecha_revision;
@@ -51,10 +52,9 @@ public class Lechera {
         this.categoria = categoria;
     }
 
-    public Lechera(Integer codigo, General id_lecheras, Double litro_Producidos, Date fecha_ordeno, Double peso_kilos, Date fecha_revision, Date fecha_parto, int cant_partos, String categoria) {
-        this.codigo = codigo;
+    public Lechera(General id_lecheras, Double litros_producidos, Date fecha_ordeno, Double peso_kilos, Date fecha_revision, Date fecha_parto, int cant_partos, String categoria) {
         this.id_lecheras = id_lecheras;
-        this.litro_Producidos = litro_Producidos;
+        this.litros_producidos = litros_producidos;
         this.fecha_ordeno = fecha_ordeno;
         this.peso_kilos = peso_kilos;
         this.fecha_revision = fecha_revision;
@@ -82,12 +82,12 @@ public class Lechera {
         this.id_lecheras = id_lecheras;
     }
 
-    public Double getLitro_Producidos() {
-        return litro_Producidos;
+    public Double getLitros_producidos() {
+        return litros_producidos;
     }
 
-    public void setLitro_Producidos(Double litro_Producidos) {
-        this.litro_Producidos = litro_Producidos;
+    public void setLitros_producidos(Double litros_producidos) {
+        this.litros_producidos = litros_producidos;
     }
 
     public Date getFecha_ordeno() {
@@ -143,7 +143,7 @@ public class Lechera {
         return "Lechera{" +
                 "codigo=" + codigo +
                 ", id_lecheras=" + id_lecheras +
-                ", litro_Producidos=" + litro_Producidos +
+                ", litros_producidos=" + litros_producidos +
                 ", fecha_ordeño=" + fecha_ordeno +
                 ", peso_kilos=" + peso_kilos +
                 ", fecha_revision=" + fecha_revision +

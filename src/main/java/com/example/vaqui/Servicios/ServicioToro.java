@@ -1,6 +1,7 @@
 package com.example.vaqui.Servicios;
 
 import com.example.vaqui.Entidad.Engorde;
+import com.example.vaqui.Entidad.General;
 import com.example.vaqui.Entidad.Ternero;
 import com.example.vaqui.Entidad.Toro;
 import com.example.vaqui.Repositorio.GeneralRepository;
@@ -66,15 +67,23 @@ public class ServicioToro {
     }
 
 
-    public String agregarToro(Toro toro){
-        String mensaje = "Error al ingresar el toro";
+    public String agregarToro(Toro toro, Integer id){
+        String mensaje = "no se ingresó el toro";
+        General general = genrepository.findById(id).get();
 
-        try {
-            repository.save(toro);
-            mensaje = "Ingreso exitoso";
-        } catch (Exception e) {
-            mensaje = "Error al guardar el toro: " + e.getMessage();
-        }
+        if (genrepository.existsById(id) && general.getGenero().equals("masculino")){
+
+            Double peso = toro.getPeso_kilos();
+            Date fechaExtraccion = toro.getFecha_extraccion();
+            int vacasMontadas = toro.getVacas_montadas();
+            Date fechaRevi = toro.getFecha_revision();
+            String categoria = toro.getCategoria();
+
+            Toro tor = new Toro(general,peso,fechaExtraccion,vacasMontadas,fechaRevi,categoria);
+            repository.save(tor);
+
+            mensaje = "Toro ingresado con exito";
+        }else {mensaje = "Error al ingresar al toro";}
 
         return mensaje;
     }

@@ -36,18 +36,9 @@ public class ControladorTernero {
 
     }
 
-    @PostMapping("/agregarTernero")
-    public String agregarTernero(@RequestBody Ternero ternero){
-        return servicio.agregarTernero(ternero);
+    @PostMapping("/agregarTernero/{id}/{id_madre}")
+    public String agregarTernero(@RequestBody Ternero ternero, @PathVariable("id") Integer id, @PathVariable("id_madre") Integer id_madre){
+        return servicio.agregarTernero(ternero,id,id_madre);
     }
 
-    @DeleteMapping("/eliminarTernero/{id}")
-    public String eliminarTernero(@PathVariable("id") int id){
-        return servicio.eliminarTernero(id);
-    }
-
-    /*@PutMapping("/actualizarTernero")
-    public String actualizarTernero(@RequestBody Ternero ternero){
-        return servicio.actualizarTernero(ternero);
-    }*/
 }

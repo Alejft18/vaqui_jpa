@@ -32,7 +32,7 @@ public class ControladorGestacion {
 
 
     @PostMapping("/agregarGestacion/{id}")
-    public String agregarGestacion(@RequestBody Gestacion gestacion, @PathVariable("id") int id){
+    public String agregarGestacion(@RequestBody Gestacion gestacion, @PathVariable("id") Integer id){
         return servicio.agregarGestacion(gestacion,id);
     }
 }

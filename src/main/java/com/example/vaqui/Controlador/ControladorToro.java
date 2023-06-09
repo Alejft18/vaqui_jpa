@@ -36,9 +36,9 @@ public class ControladorToro {
                 .body(json);
     }
 
-    @PostMapping("/agregarToro")
-    public String agregarToro(@RequestBody Toro toro){
-        return servicio.agregarToro(toro);
+    @PostMapping("/agregarToro/{id}")
+    public String agregarToro(@RequestBody Toro toro, @PathVariable("id") Integer id){
+        return servicio.agregarToro(toro, id);
     }
 
     @DeleteMapping("/eliminarToro/{id}")

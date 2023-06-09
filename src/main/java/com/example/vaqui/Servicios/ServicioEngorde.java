@@ -79,9 +79,8 @@ public class ServicioEngorde {
 
             mensaje = "Bovino engorde ingresado con exito";
 
-        }else {
-            mensaje = "Error al guardar el bovino de engorde";
-        }
+        }else {mensaje = "Error al guardar el bovino de engorde";}
+
         return mensaje;
     }
 }

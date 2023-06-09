@@ -70,16 +70,27 @@ public class ServicioGestacion {
         return jsonArray;
     }
 
-    public String agregarGestacion(Gestacion gestacion, int id_Gestacion){
+    public String agregarGestacion(Gestacion gestacion, Integer id){
+        String mensaje = "Bovino en gestacion no ingresado";
 
-        General Gen = genrepository.findById(id_Gestacion).get();
+        General general = genrepository.findById(id).get();
 
-        if (genrepository.findById(id_Gestacion).isPresent()){
-            gestacion.setId_gestacion(Gen);
-            repository.save(gestacion);
-            return "Se ingreso esta vaquita con exito";
-        }
-        return "El bovino no existe";
+        if (genrepository.existsById(id) && general.getGenero().equals("femenino")){
+            Double peso = gestacion.getPeso_kilos();
+            Date fechaInsemi = gestacion.getFecha_inseminacion();
+            Date fechaAproxParto = gestacion.getFecha_aproxParto();
+            Date fechaUltiParto = gestacion.getFecha_aproxParto();
+            Date fechaRevi = gestacion.getFecha_revision();
+            String categoria = gestacion.getCategoria();
+
+            Gestacion ges= new Gestacion(general,peso,fechaInsemi,fechaAproxParto,fechaUltiParto,fechaRevi,categoria);
+            repository.save(ges);
+
+            mensaje = "Bovino en gestacion ingresado con exito";
+
+        }else {mensaje = "Error al ingresar Bovino en gestacion";}
+
+        return mensaje;
     }
 
 

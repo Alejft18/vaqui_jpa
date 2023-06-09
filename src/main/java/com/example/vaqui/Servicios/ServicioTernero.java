@@ -1,6 +1,7 @@
 package com.example.vaqui.Servicios;
 
 import com.example.vaqui.Entidad.Engorde;
+import com.example.vaqui.Entidad.General;
 import com.example.vaqui.Entidad.Ternero;
 import com.example.vaqui.Repositorio.GeneralRepository;
 import com.example.vaqui.Repositorio.TerneroRepository;
@@ -60,26 +61,25 @@ public class ServicioTernero {
         return jsonArray;
     }
 
-    public String agregarTernero(Ternero ternero){
-        repository.save(ternero);
-        return "Ingreso exitoso";
-    }
+    public String agregarTernero(Ternero ternero,Integer id, Integer id_madre){
+        String mensaje="No se ingresó el ternero";
+        General general = genrepository.findById(id).get();
+        General idMadre = genrepository.findById(id_madre).get();
 
-    public String eliminarTernero (int id){
-        String mensaje = "Error al eliminar";
-        if (repository.existsById(id)) {
-            repository.deleteById(id);
-            mensaje = "Se elimino correctamente";
-        }
+        if (genrepository.existsById(id) && idMadre.getGenero().equals("femenino")){
+
+            Double peso = ternero.getPeso_kilos();
+            Date fechaRevi = ternero.getFecha_revision();
+            String categoria = ternero.getCategoria();
+
+            Ternero ter= new Ternero(general,idMadre,peso,fechaRevi,categoria);
+            repository.save(ter);
+
+            mensaje = "Ternero ingresado con exito";
+
+        }else {mensaje = "Error al ingresar el ternero";}
+
         return mensaje;
     }
 
-    /*public String actualizarTernero(Ternero ternero){
-        String mensaje = "Error al actualizar";
-        if (repository.existsById(ternero.getId())){
-            repository.save(ternero);
-            mensaje ="Se actualizo correctamente";
-        }
-        return mensaje;
-    }*/
 }

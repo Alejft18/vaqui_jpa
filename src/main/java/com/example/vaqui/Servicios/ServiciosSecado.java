@@ -1,6 +1,7 @@
 package com.example.vaqui.Servicios;
 
 import com.example.vaqui.Entidad.Engorde;
+import com.example.vaqui.Entidad.General;
 import com.example.vaqui.Entidad.Lechera;
 import com.example.vaqui.Entidad.Secado;
 import com.example.vaqui.Repositorio.GeneralRepository;
@@ -68,31 +69,27 @@ public class ServiciosSecado {
         return jsonArray;
     }
 
+   public String agregarSecado(Secado secado, Integer id){
 
+        String mensaje = "Bovino secado no ingresado";
+        General general = genrepository.findById(id).get();
 
-    public String agregarSecado(Secado secado){
-        repository.save(secado);
-        return "Se ingreso esta vaquita con exito";
-    }
+        if (genrepository.existsById(id) && general.getGenero().equals("femenino")){
 
+            Date fechaUltiParto = secado.getFecha_ultParto();
+            Double peso = secado.getPeso_kilos();
+            Date fechaRevi = secado.getFecha_revision();
+            Date fechaUltiOrdeno = secado.getFecha_ultimoOrdeno();
+            String categoria = secado.getCategoria();
 
-    public String eliminarSecado(int id){
-        String mensaje = "Error al eliminar";
-        if (repository.existsById(id)){
-            repository.deleteById(id);
-            mensaje = "Eliminacion exitosa";
-        }
+            Secado seca = new Secado(general,fechaUltiParto,peso,fechaRevi,fechaUltiOrdeno,categoria);
+            repository.save(seca);
+
+            mensaje = "Bovino en secado agregado con exito";
+
+        }else {mensaje = "Error al ingresar bovino en secado";}
+
         return mensaje;
-    }
-
-
-   public String actualizarSecado(Secado secado){
-       String mensaje = "Error al actualizaar";
-       if (repository.existsById(secado.getId_secado().getId())){
-           repository.save(secado);
-           mensaje = "Se actualizo exitosamente";
-       }
-       return mensaje;
    }
 
 }

@@ -34,7 +34,7 @@ public class ServiciosLecheras {
 
         for (Lechera lechera : lecheras) {
             int id = lechera.getId_lecheras().getId();
-            Double litro = lechera.getLitro_Producidos();
+            Double litro = lechera.getLitros_producidos();
             Date fechaOrdeno = lechera.getFecha_ordeno();
             Double peso = lechera.getPeso_kilos();
             Date fechaRevi = lechera.getFecha_revision();
@@ -66,13 +66,32 @@ public class ServiciosLecheras {
         return jsonArray;
     }
 
-    public ArrayList<Lechera> listarLecheras(){
+    public ArrayList<Lechera> listarLecherasCodigo(){
         return (ArrayList<Lechera>) repository.findAll();
     }
 
-    public String agregarLecheras(Lechera lechera){
-        repository.save(lechera);
-        return "Se ingreso esta vaquita lechera con exito";
+    public String agregarLechera(Lechera lechera, Integer id){
+        String mensaje = "Vaca lechera no ingresada";
+        General general = genrepository.findById(id).get();
+
+        if (genrepository.existsById(id) && general.getGenero().equals("femenino")){
+
+            Double litro = lechera.getLitros_producidos();
+            Date fechaOrdeno = lechera.getFecha_ordeno();
+            Double peso = lechera.getPeso_kilos();
+            Date fechaRevi = lechera.getFecha_revision();
+            Date fechaParto = lechera.getFecha_parto();
+            int partos = lechera.getCant_partos();
+            String categoria = lechera.getCategoria();
+
+            Lechera leche = new Lechera(general,litro,fechaOrdeno,peso,fechaRevi,fechaParto,partos,categoria);
+            repository.save(leche);
+
+            mensaje = "Vaca lechera ingresada con exito";
+
+        }else {mensaje = "Error al ingresar Vaca lechera";}
+
+        return mensaje;
     }
 
 
