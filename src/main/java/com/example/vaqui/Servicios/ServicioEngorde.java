@@ -10,6 +10,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -83,29 +84,45 @@ public class ServicioEngorde {
 
         return mensaje;
     }
-}
 
-
-    /*public String agregarEngorde(Engorde engorde, int id_Engorde){
-
-        General Gen = genrepository.findById(id_Engorde).get();
-
-        if (genrepository.findById(id_Engorde).isPresent()){
-            engorde.setId_engorde(Gen);
-            repository.save(engorde);
-            return "Se ingreso esta vaquita con exito";
-        }
-        return "El bovino no existe";
+    public Engorde buscarEngordeId(Integer id){
+        return repository.buscarPorIdEngorde(id);
     }
 
     public String eliminarEngorde(Integer id){
-        String mensaje = "Error al eliminar";
-        if (repository.existsById(id)) {
-            repository.deleteById(id);
-            mensaje = "Se elimino correctamente al administrador";
-        }
+        String mensaje = "No se puede borrar el bovino engorde";
+
+        Engorde engorde = repository.buscarPorIdEngorde(id);
+        Integer codigo= engorde.getCodigo();
+
+        if (repository.existsById(codigo)){
+            repository.deleteById(codigo);
+            mensaje = "Bovino engorde borrado con exito";
+
+        }else {mensaje = "Error al borrar el bovino engorde";}
+
         return mensaje;
-    }*/
+    }
+
+    public String actualizarEngorde(Engorde engorde, Integer id){
+        String mensaje = "No se puede actualizar el bovino egorde";
+
+        Engorde engo = repository.buscarPorIdEngorde(id);
+        Integer codigo = engo.getCodigo();
+
+        if (repository.existsById(codigo)){
+            engo.setPeso_kilos(engorde.getPeso_kilos());
+            engo.setFecha_revision(engorde.getFecha_revision());
+            engo.setAlimento(engorde.getAlimento());
+            repository.save(engo);
+
+            mensaje = "Informacion actualizada del bovino engorde con exito";
+
+        }else {mensaje = "Error al actualizar informacion del bovino engorde";}
+
+        return mensaje;
+    }
+}
 
     /*public String actualizarEngorde(Engorde engorde){
         String mensaje = "Error al actualizar la informacion";
