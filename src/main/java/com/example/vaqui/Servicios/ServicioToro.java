@@ -42,7 +42,7 @@ public class ServicioToro {
             Double peso = toro.getPeso_kilos();
             Date fechaExtraccion = toro.getFecha_extraccion();
             int vacasMontadas = toro.getVacas_montadas();
-            Date fechaRevi = toro.getFecha_Revision();
+            Date fechaRevi = toro.getFecha_revision();
             String categoria = toro.getCategoria();
 
             String fechaReviString = dateFormat.format(fechaRevi);

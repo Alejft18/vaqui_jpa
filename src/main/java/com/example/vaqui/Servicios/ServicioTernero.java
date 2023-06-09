@@ -39,7 +39,7 @@ public class ServicioTernero {
             int id = ternero.getId_terneros().getId();
             int id_madre = ternero.getId_madre().getId();
             Double peso = ternero.getPeso_kilos();
-            Date fechaRevi = ternero.getFecha_Revision();
+            Date fechaRevi = ternero.getFecha_revision();
             String categoria = ternero.getCategoria();
 
             String fechaReviString = dateFormat.format(fechaRevi);

@@ -30,26 +30,26 @@ public class Toro {
 
     @Column(name = "fecha_revision",nullable = false)
     @Temporal(TemporalType.DATE)
-    private Date fecha_Revision;
+    private Date fecha_revision;
     @Column(nullable = false, length = 20)
     private String categoria;
 
-    public Toro(Integer codigo, General id_toros, Double peso_kilos, Date fecha_extraccion, int vacas_montadas, Date fecha_Revision, String categoria) {
+    public Toro(Integer codigo, General id_toros, Double peso_kilos, Date fecha_extraccion, int vacas_montadas, Date fecha_revision, String categoria) {
         this.codigo = codigo;
         this.id_toros = id_toros;
         this.peso_kilos = peso_kilos;
         this.fecha_extraccion = fecha_extraccion;
         this.vacas_montadas = vacas_montadas;
-        this.fecha_Revision = fecha_Revision;
+        this.fecha_revision = fecha_revision;
         this.categoria = categoria;
     }
 
-    public Toro(General id_toros, Double peso_kilos, Date fecha_extraccion, int vacas_montadas, Date fecha_Revision, String categoria) {
+    public Toro(General id_toros, Double peso_kilos, Date fecha_extraccion, int vacas_montadas, Date fecha_revision, String categoria) {
         this.id_toros = id_toros;
         this.peso_kilos = peso_kilos;
         this.fecha_extraccion = fecha_extraccion;
         this.vacas_montadas = vacas_montadas;
-        this.fecha_Revision = fecha_Revision;
+        this.fecha_revision = fecha_revision;
         this.categoria = categoria;
     }
 
@@ -96,12 +96,12 @@ public class Toro {
         this.vacas_montadas = vacas_montadas;
     }
 
-    public Date getFecha_Revision() {
-        return fecha_Revision;
+    public Date getFecha_revision() {
+        return fecha_revision;
     }
 
-    public void setFecha_Revision(Date fecha_Revision) {
-        this.fecha_Revision = fecha_Revision;
+    public void setFecha_revision(Date fecha_revision) {
+        this.fecha_revision = fecha_revision;
     }
 
     public String getCategoria() {
@@ -120,7 +120,7 @@ public class Toro {
                 ", peso_kilos=" + peso_kilos +
                 ", fecha_extraccion=" + fecha_extraccion +
                 ", vacas_montadas=" + vacas_montadas +
-                ", fecha_Revision=" + fecha_Revision +
+                ", fecha_revision=" + fecha_revision +
                 ", categoria='" + categoria + '\'' +
                 '}';
     }

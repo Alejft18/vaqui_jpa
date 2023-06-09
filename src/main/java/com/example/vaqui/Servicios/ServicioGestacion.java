@@ -42,7 +42,7 @@ public class ServicioGestacion {
             Date fechaInsemi = gestacion.getFecha_inseminacion();
             Date fechaAproxParto = gestacion.getFecha_aproxParto();
             Date fechaUltiParto = gestacion.getFecha_aproxParto();
-            Date fechaRevi = gestacion.getFecha_Revision();
+            Date fechaRevi = gestacion.getFecha_revision();
             String categoria = gestacion.getCategoria();
 
             String fecha1= dateFormat.format(fechaInsemi);

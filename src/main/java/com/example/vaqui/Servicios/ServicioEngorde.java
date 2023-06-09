@@ -40,7 +40,7 @@ public class ServicioEngorde {
         for (Engorde engorde : engordes) {
             int id = engorde.getId_engorde().getId();
             Double peso = engorde.getPeso_kilos();
-            Date fechaRevi = engorde.getFecha_Revision();
+            Date fechaRevi = engorde.getFecha_revision();
             String alimento = engorde.getAlimento();
             String categoria = engorde.getCategoria();
 
@@ -62,31 +62,26 @@ public class ServicioEngorde {
         return jsonArray;
     }
 
-    public String agregarEngorde(Engorde engorde){
+    public String agregarEngorde(Engorde engorde, Integer id){
+        String mensaje = "Bovino engorde no ingresado";
+        General general = genrepository.findById(id).get();
 
-        String mensaje= "Bovino no ingresado";
+        if(genrepository.existsById(id)){
 
-        General id = engorde.getId_engorde();
-        Double peso = engorde.getPeso_kilos();
-        Date fechaRevi = engorde.getFecha_Revision();
-        String alimento = engorde.getAlimento();
-        String categoria = engorde.getCategoria();
+            Double peso = engorde.getPeso_kilos();
+            Date fechaRevi = engorde.getFecha_revision();
+            String alimento = engorde.getAlimento();
+            String categoria = engorde.getCategoria();
 
+            Engorde engo= new Engorde(general,peso,fechaRevi,alimento,categoria);
+            System.out.println(engo);
+            repository.save(engo);
 
-
-        Engorde engorde1= new Engorde(id,peso,fechaRevi,alimento,categoria);
-        System.out.println(engorde1);
-
-        try{
-            repository.save(engorde1);
             mensaje = "Bovino engorde ingresado con exito";
 
-        }catch (DataAccessException e){
-            System.out.println(e);
+        }else {
             mensaje = "Error al guardar el bovino de engorde";
-
         }
-
         return mensaje;
     }
 }

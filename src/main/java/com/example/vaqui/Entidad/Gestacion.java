@@ -30,28 +30,28 @@ public class Gestacion {
     private Date fecha_ultimoParto;
     @Column(name = "fecha_revision",nullable = false)
     @Temporal(TemporalType.DATE)
-    private Date fecha_Revision;
+    private Date fecha_revision;
     @Column(nullable = false, length = 20)
     private String categoria;
 
-    public Gestacion(General id_gestacion, Double peso_kilos, Date fecha_inseminacion, Date fecha_aproxParto, Date fecha_ultimoParto, Date fecha_Revision, String categoria) {
+    public Gestacion(General id_gestacion, Double peso_kilos, Date fecha_inseminacion, Date fecha_aproxParto, Date fecha_ultimoParto, Date fecha_revision, String categoria) {
         this.id_gestacion = id_gestacion;
         this.peso_kilos = peso_kilos;
         this.fecha_inseminacion = fecha_inseminacion;
         this.fecha_aproxParto = fecha_aproxParto;
         this.fecha_ultimoParto = fecha_ultimoParto;
-        this.fecha_Revision = fecha_Revision;
+        this.fecha_revision = fecha_revision;
         this.categoria = categoria;
     }
 
-    public Gestacion(Integer codigo, General id_gestacion, Double peso_kilos, Date fecha_inseminacion, Date fecha_aproxParto, Date fecha_ultimoParto, Date fecha_Revision, String categoria) {
+    public Gestacion(Integer codigo, General id_gestacion, Double peso_kilos, Date fecha_inseminacion, Date fecha_aproxParto, Date fecha_ultimoParto, Date fecha_revision, String categoria) {
         this.codigo = codigo;
         this.id_gestacion = id_gestacion;
         this.peso_kilos = peso_kilos;
         this.fecha_inseminacion = fecha_inseminacion;
         this.fecha_aproxParto = fecha_aproxParto;
         this.fecha_ultimoParto = fecha_ultimoParto;
-        this.fecha_Revision = fecha_Revision;
+        this.fecha_revision = fecha_revision;
         this.categoria = categoria;
     }
 
@@ -106,12 +106,12 @@ public class Gestacion {
         this.fecha_ultimoParto = fecha_ultimoParto;
     }
 
-    public Date getFecha_Revision() {
-        return fecha_Revision;
+    public Date getFecha_revision() {
+        return fecha_revision;
     }
 
-    public void setFecha_Revision(Date fecha_Revision) {
-        this.fecha_Revision = fecha_Revision;
+    public void setFecha_revision(Date fecha_revision) {
+        this.fecha_revision = fecha_revision;
     }
 
     public String getCategoria() {
@@ -131,7 +131,7 @@ public class Gestacion {
                 ", fecha_inseminacion=" + fecha_inseminacion +
                 ", fecha_aproxParto=" + fecha_aproxParto +
                 ", fecha_ultimoParto=" + fecha_ultimoParto +
-                ", fecha_Revision=" + fecha_Revision +
+                ", fecha_revision=" + fecha_revision +
                 ", categoria='" + categoria + '\'' +
                 '}';
     }

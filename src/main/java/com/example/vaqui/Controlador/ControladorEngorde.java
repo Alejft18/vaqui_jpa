@@ -25,9 +25,9 @@ public class ControladorEngorde {
                 .body(json);
     }
 
-    @PostMapping("/ingresarEngorde")
-    public String ingresarEngorde(@RequestBody Engorde engorde){
-        return servicio.agregarEngorde(engorde);
+    @PostMapping("/ingresarEngorde/{id}")
+    public String ingresarEngorde(@RequestBody Engorde engorde,@PathVariable("id") Integer id){
+        return servicio.agregarEngorde(engorde,id);
     }
 
     /*@PostMapping("/agregarEngorde/{id}")

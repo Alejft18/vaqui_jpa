@@ -20,25 +20,25 @@ public class Engorde {
     private Double peso_kilos;
     @Column(name ="fecha_revision" ,nullable = false)
     @Temporal(TemporalType.DATE)
-    private Date fecha_Revision;
+    private Date fecha_revision;
     @Column(nullable = false, length = 50)
     private String alimento;
     @Column(nullable = false, length = 20)
     private String categoria;
 
-    public Engorde(General id_engorde, Double peso_kilos, Date fecha_Revision, String alimento, String categoria) {
+    public Engorde(General id_engorde, Double peso_kilos, Date fecha_revision, String alimento, String categoria) {
         this.id_engorde = id_engorde;
         this.peso_kilos = peso_kilos;
-        this.fecha_Revision = fecha_Revision;
+        this.fecha_revision = fecha_revision;
         this.alimento = alimento;
         this.categoria = categoria;
     }
 
-    public Engorde(Integer codigo, General id_engorde, Double peso_kilos, Date fecha_Revision, String alimento, String categoria) {
+    public Engorde(Integer codigo, General id_engorde, Double peso_kilos, Date fecha_revision, String alimento, String categoria) {
         this.codigo = codigo;
         this.id_engorde = id_engorde;
         this.peso_kilos = peso_kilos;
-        this.fecha_Revision = fecha_Revision;
+        this.fecha_revision = fecha_revision;
         this.alimento = alimento;
         this.categoria = categoria;
     }
@@ -70,12 +70,12 @@ public class Engorde {
         this.peso_kilos = peso_kilos;
     }
 
-    public Date getFecha_Revision() {
-        return fecha_Revision;
+    public Date getFecha_revision() {
+        return fecha_revision;
     }
 
-    public void setFecha_Revision(Date fecha_Revision) {
-        this.fecha_Revision = fecha_Revision;
+    public void setFecha_revision(Date fecha_revision) {
+        this.fecha_revision = fecha_revision;
     }
 
     public String getAlimento() {
@@ -100,7 +100,7 @@ public class Engorde {
                 "codigo=" + codigo +
                 ", id_engorde=" + id_engorde +
                 ", peso_kilos=" + peso_kilos +
-                ", fecha_Revision=" + fecha_Revision +
+                ", fecha_revision=" + fecha_revision +
                 ", alimento='" + alimento + '\'' +
                 ", categoria='" + categoria + '\'' +
                 '}';
