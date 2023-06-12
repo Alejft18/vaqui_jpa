@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.math.BigInteger;
 import java.util.ArrayList;
+import java.util.List;
 
 @RestController
 @CrossOrigin(originPatterns = "*", allowedHeaders = {"GET", "POST", "PUT", "DELETE"})
@@ -22,6 +23,9 @@ public class ControladorUsuario {
     public ArrayList<Usuario> listarUsario(){
         return servicio.listar();
     }
+
+    @GetMapping("/listarEmpleados")
+    public List<Usuario> listarEmpleados(){return servicio.listarEmpleados();}
 
     @PostMapping("/agregarUsuario")
     public String agregarUsuario(@RequestBody Usuario usuario){

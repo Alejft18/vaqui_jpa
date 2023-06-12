@@ -105,7 +105,7 @@ public class ServicioToro {
     }
 
     public String actualizarToro(Toro toro, Integer id){
-        String mensaje = "No se puede actualizar el bovino egorde";
+        String mensaje = "No se puede actualizar el toro";
 
         Toro semental = repository.buscarPorIdToro(id);
         Integer codigo = semental.getCodigo();
@@ -117,23 +117,10 @@ public class ServicioToro {
             semental.setVacas_montadas(toro.getVacas_montadas());
             repository.save(semental);
 
-            mensaje = "Informacion actualizada del bovino engorde con exito";
+            mensaje = "Informacion actualizada del toro con exito";
 
-        }else {mensaje = "Error al actualizar informacion del bovino engorde";}
+        }else {mensaje = "Error al actualizar informacion del toro";}
 
         return mensaje;
     }
-
-
-
-
-
-    /*public String actualizarToro(Toro toro){
-        String mensaje = "Error al actualizar";
-        if (repository.existsById(toro.getId())){
-            repository.save(toro);
-            mensaje ="Se actualizo correctamente";
-        }
-        return mensaje;
-    }*/
 }

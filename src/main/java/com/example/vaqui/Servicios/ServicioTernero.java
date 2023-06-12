@@ -100,7 +100,7 @@ public class ServicioTernero {
     }
 
     public String actualizarTenero(Ternero ternero, Integer id){
-        String mensaje = "No se puede actualizar el bovino egorde";
+        String mensaje = "No se puede actualizar el ternero";
 
         Ternero terne = repository.buscarPorIdTernero(id);
         Integer codigo = terne.getCodigo();
@@ -108,12 +108,11 @@ public class ServicioTernero {
         if (repository.existsById(codigo)){
             terne.setFecha_revision(ternero.getFecha_revision());
             terne.setPeso_kilos(ternero.getPeso_kilos());
-            terne.setId_madre(ternero.getId_madre());
             repository.save(terne);
 
-            mensaje = "Informacion actualizada del bovino engorde con exito";
+            mensaje = "Informacion actualizada del ternero";
 
-        }else {mensaje = "Error al actualizar informacion del bovino engorde";}
+        }else {mensaje = "Error al actualizar informacion del ternero";}
 
         return mensaje;
     }

@@ -56,8 +56,4 @@ public class ControladorToro {
         return servicio.eliminarToro(id);
     }
 
-    /*@PutMapping("/actualizarToro")
-    public String actualizarToro(@RequestBody Toro toro){
-        return servicio.actualizarToro(toro);
-    }*/
 }

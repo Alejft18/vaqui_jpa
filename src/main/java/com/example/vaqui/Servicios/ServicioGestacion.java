@@ -108,7 +108,7 @@ public class ServicioGestacion {
     }
 
     public String actualizarGestacion(Gestacion gestacion, Integer id){
-        String mensaje = "No se puede actualizar el bovino egorde";
+        String mensaje = "No se puede actualizar el bovino gestacion";
 
         Gestacion gesta = repository.buscarPorIdGestacion(id);
         Integer codigo = gesta.getCodigo();
@@ -121,9 +121,9 @@ public class ServicioGestacion {
             gesta.setPeso_kilos(gestacion.getPeso_kilos());
             repository.save(gesta);
 
-            mensaje = "Informacion actualizada del bovino engorde con exito";
+            mensaje = "Informacion actualizada del bovino en gestacion con exito";
 
-        }else {mensaje = "Error al actualizar informacion del bovino engorde";}
+        }else {mensaje = "Error al actualizar informacion del bovino en gestacion";}
 
         return mensaje;
     }

@@ -109,7 +109,7 @@ public class ServiciosSecado {
     }
 
     public String actualizarSecado(Secado secado, Integer id){
-        String mensaje = "No se puede actualizar el bovino egorde";
+        String mensaje = "No se puede actualizar el bovino en secado";
 
         Secado seca = repository.buscarPorIdSecado(id);
         Integer codigo = seca.getCodigo();
@@ -121,9 +121,9 @@ public class ServiciosSecado {
             seca.setPeso_kilos(secado.getPeso_kilos());
             repository.save(seca);
 
-            mensaje = "Informacion actualizada del bovino engorde con exito";
+            mensaje = "Informacion actualizada del bovino en secado con exito";
 
-        }else {mensaje = "Error al actualizar informacion del bovino engorde";}
+        }else {mensaje = "Error al actualizar informacion del bovino en secado";}
 
         return mensaje;
     }

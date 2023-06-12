@@ -52,7 +52,7 @@ public class ServiciosLecheras {
 
             try {
                 jsonObject.put("id", id);
-                jsonObject.put("litro_producidos", litro);
+                jsonObject.put("litros_producidos", litro);
                 jsonObject.put("fecha_ordeno", fecha1String);
                 jsonObject.put("peso_kilos", peso);
                 jsonObject.put("fecha_revision", fecha2String);
@@ -113,7 +113,7 @@ public class ServiciosLecheras {
     }
 
     public String actualizarLecheras(Lechera lechera, Integer id){
-        String mensaje = "No se puede actualizar el bovino egorde";
+        String mensaje = "No se puede actualizar la vaca lechera";
 
         Lechera leche = repository.buscarPorIdLecheras(id);
         Integer codigo = leche.getCodigo();
@@ -127,22 +127,13 @@ public class ServiciosLecheras {
             leche.setPeso_kilos(lechera.getPeso_kilos());
             repository.save(leche);
 
-            mensaje = "Informacion actualizada del bovino engorde con exito";
+            mensaje = "Informacion actualizada la vaca lechera con exito";
 
-        }else {mensaje = "Error al actualizar informacion del bovino engorde";}
+        }else {mensaje = "Error al actualizar informacion de la vaca lechera";}
 
         return mensaje;
     }
 
-
-//    public String actualizarLecheras(Lechera lechera){
-//        String mensaje = "Error al actualizar";
-//        if (repository.existsById(lechera.getId())){
-//            repository.save(lechera);
-//            mensaje = "Se actualizo exitosamente";
-//        }
-//        return mensaje;
-//    }
 
 
 }

@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 
 import java.math.BigInteger;
 import java.util.ArrayList;
+import java.util.List;
 
 @Service
 public class ServicioUsuario {
@@ -17,6 +18,10 @@ public class ServicioUsuario {
 
     public ArrayList<Usuario> listar(){
         return (ArrayList<Usuario>) repository.findAll();
+    }
+
+    public List<Usuario> listarEmpleados(){
+        return repository.listarEmpleados();
     }
 
     public String agregarUsuario(Usuario usuario){
