@@ -1,5 +1,6 @@
 package com.example.vaqui.Controlador;
 
+import com.example.vaqui.Entidad.Secado;
 import com.example.vaqui.Entidad.Ternero;
 import com.example.vaqui.Servicios.ServicioTernero;
 import org.json.JSONArray;
@@ -39,6 +40,21 @@ public class ControladorTernero {
     @PostMapping("/agregarTernero/{id}/{id_madre}")
     public String agregarTernero(@RequestBody Ternero ternero, @PathVariable("id") Integer id, @PathVariable("id_madre") Integer id_madre){
         return servicio.agregarTernero(ternero,id,id_madre);
+    }
+
+    @GetMapping("/buscarTerneroId/{id}")
+    public Ternero buscarTerneroId(@PathVariable("id")Integer id){
+        return servicio.buscarTerneroId(id);
+    }
+
+    @PutMapping("/actualizarTernero/{id}")
+    public String actualizarTernero(@RequestBody Ternero ternero, @PathVariable("id") Integer id){
+        return servicio.actualizarTenero(ternero,id);
+    }
+
+    @DeleteMapping("/eliminarTernero/{id}")
+    public String eliminarTernero(@PathVariable("id") Integer id){
+        return servicio.eliminarTernero(id);
     }
 
 }

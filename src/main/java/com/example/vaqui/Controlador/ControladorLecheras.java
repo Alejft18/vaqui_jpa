@@ -1,5 +1,6 @@
 package com.example.vaqui.Controlador;
 
+import com.example.vaqui.Entidad.Gestacion;
 import com.example.vaqui.Entidad.Lechera;
 import com.example.vaqui.Servicios.ServiciosLecheras;
 import org.json.JSONArray;
@@ -36,8 +37,20 @@ public class ControladorLecheras {
     @PostMapping("/agregarLecheras/{id}")
     public String agregarLechera(@RequestBody Lechera lechera, @PathVariable("id") Integer id){return servicios.agregarLechera(lechera,id);}
 
-    @DeleteMapping("/eliminarLecheras/{id}")
-    public String eliminarLecheras(@PathVariable("id")int id){return servicios.eliminarLecheras(id);}
+    @GetMapping("/buscarLecheraId/{id}")
+    public Lechera buscarLecheraId(@PathVariable("id")Integer id){
+        return servicios.buscarLecherasId(id);
+    }
+
+    @PutMapping("/actualizarLechera/{id}")
+    public String actualizarLechera(@RequestBody Lechera lechera, @PathVariable("id") Integer id){
+        return servicios.actualizarLecheras(lechera,id);
+    }
+
+    @DeleteMapping("/eliminarLechera/{id}")
+    public String eliminarLechera(@PathVariable("id") Integer id){
+        return servicios.eliminarLechera(id);
+    }
 
 //    @PutMapping("/actualizarLecheras")
 //    public String actualizarLecheras(@RequestBody Lechera lechera){return servicios.actualizarLecheras(lechera);}

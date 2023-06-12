@@ -88,14 +88,43 @@ public class ServicioToro {
         return mensaje;
     }
 
-    public String eliminarToro(int id){
-        String mensaje = "Error al eliminar";
-        if (repository.existsById(id)) {
-            repository.deleteById(id);
-            mensaje = "Se elimino correctamente";
-        }
+    public Toro buscarToroId(Integer id){return repository.buscarPorIdToro(id);}
+    public String eliminarToro(Integer id){
+        String mensaje = "No se puede borrar el bovino Gestacion";
+
+        Toro toro = repository.buscarPorIdToro(id);
+        Integer codigo= toro.getCodigo();
+
+        if (repository.existsById(codigo)){
+            repository.deleteById(codigo);
+            mensaje = "Bovino gestacion borrado con exito";
+
+        }else {mensaje = "Error al borrar el bovino gestacion";}
+
         return mensaje;
     }
+
+    public String actualizarToro(Toro toro, Integer id){
+        String mensaje = "No se puede actualizar el bovino egorde";
+
+        Toro semental = repository.buscarPorIdToro(id);
+        Integer codigo = semental.getCodigo();
+
+        if (repository.existsById(codigo)){
+            semental.setFecha_revision(toro.getFecha_revision());
+            semental.setFecha_extraccion(toro.getFecha_extraccion());
+            semental.setPeso_kilos(toro.getPeso_kilos());
+            semental.setVacas_montadas(toro.getVacas_montadas());
+            repository.save(semental);
+
+            mensaje = "Informacion actualizada del bovino engorde con exito";
+
+        }else {mensaje = "Error al actualizar informacion del bovino engorde";}
+
+        return mensaje;
+    }
+
+
 
 
 

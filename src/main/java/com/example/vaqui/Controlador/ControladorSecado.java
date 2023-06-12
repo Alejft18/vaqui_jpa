@@ -38,5 +38,20 @@ public class ControladorSecado {
     @PostMapping("/agregarSecado/{id}")
     public String agregarSecado(@RequestBody Secado secado, @PathVariable("id") Integer id){return servicios.agregarSecado(secado,id);}
 
+    @GetMapping("/buscarSecadoId/{id}")
+    public Secado buscarSecadoId(@PathVariable("id")Integer id){
+        return servicios.buscarSecadoId(id);
+    }
+
+    @PutMapping("/actualizarSecado/{id}")
+    public String actualizarSecado(@RequestBody Secado secado, @PathVariable("id") Integer id){
+        return servicios.actualizarSecado(secado,id);
+    }
+
+    @DeleteMapping("/eliminarSecado/{id}")
+    public String eliminarSecado(@PathVariable("id") Integer id){
+        return servicios.eliminarSecado(id);
+    }
+
 
 }

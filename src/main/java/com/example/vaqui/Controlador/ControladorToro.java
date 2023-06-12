@@ -41,8 +41,18 @@ public class ControladorToro {
         return servicio.agregarToro(toro, id);
     }
 
+    @GetMapping("/buscarToroId/{id}")
+    public Toro buscarToroId(@PathVariable("id")Integer id){
+        return servicio.buscarToroId(id);
+    }
+
+    @PutMapping("/actualizarToro/{id}")
+    public String actualizarToro(@RequestBody Toro toro, @PathVariable("id") Integer id){
+        return servicio.actualizarToro(toro,id);
+    }
+
     @DeleteMapping("/eliminarToro/{id}")
-    public String eliminarToro(@PathVariable("id") int id){
+    public String eliminarToro(@PathVariable("id") Integer id){
         return servicio.eliminarToro(id);
     }
 

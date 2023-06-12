@@ -92,4 +92,40 @@ public class ServiciosSecado {
         return mensaje;
    }
 
+    public Secado buscarSecadoId(Integer id){return repository.buscarPorIdSecado(id);}
+    public String eliminarSecado(Integer id){
+        String mensaje = "No se puede borrar el bovino Gestacion";
+
+        Secado secado = repository.buscarPorIdSecado(id);
+        Integer codigo= secado.getCodigo();
+
+        if (repository.existsById(codigo)){
+            repository.deleteById(codigo);
+            mensaje = "Bovino gestacion borrado con exito";
+
+        }else {mensaje = "Error al borrar el bovino gestacion";}
+
+        return mensaje;
+    }
+
+    public String actualizarSecado(Secado secado, Integer id){
+        String mensaje = "No se puede actualizar el bovino egorde";
+
+        Secado seca = repository.buscarPorIdSecado(id);
+        Integer codigo = seca.getCodigo();
+
+        if (repository.existsById(codigo)){
+            seca.setFecha_revision(secado.getFecha_revision());
+            seca.setFecha_ultParto(secado.getFecha_ultParto());
+            seca.setFecha_ultimoOrdeno(secado.getFecha_ultimoOrdeno());
+            seca.setPeso_kilos(secado.getPeso_kilos());
+            repository.save(seca);
+
+            mensaje = "Informacion actualizada del bovino engorde con exito";
+
+        }else {mensaje = "Error al actualizar informacion del bovino engorde";}
+
+        return mensaje;
+    }
+
 }

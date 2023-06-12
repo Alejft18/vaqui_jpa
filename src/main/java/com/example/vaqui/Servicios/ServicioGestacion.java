@@ -3,13 +3,11 @@ package com.example.vaqui.Servicios;
 import com.example.vaqui.Entidad.Engorde;
 import com.example.vaqui.Entidad.General;
 import com.example.vaqui.Entidad.Gestacion;
-import com.example.vaqui.Repositorio.EngordeRepository;
 import com.example.vaqui.Repositorio.GeneralRepository;
 import com.example.vaqui.Repositorio.GestacionRepository;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.text.SimpleDateFormat;
@@ -93,5 +91,41 @@ public class ServicioGestacion {
         return mensaje;
     }
 
+    public Gestacion buscarGestacionId(Integer id){return repository.buscarPorIdGestacion(id);}
+    public String eliminargestacion(Integer id){
+        String mensaje = "No se puede borrar el bovino Gestacion";
+
+        Gestacion gestacion = repository.buscarPorIdGestacion(id);
+        Integer codigo= gestacion.getCodigo();
+
+        if (repository.existsById(codigo)){
+            repository.deleteById(codigo);
+            mensaje = "Bovino gestacion borrado con exito";
+
+        }else {mensaje = "Error al borrar el bovino gestacion";}
+
+        return mensaje;
+    }
+
+    public String actualizarGestacion(Gestacion gestacion, Integer id){
+        String mensaje = "No se puede actualizar el bovino egorde";
+
+        Gestacion gesta = repository.buscarPorIdGestacion(id);
+        Integer codigo = gesta.getCodigo();
+
+        if (repository.existsById(codigo)){
+            gesta.setFecha_revision(gestacion.getFecha_revision());
+            gesta.setFecha_aproxParto(gestacion.getFecha_aproxParto());
+            gesta.setFecha_inseminacion(gestacion.getFecha_inseminacion());
+            gesta.setFecha_ultimoParto(gestacion.getFecha_ultimoParto());
+            gesta.setPeso_kilos(gestacion.getPeso_kilos());
+            repository.save(gesta);
+
+            mensaje = "Informacion actualizada del bovino engorde con exito";
+
+        }else {mensaje = "Error al actualizar informacion del bovino engorde";}
+
+        return mensaje;
+    }
 
 }

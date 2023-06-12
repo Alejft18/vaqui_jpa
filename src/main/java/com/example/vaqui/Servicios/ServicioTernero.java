@@ -2,6 +2,7 @@ package com.example.vaqui.Servicios;
 
 import com.example.vaqui.Entidad.Engorde;
 import com.example.vaqui.Entidad.General;
+import com.example.vaqui.Entidad.Secado;
 import com.example.vaqui.Entidad.Ternero;
 import com.example.vaqui.Repositorio.GeneralRepository;
 import com.example.vaqui.Repositorio.TerneroRepository;
@@ -78,6 +79,41 @@ public class ServicioTernero {
             mensaje = "Ternero ingresado con exito";
 
         }else {mensaje = "Error al ingresar el ternero";}
+
+        return mensaje;
+    }
+
+    public Ternero buscarTerneroId(Integer id){return repository.buscarPorIdTernero(id);}
+    public String eliminarTernero(Integer id){
+        String mensaje = "No se puede borrar el bovino Gestacion";
+
+        Ternero ternero = repository.buscarPorIdTernero(id);
+        Integer codigo= ternero.getCodigo();
+
+        if (repository.existsById(codigo)){
+            repository.deleteById(codigo);
+            mensaje = "Bovino gestacion borrado con exito";
+
+        }else {mensaje = "Error al borrar el bovino gestacion";}
+
+        return mensaje;
+    }
+
+    public String actualizarTenero(Ternero ternero, Integer id){
+        String mensaje = "No se puede actualizar el bovino egorde";
+
+        Ternero terne = repository.buscarPorIdTernero(id);
+        Integer codigo = terne.getCodigo();
+
+        if (repository.existsById(codigo)){
+            terne.setFecha_revision(ternero.getFecha_revision());
+            terne.setPeso_kilos(ternero.getPeso_kilos());
+            terne.setId_madre(ternero.getId_madre());
+            repository.save(terne);
+
+            mensaje = "Informacion actualizada del bovino engorde con exito";
+
+        }else {mensaje = "Error al actualizar informacion del bovino engorde";}
 
         return mensaje;
     }

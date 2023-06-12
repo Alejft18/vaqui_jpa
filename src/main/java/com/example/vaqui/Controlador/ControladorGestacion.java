@@ -35,4 +35,19 @@ public class ControladorGestacion {
     public String agregarGestacion(@RequestBody Gestacion gestacion, @PathVariable("id") Integer id){
         return servicio.agregarGestacion(gestacion,id);
     }
+
+    @GetMapping("/buscarGestacionId/{id}")
+    public Gestacion buscarGestacionId(@PathVariable("id")Integer id){
+        return servicio.buscarGestacionId(id);
+    }
+
+    @PutMapping("/actualizarGestacion/{id}")
+    public String actualizarGestacion(@RequestBody Gestacion gestacion, @PathVariable("id") Integer id){
+        return servicio.actualizarGestacion(gestacion,id);
+    }
+
+    @DeleteMapping("/eliminarGestacion/{id}")
+    public String eliminarGestacion(@PathVariable("id") Integer id){
+        return servicio.eliminargestacion(id);
+    }
 }

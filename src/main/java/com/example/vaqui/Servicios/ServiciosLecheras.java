@@ -1,6 +1,7 @@
 package com.example.vaqui.Servicios;
 
 import com.example.vaqui.Entidad.General;
+import com.example.vaqui.Entidad.Gestacion;
 import com.example.vaqui.Entidad.Lechera;
 import com.example.vaqui.Repositorio.GeneralRepository;
 import com.example.vaqui.Repositorio.LecherasRepository;
@@ -95,12 +96,41 @@ public class ServiciosLecheras {
     }
 
 
-    public String eliminarLecheras(int id){
-        String mensaje = "Error al eliminar";
-        if (repository.existsById(id)){
-            repository.deleteById(id);
-            mensaje = "Eliminacion exitosa";
-        }
+    public Lechera buscarLecherasId(Integer id){return repository.buscarPorIdLecheras(id);}
+    public String eliminarLechera(Integer id){
+        String mensaje = "No se puede borrar el bovino Gestacion";
+
+        Lechera lechera = repository.buscarPorIdLecheras(id);
+        Integer codigo= lechera.getCodigo();
+
+        if (repository.existsById(codigo)){
+            repository.deleteById(codigo);
+            mensaje = "Bovino gestacion borrado con exito";
+
+        }else {mensaje = "Error al borrar el bovino gestacion";}
+
+        return mensaje;
+    }
+
+    public String actualizarLecheras(Lechera lechera, Integer id){
+        String mensaje = "No se puede actualizar el bovino egorde";
+
+        Lechera leche = repository.buscarPorIdLecheras(id);
+        Integer codigo = leche.getCodigo();
+
+        if (repository.existsById(codigo)){
+            leche.setCant_partos(lechera.getCant_partos());
+            leche.setFecha_ordeno(lechera.getFecha_ordeno());
+            leche.setFecha_parto(lechera.getFecha_parto());
+            leche.setFecha_revision(lechera.getFecha_revision());
+            leche.setLitros_producidos(lechera.getLitros_producidos());
+            leche.setPeso_kilos(lechera.getPeso_kilos());
+            repository.save(leche);
+
+            mensaje = "Informacion actualizada del bovino engorde con exito";
+
+        }else {mensaje = "Error al actualizar informacion del bovino engorde";}
+
         return mensaje;
     }
 
