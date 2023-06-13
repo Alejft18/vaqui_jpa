@@ -18,6 +18,10 @@ public class ServicioGeneral {
         return (ArrayList<General>) repository.findAll();
     }
 
+    public General ultimoId(){
+        return repository.ultimoId();
+    }
+
     public  String agregarGeneral(General general){
         repository.save(general);
         return "Ingreso exitoso";

@@ -1,5 +1,6 @@
 package com.example.vaqui.Controlador;
 
+import com.example.vaqui.Entidad.General;
 import com.example.vaqui.Entidad.Gestacion;
 import com.example.vaqui.Entidad.Lechera;
 import com.example.vaqui.Servicios.ServiciosLecheras;

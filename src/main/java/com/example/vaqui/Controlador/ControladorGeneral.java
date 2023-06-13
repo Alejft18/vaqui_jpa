@@ -21,6 +21,11 @@ public class ControladorGeneral {
         return servicio.listar();
     }
 
+    @GetMapping("/ultimoIdGeneral")
+    public General ultimoId(){
+        return servicio.ultimoId();
+    }
+
     @PostMapping("/agregarGeneral")
     public String agregarGeneral(@RequestBody General general){
         return servicio.agregarGeneral(general);

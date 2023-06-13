@@ -107,6 +107,8 @@ public class ServicioEngorde {
     public String actualizarEngorde(Engorde engorde, Integer id){
         String mensaje = "No se puede actualizar el bovino egorde";
 
+        System.out.println(engorde);
+
         Engorde engo = repository.buscarPorIdEngorde(id);
         Integer codigo = engo.getCodigo();
 
