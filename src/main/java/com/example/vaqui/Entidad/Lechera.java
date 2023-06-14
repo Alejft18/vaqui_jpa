@@ -3,7 +3,8 @@ package com.example.vaqui.Entidad;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
-import java.util.Date;
+import java.time.LocalDate;
+
 
 @Entity
 @Table(name = "tbl_lechera")
@@ -22,17 +23,17 @@ public class Lechera {
 
     @Column(nullable = false)
     @Temporal(TemporalType.DATE)
-    private Date fecha_ordeno;
+    private LocalDate fecha_ordeno;
     @Column(nullable = false)
     private Double peso_kilos;
 
     @Column(nullable = false)
     @Temporal(TemporalType.DATE)
-    private Date fecha_revision;
+    private LocalDate fecha_revision;
 
     @Column(nullable = false)
     @Temporal(TemporalType.DATE)
-    private Date fecha_parto;
+    private LocalDate fecha_parto;
 
     @Column
     private int cant_partos;
@@ -40,7 +41,7 @@ public class Lechera {
     @Column(nullable = false, length = 20)
     private String categoria;
 
-    public Lechera(Integer codigo, General id_lecheras, Double litros_producidos, Date fecha_ordeno, Double peso_kilos, Date fecha_revision, Date fecha_parto, int cant_partos, String categoria) {
+    public Lechera(Integer codigo, General id_lecheras, Double litros_producidos, LocalDate fecha_ordeno, Double peso_kilos, LocalDate fecha_revision, LocalDate fecha_parto, int cant_partos, String categoria) {
         this.codigo = codigo;
         this.id_lecheras = id_lecheras;
         this.litros_producidos = litros_producidos;
@@ -52,7 +53,7 @@ public class Lechera {
         this.categoria = categoria;
     }
 
-    public Lechera(General id_lecheras, Double litros_producidos, Date fecha_ordeno, Double peso_kilos, Date fecha_revision, Date fecha_parto, int cant_partos, String categoria) {
+    public Lechera(General id_lecheras, Double litros_producidos, LocalDate fecha_ordeno, Double peso_kilos, LocalDate fecha_revision, LocalDate fecha_parto, int cant_partos, String categoria) {
         this.id_lecheras = id_lecheras;
         this.litros_producidos = litros_producidos;
         this.fecha_ordeno = fecha_ordeno;
@@ -90,11 +91,11 @@ public class Lechera {
         this.litros_producidos = litros_producidos;
     }
 
-    public Date getFecha_ordeno() {
+    public LocalDate getFecha_ordeno() {
         return fecha_ordeno;
     }
 
-    public void setFecha_ordeno(Date fecha_ordeno) {
+    public void setFecha_ordeno(LocalDate fecha_ordeno) {
         this.fecha_ordeno = fecha_ordeno;
     }
 
@@ -106,19 +107,19 @@ public class Lechera {
         this.peso_kilos = peso_kilos;
     }
 
-    public Date getFecha_revision() {
+    public LocalDate getFecha_revision() {
         return fecha_revision;
     }
 
-    public void setFecha_revision(Date fecha_revision) {
+    public void setFecha_revision(LocalDate fecha_revision) {
         this.fecha_revision = fecha_revision;
     }
 
-    public Date getFecha_parto() {
+    public LocalDate getFecha_parto() {
         return fecha_parto;
     }
 
-    public void setFecha_parto(Date fecha_parto) {
+    public void setFecha_parto(LocalDate fecha_parto) {
         this.fecha_parto = fecha_parto;
     }
 

@@ -2,8 +2,8 @@ package com.example.vaqui.Entidad;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
+import java.time.LocalDate;
 
-import java.util.Date;
 
 @Entity
 @Table(name = "tbl_toro")
@@ -23,18 +23,18 @@ public class Toro {
 
     @Column(nullable = false)
     @Temporal(TemporalType.DATE)
-    private Date fecha_extraccion;
+    private LocalDate fecha_extraccion;
 
     @Column(nullable = false)
     private int vacas_montadas;
 
     @Column(name = "fecha_revision",nullable = false)
     @Temporal(TemporalType.DATE)
-    private Date fecha_revision;
+    private LocalDate fecha_revision;
     @Column(nullable = false, length = 20)
     private String categoria;
 
-    public Toro(Integer codigo, General id_toros, Double peso_kilos, Date fecha_extraccion, int vacas_montadas, Date fecha_revision, String categoria) {
+    public Toro(Integer codigo, General id_toros, Double peso_kilos, LocalDate fecha_extraccion, int vacas_montadas, LocalDate fecha_revision, String categoria) {
         this.codigo = codigo;
         this.id_toros = id_toros;
         this.peso_kilos = peso_kilos;
@@ -44,7 +44,7 @@ public class Toro {
         this.categoria = categoria;
     }
 
-    public Toro(General id_toros, Double peso_kilos, Date fecha_extraccion, int vacas_montadas, Date fecha_revision, String categoria) {
+    public Toro(General id_toros, Double peso_kilos, LocalDate fecha_extraccion, int vacas_montadas, LocalDate fecha_revision, String categoria) {
         this.id_toros = id_toros;
         this.peso_kilos = peso_kilos;
         this.fecha_extraccion = fecha_extraccion;
@@ -80,11 +80,11 @@ public class Toro {
         this.peso_kilos = peso_kilos;
     }
 
-    public Date getFecha_extraccion() {
+    public LocalDate getFecha_extraccion() {
         return fecha_extraccion;
     }
 
-    public void setFecha_extraccion(Date fecha_extraccion) {
+    public void setFecha_extraccion(LocalDate fecha_extraccion) {
         this.fecha_extraccion = fecha_extraccion;
     }
 
@@ -96,13 +96,14 @@ public class Toro {
         this.vacas_montadas = vacas_montadas;
     }
 
-    public Date getFecha_revision() {
+    public LocalDate getFecha_revision() {
         return fecha_revision;
     }
 
-    public void setFecha_revision(Date fecha_revision) {
+    public void setFecha_revision(LocalDate fecha_revision) {
         this.fecha_revision = fecha_revision;
     }
+
 
     public String getCategoria() {
         return categoria;

@@ -4,7 +4,7 @@ package com.example.vaqui.Entidad;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 @Entity
 @Table(name = "tbl_secado")
@@ -21,23 +21,23 @@ public class Secado {
 
     @Column(nullable = false)
     @Temporal(TemporalType.DATE)
-    private Date fecha_ultParto;
+    private LocalDate fecha_ultParto;
 
     @Column(nullable = false)
     private Double peso_kilos;
 
     @Column(nullable = false)
     @Temporal(TemporalType.DATE)
-    private Date fecha_revision;
+    private LocalDate fecha_revision;
 
     @Column(nullable = false)
     @Temporal(TemporalType.DATE)
-    private Date fecha_ultimoOrdeno;
+    private LocalDate fecha_ultimoOrdeno;
 
     @Column(nullable = false, length = 20)
     private String categoria;
 
-    public Secado(General id_secado, Date fecha_ultParto, Double peso_kilos, Date fecha_revision, Date fecha_ultimoOrdeno, String categoria) {
+    public Secado(General id_secado, LocalDate fecha_ultParto, Double peso_kilos, LocalDate fecha_revision, LocalDate fecha_ultimoOrdeno, String categoria) {
         this.id_secado = id_secado;
         this.fecha_ultParto = fecha_ultParto;
         this.peso_kilos = peso_kilos;
@@ -46,7 +46,7 @@ public class Secado {
         this.categoria = categoria;
     }
 
-    public Secado(Integer codigo, General id_secado, Date fecha_ultParto, Double peso_kilos, Date fecha_revision, Date fecha_ultimoOrdeno, String categoria) {
+    public Secado(Integer codigo, General id_secado, LocalDate fecha_ultParto, Double peso_kilos, LocalDate fecha_revision, LocalDate fecha_ultimoOrdeno, String categoria) {
         this.codigo = codigo;
         this.id_secado = id_secado;
         this.fecha_ultParto = fecha_ultParto;
@@ -75,11 +75,11 @@ public class Secado {
         this.id_secado = id_secado;
     }
 
-    public Date getFecha_ultParto() {
+    public LocalDate getFecha_ultParto() {
         return fecha_ultParto;
     }
 
-    public void setFecha_ultParto(Date fecha_ultParto) {
+    public void setFecha_ultParto(LocalDate fecha_ultParto) {
         this.fecha_ultParto = fecha_ultParto;
     }
 
@@ -91,19 +91,19 @@ public class Secado {
         this.peso_kilos = peso_kilos;
     }
 
-    public Date getFecha_revision() {
+    public LocalDate getFecha_revision() {
         return fecha_revision;
     }
 
-    public void setFecha_revision(Date fecha_revision) {
+    public void setFecha_revision(LocalDate fecha_revision) {
         this.fecha_revision = fecha_revision;
     }
 
-    public Date getFecha_ultimoOrdeno() {
+    public LocalDate getFecha_ultimoOrdeno() {
         return fecha_ultimoOrdeno;
     }
 
-    public void setFecha_ultimoOrdeno(Date fecha_ultimoOrdeno) {
+    public void setFecha_ultimoOrdeno(LocalDate fecha_ultimoOrdeno) {
         this.fecha_ultimoOrdeno = fecha_ultimoOrdeno;
     }
 

@@ -8,13 +8,14 @@ import com.example.vaqui.Repositorio.GeneralRepository;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-import org.springframework.dao.DataAccessException;
+
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.PathVariable;
+
 
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Date;
+
 import java.util.List;
 
 @Service
@@ -36,23 +37,22 @@ public class ServicioEngorde {
     public JSONArray listarEngorde(){
         JSONArray jsonArray = new JSONArray();
         List<Engorde> engordes = repository.findAll();
-        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 
         for (Engorde engorde : engordes) {
             int id = engorde.getId_engorde().getId();
             Double peso = engorde.getPeso_kilos();
-            Date fechaRevi = engorde.getFecha_revision();
+            LocalDate fechaRevi = engorde.getFecha_revision();
             String alimento = engorde.getAlimento();
             String categoria = engorde.getCategoria();
 
-            String fechaReviString = dateFormat.format(fechaRevi);
+
 
             JSONObject jsonObject = new JSONObject();
 
             try {
                 jsonObject.put("id", id);
                 jsonObject.put("peso_kilos", peso);
-                jsonObject.put("fecha_revision", fechaReviString);
+                jsonObject.put("fecha_revision", fechaRevi);
                 jsonObject.put("alimento",alimento);
                 jsonObject.put("categoria", categoria);
 
@@ -70,7 +70,7 @@ public class ServicioEngorde {
         if(genrepository.existsById(id)){
 
             Double peso = engorde.getPeso_kilos();
-            Date fechaRevi = engorde.getFecha_revision();
+            LocalDate fechaRevi = engorde.getFecha_revision();
             String alimento = engorde.getAlimento();
             String categoria = engorde.getCategoria();
 
@@ -126,11 +126,3 @@ public class ServicioEngorde {
     }
 }
 
-    /*public String actualizarEngorde(Engorde engorde){
-        String mensaje = "Error al actualizar la informacion";
-        if (repository.existsById(engorde.getTbl_general())){
-            repository.save(engorde);
-            mensaje ="Se actualizo correctamente la información";
-        }
-        return mensaje;
-    }*/

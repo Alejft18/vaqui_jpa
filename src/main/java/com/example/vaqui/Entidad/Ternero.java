@@ -3,7 +3,7 @@ package com.example.vaqui.Entidad;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 @Entity
 @Table(name = "tbl_ternero")
@@ -28,12 +28,12 @@ public class Ternero {
 
     @Column(name = "fecha_revision",nullable = false)
     @Temporal(TemporalType.DATE)
-    private Date fecha_revision;
+    private LocalDate fecha_revision;
 
     @Column(nullable = false, length = 20)
     private String categoria;
 
-    public Ternero(Integer codigo, General id_terneros, General id_madre, Double peso_kilos, Date fecha_revision, String categoria) {
+    public Ternero(Integer codigo, General id_terneros, General id_madre, Double peso_kilos, LocalDate fecha_revision, String categoria) {
         this.codigo = codigo;
         this.id_terneros = id_terneros;
         this.id_madre = id_madre;
@@ -42,7 +42,7 @@ public class Ternero {
         this.categoria = categoria;
     }
 
-    public Ternero(General id_terneros, General id_madre, Double peso_kilos, Date fecha_revision, String categoria) {
+    public Ternero(General id_terneros, General id_madre, Double peso_kilos, LocalDate fecha_revision, String categoria) {
         this.id_terneros = id_terneros;
         this.id_madre = id_madre;
         this.peso_kilos = peso_kilos;
@@ -85,11 +85,11 @@ public class Ternero {
         this.peso_kilos = peso_kilos;
     }
 
-    public Date getFecha_revision() {
+    public LocalDate getFecha_revision() {
         return fecha_revision;
     }
 
-    public void setFecha_revision(Date fecha_revision) {
+    public void setFecha_revision(LocalDate fecha_revision) {
         this.fecha_revision = fecha_revision;
     }
 

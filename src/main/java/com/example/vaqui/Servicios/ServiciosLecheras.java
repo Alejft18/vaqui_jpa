@@ -11,6 +11,7 @@ import org.json.JSONObject;
 import org.springframework.stereotype.Service;
 
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -31,32 +32,27 @@ public class ServiciosLecheras {
     public JSONArray listarLecharas(){
         JSONArray jsonArray = new JSONArray();
         List<Lechera> lecheras = repository.findAll();
-        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+
 
         for (Lechera lechera : lecheras) {
             int id = lechera.getId_lecheras().getId();
             Double litro = lechera.getLitros_producidos();
-            Date fechaOrdeno = lechera.getFecha_ordeno();
+            LocalDate fechaOrdeno = lechera.getFecha_ordeno();
             Double peso = lechera.getPeso_kilos();
-            Date fechaRevi = lechera.getFecha_revision();
-            Date fechaParto = lechera.getFecha_parto();
+            LocalDate fechaRevi = lechera.getFecha_revision();
+            LocalDate fechaParto = lechera.getFecha_parto();
             int partos = lechera.getCant_partos();
             String categoria = lechera.getCategoria();
-
-            String fecha1String = dateFormat.format(fechaOrdeno);
-            String fecha2String = dateFormat.format(fechaRevi);
-            String fecha3String = dateFormat.format(fechaParto);
-
 
             JSONObject jsonObject = new JSONObject();
 
             try {
                 jsonObject.put("id", id);
                 jsonObject.put("litros_producidos", litro);
-                jsonObject.put("fecha_ordeno", fecha1String);
+                jsonObject.put("fecha_ordeno", fechaOrdeno);
                 jsonObject.put("peso_kilos", peso);
-                jsonObject.put("fecha_revision", fecha2String);
-                jsonObject.put("fecha_parto", fecha3String);
+                jsonObject.put("fecha_revision", fechaRevi);
+                jsonObject.put("fecha_parto", fechaParto);
                 jsonObject.put("cant_partos", partos);
                 jsonObject.put("categoria", categoria);
 
@@ -78,10 +74,10 @@ public class ServiciosLecheras {
         if (genrepository.existsById(id) && general.getGenero().equals("femenino")){
 
             Double litro = lechera.getLitros_producidos();
-            Date fechaOrdeno = lechera.getFecha_ordeno();
+            LocalDate fechaOrdeno = lechera.getFecha_ordeno();
             Double peso = lechera.getPeso_kilos();
-            Date fechaRevi = lechera.getFecha_revision();
-            Date fechaParto = lechera.getFecha_parto();
+            LocalDate fechaRevi = lechera.getFecha_revision();
+            LocalDate fechaParto = lechera.getFecha_parto();
             int partos = lechera.getCant_partos();
             String categoria = lechera.getCategoria();
 

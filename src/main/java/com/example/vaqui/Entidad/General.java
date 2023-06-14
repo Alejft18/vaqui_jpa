@@ -3,7 +3,7 @@ package com.example.vaqui.Entidad;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.Set;
 
 @Entity
@@ -19,7 +19,7 @@ public class General {
     private String genero;
     @Column(nullable = false)
     @Temporal(TemporalType.DATE)
-    private Date fecha_nacimiento;
+    private LocalDate fecha_nacimiento;
     @Column(nullable = false, length = 40)
     private String procedencia;
 
@@ -54,7 +54,7 @@ public class General {
     @JsonIgnore
     private Engorde engorde;
 
-    public General(int id, String raza, String genero, Date fecha_nacimiento, String procedencia, String imagen) {
+    public General(int id, String raza, String genero, LocalDate fecha_nacimiento, String procedencia, String imagen) {
         this.id = id;
         this.raza = raza;
         this.genero = genero;
@@ -63,7 +63,7 @@ public class General {
         this.imagen=imagen;
     }
 
-    public General(String raza, String genero, Date fecha_nacimiento, String procedencia, String imagen) {
+    public General(String raza, String genero, LocalDate fecha_nacimiento, String procedencia, String imagen) {
         this.raza = raza;
         this.genero = genero;
         this.fecha_nacimiento = fecha_nacimiento;
@@ -98,11 +98,11 @@ public class General {
         this.genero = genero;
     }
 
-    public Date getFecha_nacimiento() {
+    public LocalDate getFecha_nacimiento() {
         return fecha_nacimiento;
     }
 
-    public void setFecha_nacimiento(Date fecha_nacimiento) {
+    public void setFecha_nacimiento(LocalDate fecha_nacimiento) {
         this.fecha_nacimiento = fecha_nacimiento;
     }
 

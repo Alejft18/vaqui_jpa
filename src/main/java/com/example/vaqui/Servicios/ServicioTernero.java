@@ -1,20 +1,15 @@
 package com.example.vaqui.Servicios;
 
-import com.example.vaqui.Entidad.Engorde;
 import com.example.vaqui.Entidad.General;
-import com.example.vaqui.Entidad.Secado;
 import com.example.vaqui.Entidad.Ternero;
 import com.example.vaqui.Repositorio.GeneralRepository;
 import com.example.vaqui.Repositorio.TerneroRepository;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 @Service
@@ -35,16 +30,14 @@ public class ServicioTernero {
     public JSONArray listarTernero(){
         JSONArray jsonArray = new JSONArray();
         List<Ternero> terneros = repository.findAll();
-        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 
         for (Ternero ternero : terneros) {
             int id = ternero.getId_terneros().getId();
             int id_madre = ternero.getId_madre().getId();
             Double peso = ternero.getPeso_kilos();
-            Date fechaRevi = ternero.getFecha_revision();
+            LocalDate fechaRevi = ternero.getFecha_revision();
             String categoria = ternero.getCategoria();
 
-            String fechaReviString = dateFormat.format(fechaRevi);
 
             JSONObject jsonObject = new JSONObject();
 
@@ -52,7 +45,7 @@ public class ServicioTernero {
                 jsonObject.put("id", id);
                 jsonObject.put("id_madre",id_madre);
                 jsonObject.put("peso_kilos", peso);
-                jsonObject.put("fecha_revision", fechaReviString);
+                jsonObject.put("fecha_revision", fechaRevi);
                 jsonObject.put("categoria", categoria);
 
                 jsonArray.put(jsonObject);
@@ -70,7 +63,7 @@ public class ServicioTernero {
         if (genrepository.existsById(id) && idMadre.getGenero().equals("femenino")){
 
             Double peso = ternero.getPeso_kilos();
-            Date fechaRevi = ternero.getFecha_revision();
+            LocalDate fechaRevi = ternero.getFecha_revision();
             String categoria = ternero.getCategoria();
 
             Ternero ter= new Ternero(general,idMadre,peso,fechaRevi,categoria);

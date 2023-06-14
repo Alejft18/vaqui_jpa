@@ -10,12 +10,13 @@ import com.example.vaqui.Repositorio.ToroRepository;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.stereotype.Service;
 
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Date;
+
 import java.util.List;
 
 @Service
@@ -36,27 +37,23 @@ public class ServicioToro {
     public JSONArray listarToros(){
         JSONArray jsonArray = new JSONArray();
         List<Toro> toros = repository.findAll();
-        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 
         for (Toro toro : toros) {
             int id = toro.getId_toros().getId();
             Double peso = toro.getPeso_kilos();
-            Date fechaExtraccion = toro.getFecha_extraccion();
+            LocalDate fechaExtraccion = toro.getFecha_extraccion();
             int vacasMontadas = toro.getVacas_montadas();
-            Date fechaRevi = toro.getFecha_revision();
+            LocalDate fechaRevi = toro.getFecha_revision();
             String categoria = toro.getCategoria();
-
-            String fechaReviString = dateFormat.format(fechaRevi);
-            String fechaExtraString = dateFormat.format(fechaExtraccion);
 
             JSONObject jsonObject = new JSONObject();
 
             try {
                 jsonObject.put("id", id);
-                jsonObject.put("fecha_extraccion",fechaExtraString);
+                jsonObject.put("fecha_extraccion",fechaExtraccion);
                 jsonObject.put("vacas_montadas",vacasMontadas);
                 jsonObject.put("peso_kilos", peso);
-                jsonObject.put("fecha_revision", fechaReviString);
+                jsonObject.put("fecha_revision", fechaRevi);
                 jsonObject.put("categoria", categoria);
 
                 jsonArray.put(jsonObject);
@@ -74,9 +71,9 @@ public class ServicioToro {
         if (genrepository.existsById(id) && general.getGenero().equals("masculino")){
 
             Double peso = toro.getPeso_kilos();
-            Date fechaExtraccion = toro.getFecha_extraccion();
+            LocalDate fechaExtraccion = toro.getFecha_extraccion();
             int vacasMontadas = toro.getVacas_montadas();
-            Date fechaRevi = toro.getFecha_revision();
+            LocalDate fechaRevi = toro.getFecha_revision();
             String categoria = toro.getCategoria();
 
             Toro tor = new Toro(general,peso,fechaExtraccion,vacasMontadas,fechaRevi,categoria);

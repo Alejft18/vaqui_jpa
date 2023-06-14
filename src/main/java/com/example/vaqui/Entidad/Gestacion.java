@@ -3,7 +3,8 @@ package com.example.vaqui.Entidad;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
-import java.util.Date;
+import java.time.LocalDate;
+
 
 @Entity
 @Table(name = "tbl_gestacion")
@@ -19,22 +20,22 @@ public class Gestacion {
     private Double peso_kilos;
     @Column(nullable = false)
     @Temporal(TemporalType.DATE)
-    private Date fecha_inseminacion;
+    private LocalDate fecha_inseminacion;
 
     @Column(nullable = false)
     @Temporal(TemporalType.DATE)
-    private Date fecha_aproxParto;
+    private LocalDate fecha_aproxParto;
 
     @Column(nullable = true)
     @Temporal(TemporalType.DATE)
-    private Date fecha_ultimoParto;
+    private LocalDate fecha_ultimoParto;
     @Column(name = "fecha_revision",nullable = false)
     @Temporal(TemporalType.DATE)
-    private Date fecha_revision;
+    private LocalDate fecha_revision;
     @Column(nullable = false, length = 20)
     private String categoria;
 
-    public Gestacion(General id_gestacion, Double peso_kilos, Date fecha_inseminacion, Date fecha_aproxParto, Date fecha_ultimoParto, Date fecha_revision, String categoria) {
+    public Gestacion(General id_gestacion, Double peso_kilos, LocalDate fecha_inseminacion, LocalDate fecha_aproxParto, LocalDate fecha_ultimoParto, LocalDate fecha_revision, String categoria) {
         this.id_gestacion = id_gestacion;
         this.peso_kilos = peso_kilos;
         this.fecha_inseminacion = fecha_inseminacion;
@@ -44,7 +45,7 @@ public class Gestacion {
         this.categoria = categoria;
     }
 
-    public Gestacion(Integer codigo, General id_gestacion, Double peso_kilos, Date fecha_inseminacion, Date fecha_aproxParto, Date fecha_ultimoParto, Date fecha_revision, String categoria) {
+    public Gestacion(Integer codigo, General id_gestacion, Double peso_kilos, LocalDate fecha_inseminacion, LocalDate fecha_aproxParto, LocalDate fecha_ultimoParto, LocalDate fecha_revision, String categoria) {
         this.codigo = codigo;
         this.id_gestacion = id_gestacion;
         this.peso_kilos = peso_kilos;
@@ -82,35 +83,35 @@ public class Gestacion {
         this.peso_kilos = peso_kilos;
     }
 
-    public Date getFecha_inseminacion() {
+    public LocalDate getFecha_inseminacion() {
         return fecha_inseminacion;
     }
 
-    public void setFecha_inseminacion(Date fecha_inseminacion) {
+    public void setFecha_inseminacion(LocalDate fecha_inseminacion) {
         this.fecha_inseminacion = fecha_inseminacion;
     }
 
-    public Date getFecha_aproxParto() {
+    public LocalDate getFecha_aproxParto() {
         return fecha_aproxParto;
     }
 
-    public void setFecha_aproxParto(Date fecha_aproxParto) {
+    public void setFecha_aproxParto(LocalDate fecha_aproxParto) {
         this.fecha_aproxParto = fecha_aproxParto;
     }
 
-    public Date getFecha_ultimoParto() {
+    public LocalDate getFecha_ultimoParto() {
         return fecha_ultimoParto;
     }
 
-    public void setFecha_ultimoParto(Date fecha_ultimoParto) {
+    public void setFecha_ultimoParto(LocalDate fecha_ultimoParto) {
         this.fecha_ultimoParto = fecha_ultimoParto;
     }
 
-    public Date getFecha_revision() {
+    public LocalDate getFecha_revision() {
         return fecha_revision;
     }
 
-    public void setFecha_revision(Date fecha_revision) {
+    public void setFecha_revision(LocalDate fecha_revision) {
         this.fecha_revision = fecha_revision;
     }
 
