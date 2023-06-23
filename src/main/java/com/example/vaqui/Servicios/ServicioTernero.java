@@ -60,7 +60,7 @@ public class ServicioTernero {
         General general = genrepository.findById(id).get();
         General idMadre = genrepository.findById(id_madre).get();
 
-        if (genrepository.existsById(id) && idMadre.getGenero().equals("femenino")){
+        if (genrepository.existsById(id) && idMadre.getGenero().equals("hembra")){
 
             Double peso = ternero.getPeso_kilos();
             LocalDate fechaRevi = ternero.getFecha_revision();
@@ -110,6 +110,6 @@ public class ServicioTernero {
         return mensaje;
     }
 
-    public Integer cantidadTerneros(){return repository.cantidadTerneros();}
+    public int cantidadTerneros(){return repository.cantidadTerneros();}
 
 }

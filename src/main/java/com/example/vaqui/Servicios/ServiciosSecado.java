@@ -66,7 +66,7 @@ public class ServiciosSecado {
         String mensaje = "Bovino secado no ingresado";
         General general = genrepository.findById(id).get();
 
-        if (genrepository.existsById(id) && general.getGenero().equals("femenino")){
+        if (genrepository.existsById(id) && general.getGenero().equals("hembra")){
 
             LocalDate fechaUltiParto = secado.getFecha_ultParto();
             Double peso = secado.getPeso_kilos();

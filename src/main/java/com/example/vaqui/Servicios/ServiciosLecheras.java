@@ -71,7 +71,7 @@ public class ServiciosLecheras {
         String mensaje = "Vaca lechera no ingresada";
         General general = genrepository.findById(id).get();
 
-        if (genrepository.existsById(id) && general.getGenero().equals("femenino")){
+        if (genrepository.existsById(id) && general.getGenero().equals("hembra")){
 
             Double litro = lechera.getLitros_producidos();
             LocalDate fechaOrdeno = lechera.getFecha_ordeno();

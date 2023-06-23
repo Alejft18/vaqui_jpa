@@ -48,7 +48,7 @@ public class ControladorTernero {
     }
 
     @GetMapping("/cantidadTerneros")
-    public Integer cantidadTerneros(){return servicio.cantidadTerneros();}
+    public int cantidadTerneros(){return servicio.cantidadTerneros();}
 
     @PutMapping("/actualizarTernero/{id}")
     public String actualizarTernero(@RequestBody Ternero ternero, @PathVariable("id") Integer id){

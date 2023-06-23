@@ -66,7 +66,7 @@ public class ServicioGestacion {
 
         General general = genrepository.findById(id).get();
 
-        if (genrepository.existsById(id) && general.getGenero().equals("femenino")){
+        if (genrepository.existsById(id) && general.getGenero().equals("hembra")){
             Double peso = gestacion.getPeso_kilos();
             LocalDate fechaInsemi = gestacion.getFecha_inseminacion();
             LocalDate fechaAproxParto = gestacion.getFecha_aproxParto();

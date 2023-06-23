@@ -68,7 +68,7 @@ public class ServicioToro {
         String mensaje = "no se ingresó el toro";
         General general = genrepository.findById(id).get();
 
-        if (genrepository.existsById(id) && general.getGenero().equals("masculino")){
+        if (genrepository.existsById(id) && general.getGenero().equals("macho")){
 
             Double peso = toro.getPeso_kilos();
             LocalDate fechaExtraccion = toro.getFecha_extraccion();
