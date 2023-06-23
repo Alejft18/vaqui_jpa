@@ -131,5 +131,8 @@ public class ServiciosLecheras {
     }
 
 
+    public Double promedioLeche(){return repository.promedioLeche();}
+
+
 
 }

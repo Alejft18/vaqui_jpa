@@ -45,4 +45,6 @@ public class ServicioGeneral {
         }
         return mensaje;
     }
+
+    public Integer cantidadBovinos(){return repository.cantidadBovinos();}
 }

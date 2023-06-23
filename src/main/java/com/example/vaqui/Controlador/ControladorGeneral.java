@@ -22,9 +22,10 @@ public class ControladorGeneral {
     }
 
     @GetMapping("/ultimoIdGeneral")
-    public General ultimoId(){
-        return servicio.ultimoId();
-    }
+    public General ultimoId(){return servicio.ultimoId();}
+
+    @GetMapping("/cantidadBovinos")
+    public Integer cantidadBovinos(){return servicio.cantidadBovinos();}
 
     @PostMapping("/agregarGeneral")
     public String agregarGeneral(@RequestBody General general){

@@ -12,4 +12,7 @@ import org.springframework.stereotype.Repository;
 public interface TerneroRepository extends JpaRepository<Ternero, Integer> {
     @Query(value = "SELECT * FROM tbl_ternero WHERE id LIKE :id", nativeQuery = true)
     Ternero buscarPorIdTernero(@Param("id") Integer id);
+
+    @Query(value = "SELECT count(codigo) AS 'cantidad de terneros' FROM tbl_ternero", nativeQuery = true)
+    Integer cantidadTerneros();
 }

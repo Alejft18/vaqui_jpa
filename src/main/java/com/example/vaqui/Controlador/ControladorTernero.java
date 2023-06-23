@@ -47,6 +47,9 @@ public class ControladorTernero {
         return servicio.buscarTerneroId(id);
     }
 
+    @GetMapping("/cantidadTerneros")
+    public Integer cantidadTerneros(){return servicio.cantidadTerneros();}
+
     @PutMapping("/actualizarTernero/{id}")
     public String actualizarTernero(@RequestBody Ternero ternero, @PathVariable("id") Integer id){
         return servicio.actualizarTenero(ternero,id);

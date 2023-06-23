@@ -53,7 +53,6 @@ public class ControladorLecheras {
         return servicios.eliminarLechera(id);
     }
 
-//    @PutMapping("/actualizarLecheras")
-//    public String actualizarLecheras(@RequestBody Lechera lechera){return servicios.actualizarLecheras(lechera);}
-
+    @GetMapping("/promedioLeche")
+    public Double promedioLeche(){return servicios.promedioLeche();}
 }

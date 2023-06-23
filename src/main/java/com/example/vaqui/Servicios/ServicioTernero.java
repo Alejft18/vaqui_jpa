@@ -110,4 +110,6 @@ public class ServicioTernero {
         return mensaje;
     }
 
+    public Integer cantidadTerneros(){return repository.cantidadTerneros();}
+
 }

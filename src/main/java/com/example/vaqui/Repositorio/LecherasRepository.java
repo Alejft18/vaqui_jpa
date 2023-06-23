@@ -14,4 +14,7 @@ import java.util.List;
 public interface LecherasRepository extends JpaRepository<Lechera, Integer> {
     @Query(value = "SELECT * FROM tbl_lechera WHERE id LIKE :id", nativeQuery = true)
     Lechera buscarPorIdLecheras(@Param("id") Integer id);
+
+    @Query(value = "SELECT ROUND(AVG(litros_producidos),2) AS 'promedio de litros producidos' FROM tbl_lechera", nativeQuery = true)
+    Double promedioLeche();
 }
