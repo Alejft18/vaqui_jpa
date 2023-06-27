@@ -65,7 +65,7 @@ public class ServicioToro {
 
 
     public String agregarToro(Toro toro, Integer id){
-        String mensaje = "no se ingresó el toro";
+        String mensaje = "";
         General general = genrepository.findById(id).get();
 
         if (genrepository.existsById(id) && general.getGenero().equals("macho")){
@@ -87,22 +87,22 @@ public class ServicioToro {
 
     public Toro buscarToroId(Integer id){return repository.buscarPorIdToro(id);}
     public String eliminarToro(Integer id){
-        String mensaje = "No se puede borrar el bovino Gestacion";
+        String mensaje = "";
 
         Toro toro = repository.buscarPorIdToro(id);
         Integer codigo= toro.getCodigo();
 
         if (repository.existsById(codigo)){
             repository.deleteById(codigo);
-            mensaje = "Bovino gestacion borrado con exito";
+            mensaje = "Toro borrado con exito";
 
-        }else {mensaje = "Error al borrar el bovino gestacion";}
+        }else {mensaje = "Error al borrar el toro";}
 
         return mensaje;
     }
 
     public String actualizarToro(Toro toro, Integer id){
-        String mensaje = "No se puede actualizar el toro";
+        String mensaje = "";
 
         Toro semental = repository.buscarPorIdToro(id);
         Integer codigo = semental.getCodigo();

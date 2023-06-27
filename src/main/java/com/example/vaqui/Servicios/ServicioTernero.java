@@ -56,7 +56,7 @@ public class ServicioTernero {
     }
 
     public String agregarTernero(Ternero ternero,Integer id, Integer id_madre){
-        String mensaje="No se ingresó el ternero";
+        String mensaje="";
         General general = genrepository.findById(id).get();
         General idMadre = genrepository.findById(id_madre).get();
 
@@ -77,23 +77,24 @@ public class ServicioTernero {
     }
 
     public Ternero buscarTerneroId(Integer id){return repository.buscarPorIdTernero(id);}
+
     public String eliminarTernero(Integer id){
-        String mensaje = "No se puede borrar el bovino Gestacion";
+        String mensaje = "";
 
         Ternero ternero = repository.buscarPorIdTernero(id);
         Integer codigo= ternero.getCodigo();
 
         if (repository.existsById(codigo)){
             repository.deleteById(codigo);
-            mensaje = "Bovino gestacion borrado con exito";
+            mensaje = "Ternero borrado con exito";
 
-        }else {mensaje = "Error al borrar el bovino gestacion";}
+        }else {mensaje = "Error al borrar el ternero";}
 
         return mensaje;
     }
 
     public String actualizarTenero(Ternero ternero, Integer id){
-        String mensaje = "No se puede actualizar el ternero";
+        String mensaje = "";
 
         Ternero terne = repository.buscarPorIdTernero(id);
         Integer codigo = terne.getCodigo();
