@@ -63,7 +63,7 @@ public class ServiciosSecado {
 
    public String agregarSecado(Secado secado, Integer id){
 
-        String mensaje = "Bovino secado no ingresado";
+        String mensaje = "";
         General general = genrepository.findById(id).get();
 
         if (genrepository.existsById(id) && general.getGenero().equals("hembra")){
@@ -85,17 +85,18 @@ public class ServiciosSecado {
    }
 
     public Secado buscarSecadoId(Integer id){return repository.buscarPorIdSecado(id);}
+
     public String eliminarSecado(Integer id){
-        String mensaje = "No se puede borrar el bovino Gestacion";
+        String mensaje = "";
 
         Secado secado = repository.buscarPorIdSecado(id);
         Integer codigo= secado.getCodigo();
 
         if (repository.existsById(codigo)){
             repository.deleteById(codigo);
-            mensaje = "Bovino gestacion borrado con exito";
+            mensaje = "Bovino en secado borrado con exito";
 
-        }else {mensaje = "Error al borrar el bovino gestacion";}
+        }else {mensaje = "Error al borrar el bovino en secado";}
 
         return mensaje;
     }

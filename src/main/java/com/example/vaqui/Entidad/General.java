@@ -23,7 +23,7 @@ public class General {
     @Column(nullable = false, length = 40)
     private String procedencia;
 
-    @Column
+    @Column(length = 1000)
     private String imagen;
 
     @OneToOne(mappedBy = "id_lecheras", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
