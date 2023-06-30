@@ -36,10 +36,10 @@ public class ServiciosSecado {
 
         for (Secado secado : secados) {
             int id = secado.getId_secado().getId();
-            LocalDate fechaUltiParto = secado.getFecha_ultParto();
+            LocalDate fechaUltiParto = secado.getFecha_ultimo_parto();
             Double peso = secado.getPeso_kilos();
             LocalDate fechaRevi = secado.getFecha_revision();
-            LocalDate fechaUltiOrdeno = secado.getFecha_ultimoOrdeno();
+            LocalDate fechaUltiOrdeno = secado.getFecha_ordeno();
             String categoria = secado.getCategoria();
 
 
@@ -48,10 +48,10 @@ public class ServiciosSecado {
 
             try {
                 jsonObject.put("id", id);
-                jsonObject.put("fecha_ultParto", fechaUltiParto);
+                jsonObject.put("fecha_ultimo_parto", fechaUltiParto);
                 jsonObject.put("peso_kilos", peso);
                 jsonObject.put("fecha_revision", fechaRevi);
-                jsonObject.put("fecha_ultimoOrdeno", fechaUltiOrdeno);
+                jsonObject.put("fecha_ordeno", fechaUltiOrdeno);
                 jsonObject.put("categoria", categoria);
 
                 jsonArray.put(jsonObject);
@@ -68,13 +68,14 @@ public class ServiciosSecado {
 
         if (genrepository.existsById(id) && general.getGenero().equals("hembra")){
 
-            LocalDate fechaUltiParto = secado.getFecha_ultParto();
+            LocalDate fechaUltiParto = secado.getFecha_ultimo_parto();
             Double peso = secado.getPeso_kilos();
             LocalDate fechaRevi = secado.getFecha_revision();
-            LocalDate fechaUltiOrdeno = secado.getFecha_ultimoOrdeno();
+            LocalDate fechaUltiOrdeno = secado.getFecha_ordeno();
             String categoria = secado.getCategoria();
 
             Secado seca = new Secado(general,fechaUltiParto,peso,fechaRevi,fechaUltiOrdeno,categoria);
+            System.out.println(seca);
             repository.save(seca);
 
             mensaje = "Bovino en secado agregado con exito";
@@ -102,15 +103,15 @@ public class ServiciosSecado {
     }
 
     public String actualizarSecado(Secado secado, Integer id){
-        String mensaje = "No se puede actualizar el bovino en secado";
+        String mensaje = "";
 
         Secado seca = repository.buscarPorIdSecado(id);
         Integer codigo = seca.getCodigo();
 
         if (repository.existsById(codigo)){
             seca.setFecha_revision(secado.getFecha_revision());
-            seca.setFecha_ultParto(secado.getFecha_ultParto());
-            seca.setFecha_ultimoOrdeno(secado.getFecha_ultimoOrdeno());
+            seca.setFecha_ultimo_parto(secado.getFecha_ultimo_parto());
+            seca.setFecha_ordeno(secado.getFecha_ordeno());
             seca.setPeso_kilos(secado.getPeso_kilos());
             repository.save(seca);
 

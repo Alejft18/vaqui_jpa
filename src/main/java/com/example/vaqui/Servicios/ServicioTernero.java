@@ -16,9 +16,7 @@ import java.util.List;
 public class ServicioTernero {
     TerneroRepository repository;
     GeneralRepository genrepository;
-
-
-    public ServicioTernero(TerneroRepository repository, GeneralRepository genrepository){
+    public ServicioTernero(TerneroRepository repository, GeneralRepository genrepository) {
         this.repository = repository;
         this.genrepository = genrepository;
     }
@@ -112,5 +110,4 @@ public class ServicioTernero {
     }
 
     public int cantidadTerneros(){return repository.cantidadTerneros();}
-
 }

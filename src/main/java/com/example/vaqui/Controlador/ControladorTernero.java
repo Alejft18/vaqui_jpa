@@ -2,7 +2,9 @@ package com.example.vaqui.Controlador;
 
 import com.example.vaqui.Entidad.Secado;
 import com.example.vaqui.Entidad.Ternero;
+import com.example.vaqui.Entidad.Toro;
 import com.example.vaqui.Servicios.ServicioTernero;
+import jakarta.transaction.Transactional;
 import org.json.JSONArray;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -59,5 +61,6 @@ public class ControladorTernero {
     public String eliminarTernero(@PathVariable("id") Integer id){
         return servicio.eliminarTernero(id);
     }
+
 
 }

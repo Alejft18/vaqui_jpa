@@ -21,7 +21,7 @@ public class Secado {
 
     @Column(nullable = false)
     @Temporal(TemporalType.DATE)
-    private LocalDate fecha_ultParto;
+    private LocalDate fecha_ultimo_parto;
 
     @Column(nullable = false)
     private Double peso_kilos;
@@ -32,27 +32,27 @@ public class Secado {
 
     @Column(nullable = false)
     @Temporal(TemporalType.DATE)
-    private LocalDate fecha_ultimoOrdeno;
+    private LocalDate fecha_ordeno;
 
     @Column(nullable = false, length = 20)
     private String categoria;
 
-    public Secado(General id_secado, LocalDate fecha_ultParto, Double peso_kilos, LocalDate fecha_revision, LocalDate fecha_ultimoOrdeno, String categoria) {
+    public Secado(General id_secado, LocalDate fecha_ultimo_parto, Double peso_kilos, LocalDate fecha_revision, LocalDate fecha_ordeno, String categoria) {
         this.id_secado = id_secado;
-        this.fecha_ultParto = fecha_ultParto;
+        this.fecha_ultimo_parto = fecha_ultimo_parto;
         this.peso_kilos = peso_kilos;
         this.fecha_revision = fecha_revision;
-        this.fecha_ultimoOrdeno = fecha_ultimoOrdeno;
+        this.fecha_ordeno = fecha_ordeno;
         this.categoria = categoria;
     }
 
-    public Secado(Integer codigo, General id_secado, LocalDate fecha_ultParto, Double peso_kilos, LocalDate fecha_revision, LocalDate fecha_ultimoOrdeno, String categoria) {
+    public Secado(Integer codigo, General id_secado, LocalDate fecha_ultimo_parto, Double peso_kilos, LocalDate fecha_revision, LocalDate fecha_ordeno, String categoria) {
         this.codigo = codigo;
         this.id_secado = id_secado;
-        this.fecha_ultParto = fecha_ultParto;
+        this.fecha_ultimo_parto = fecha_ultimo_parto;
         this.peso_kilos = peso_kilos;
         this.fecha_revision = fecha_revision;
-        this.fecha_ultimoOrdeno = fecha_ultimoOrdeno;
+        this.fecha_ordeno = fecha_ordeno;
         this.categoria = categoria;
     }
 
@@ -75,12 +75,12 @@ public class Secado {
         this.id_secado = id_secado;
     }
 
-    public LocalDate getFecha_ultParto() {
-        return fecha_ultParto;
+    public LocalDate getFecha_ultimo_parto() {
+        return fecha_ultimo_parto;
     }
 
-    public void setFecha_ultParto(LocalDate fecha_ultParto) {
-        this.fecha_ultParto = fecha_ultParto;
+    public void setFecha_ultimo_parto(LocalDate fecha_ultimo_parto) {
+        this.fecha_ultimo_parto = fecha_ultimo_parto;
     }
 
     public Double getPeso_kilos() {
@@ -99,12 +99,12 @@ public class Secado {
         this.fecha_revision = fecha_revision;
     }
 
-    public LocalDate getFecha_ultimoOrdeno() {
-        return fecha_ultimoOrdeno;
+    public LocalDate getFecha_ordeno() {
+        return fecha_ordeno;
     }
 
-    public void setFecha_ultimoOrdeno(LocalDate fecha_ultimoOrdeno) {
-        this.fecha_ultimoOrdeno = fecha_ultimoOrdeno;
+    public void setFecha_ordeno(LocalDate fecha_ordeno) {
+        this.fecha_ordeno = fecha_ordeno;
     }
 
     public String getCategoria() {
@@ -120,10 +120,10 @@ public class Secado {
         return "Secado{" +
                 "codigo=" + codigo +
                 ", id_secado=" + id_secado +
-                ", fecha_ultParto=" + fecha_ultParto +
+                ", fecha_ultimo_parto=" + fecha_ultimo_parto +
                 ", peso_kilos=" + peso_kilos +
                 ", fecha_revision=" + fecha_revision +
-                ", fecha_ultimoOrdeno=" + fecha_ultimoOrdeno +
+                ", fecha_ordeno=" + fecha_ordeno +
                 ", categoria='" + categoria + '\'' +
                 '}';
     }

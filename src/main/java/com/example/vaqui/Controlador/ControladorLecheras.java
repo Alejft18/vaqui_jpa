@@ -18,7 +18,7 @@ import java.util.Objects;
 
 @RestController
 @CrossOrigin(originPatterns = "*", allowedHeaders = {"GET", "POST", "PUT", "DELETE"})
-public class    ControladorLecheras {
+public class ControladorLecheras {
 
     ServiciosLecheras servicios;
 
