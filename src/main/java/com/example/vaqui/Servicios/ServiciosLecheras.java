@@ -1,6 +1,7 @@
 package com.example.vaqui.Servicios;
 
 import com.example.vaqui.Entidad.General;
+import com.example.vaqui.Entidad.Gestacion;
 import com.example.vaqui.Entidad.Lechera;
 import com.example.vaqui.Repositorio.GeneralRepository;
 import com.example.vaqui.Repositorio.LecherasRepository;
@@ -8,8 +9,11 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.springframework.stereotype.Service;
+
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -64,7 +68,7 @@ public class ServiciosLecheras {
     }
 
     public String agregarLechera(Lechera lechera, Integer id){
-        String mensaje = "";
+        String mensaje = "Vaca lechera no ingresada";
         General general = genrepository.findById(id).get();
 
         if (genrepository.existsById(id) && general.getGenero().equals("hembra")){
@@ -87,25 +91,25 @@ public class ServiciosLecheras {
         return mensaje;
     }
 
-    public Lechera buscarLecherasId(Integer id){return repository.buscarPorIdLecheras(id);}
 
+    public Lechera buscarLecherasId(Integer id){return repository.buscarPorIdLecheras(id);}
     public String eliminarLechera(Integer id){
-        String mensaje = "";
+        String mensaje = "No se puede borrar el bovino Gestacion";
 
         Lechera lechera = repository.buscarPorIdLecheras(id);
         Integer codigo= lechera.getCodigo();
 
         if (repository.existsById(codigo)){
             repository.deleteById(codigo);
-            mensaje = "Vaca lechera borrada con exito";
+            mensaje = "Bovino gestacion borrado con exito";
 
-        }else {mensaje = "Error al borrar la vaca lechera";}
+        }else {mensaje = "Error al borrar el bovino gestacion";}
 
         return mensaje;
     }
 
     public String actualizarLecheras(Lechera lechera, Integer id){
-        String mensaje = "";
+        String mensaje = "No se puede actualizar la vaca lechera";
 
         Lechera leche = repository.buscarPorIdLecheras(id);
         Integer codigo = leche.getCodigo();

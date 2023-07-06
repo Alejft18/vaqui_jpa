@@ -8,7 +8,6 @@ import java.time.LocalDate;
 @Entity
 @Table(name = "tbl_toro")
 public class Toro {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer codigo;
