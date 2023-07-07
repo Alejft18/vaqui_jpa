@@ -40,8 +40,8 @@ $(document).ready(function(){
                 correo: $('#correo').val(),
                 contrasena: $('#contraseña').val(),
                 rol: $('#rol').val(),
-                area: $('#area').val()
-                // imagen: $('#seleccionar__imagen').val(),
+                area: $('#area').val(),
+                imagen: $('#seleccionar__imagen').val()
             }
 
             console.log(datos);
@@ -62,6 +62,4 @@ $(document).ready(function(){
                }
            });
         });
-
-
 });

@@ -66,34 +66,4 @@ $(document).ready(function() {
 function toggleMenu() {
     var menu = document.getElementById("menu");
     menu.classList.toggle("active");
-  }
-
-
-$(document).ready(function(){
-
-$('#registrar').on('click', function() {
-    let datos = {
-        id: parseInt($('#id').val()),
-        nombre: $('#nombre').val(),
-        apellido: $('#apellido').val(),
-        telefono: parseInt($('#telefono').val()),
-        rol: $('#rol').val(),
-        imagen: $('#seleccionar__imagen').val(),
-    }
-    
-    console.log(datos);
-    let datosEnvio = JSON.stringify(datos);
-    console.log(datosEnvio);
-
-    $.ajax({
-        url: "http://localhost:8080/agregarEmpleado",
-        type: "POST",
-        data: datosEnvio,
-        contentType: "application/JSON",
-        dataType: "JSON",
-        success: function(respuesta) {
-            alert(respuesta);
-        }
-    });
-    });
-});
+}
