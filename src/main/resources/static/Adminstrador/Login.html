@@ -9,42 +9,41 @@
     <title>Inicio de sesion</title>
 </head>
 <body>
-        
-    <div class="container">
-            <img src="/ImagenesVacas/VacaPrincipal.webp" alt="ilustracion vaca">
-            
-        <div class="container-form"> 
-            <form action="form">
-                <h2 class="form-title">Vaqui</h2>
-                <div class="form-container">
-                    <div class="form-group">
-                        <input type="number" id="number" class="form-input" placeholder=" ">
-                        <label for="number" class="form-label">Numero de documento</label>
-                        <span class="form-line"></span>
-                    </div>
-    
-                    <div class="form-group">
-                        <input type="password" id="contraseña" class="form-input" placeholder=" ">
-                        <label for="contraseña" class="form-label">Contraseña</label>
-                        <span class="form-line"></span>
-                    </div>
-                </div>    
-                <a href="./LandingPage.html" class="iniciar-sesion" >Iniciar Sesion</a>
-                <div class="hrs">
-                    <hr>
-                    <h4>o</h4>
-                    <hr>
+
+<div class="container">
+    <img src="/ImagenesVacas/VacaPrincipal.webp" alt="ilustracion vaca">
+
+    <div class="container-form">
+        <form onsubmit="validarFormulario(event)">
+            <h2 class="form-title">Vaqui</h2>
+            <div class="form-container">
+                <div class="form-group">
+                    <input type="number" id="number" class="form-input" placeholder=" ">
+                    <label for="number" class="form-label">Numero de documento</label>
+                    <span class="form-line"></span>
                 </div>
-                <a href="" class="olvidaste-contraseña">¿Olvidaste tu contraseña?</a>
-            </form>
 
-            <div class="servicios">
-                <a href="./Servicios.html" class="servicios-a">Adquiere nuestros servicios</a>
+                <div class="form-group">
+                    <input type="password" id="contraseña" class="form-input" placeholder=" ">
+                    <label for="contraseña" class="form-label">Contraseña</label>
+                    <span class="form-line"></span>
+                </div>
             </div>
+            <button type="submit" class="iniciar-sesion">Iniciar Sesion</button>
+            <div class="hrs">
+                <hr>
+                <h4>o</h4>
+                <hr>
+            </div>
+            <a href="" class="olvidaste-contraseña">¿Olvidaste tu contraseña?</a>
+        </form>
 
-        </div>  
+        <div class="servicios">
+            <a href="./Servicios.html" class="servicios-a">Adquiere nuestros servicios</a>
+        </div>
     </div>
-    
+</div>
 
+<script src="./JS/login.js"></script>
 </body>
 </html>

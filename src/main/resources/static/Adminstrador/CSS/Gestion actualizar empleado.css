@@ -178,6 +178,19 @@ form a{
     background: #fff;
     color: #9DC08B;
   }
+
+  .btn-actualizar {
+    background-color: #4CAF50;
+    color: white;
+    padding: 8px 16px;
+    border: none;
+    cursor: pointer;
+  }
+
+  .btn-actualizar:hover {
+    background-color: #45a049;
+  }
+
 /* fin formulario */
 
 @media (min-width: 720px) {
