@@ -58,7 +58,10 @@ $(document).ready(function(){
                   alert("El usuario se agregó exitosamente."); // Muestra un mensaje de éxito
                },
                error: function(xhr, status, error) {
-                  alert("Error al agregar el usuario: " + xhr.responseText); // Muestra un mensaje de error con el detalle del error
+                   console.log(xhr);
+                   console.log(status);
+                   console.log(error);
+                   alert("Error al agregar el usuario: " + xhr.responseText); // Muestra un mensaje de error con el detalle del error
                }
            });
         });
