@@ -15,7 +15,7 @@ $(document).ready(function(){
                   '<td>' + datos[i].contrasena + '</td>' +
                   '<td>' + datos[i].rol + '</td>' +
                   '<td>' + datos[i].area + '</td>' +
-                  '<td><button class="btn-actualizar" data-id="' + datos[i].id + '">Actualizar</button></td>');
+                  '<td><a class="btn-actualizar" href="/Adminstrador/FormularioActualizarEmpleado.html?id=' + datos[i].id + '">Actualizar</a></td>');
       tbody.append(fila);
       }
   }

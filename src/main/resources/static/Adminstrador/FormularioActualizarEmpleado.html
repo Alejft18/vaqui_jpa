@@ -1,69 +1,116 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
-    <title>Actualizar Usuario</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="./CSS/Gestion ingresar empleado.css">
+    <link rel="icon" href="/ImagenesPrincipales/logo.png">
+    <title>Actualizar Empleado</title>
+
     <script>
         function actualizarUsuario() {
-            var usuario = {
-                id: document.getElementById("id").value,
-                nombre: document.getElementById("nombre").value,
-                apellido: document.getElementById("apellido").value,
-                telefono: document.getElementById("telefono").value,
-                correo: document.getElementById("correo").value,
-                contrasena: document.getElementById("contrasena").value,
-                rol: document.getElementById("rol").value,
-                area: document.getElementById("area").value,
-                imagen: document.getElementById("imagen").value
-            };
+          var usuario = {
+              id: document.getElementById("id").value,
+              nombre: document.getElementById("nombre").value,
+              apellido: document.getElementById("apellido").value,
+              telefono: document.getElementById("telefono").value,
+              correo: document.getElementById("correo").value,
+              contrasena: document.getElementById("contrasena").value,
+              rol: document.getElementById("rol").value,
+              area: document.getElementById("area").value
+              // imagen: document.getElementById("imagen").value
+          };
 
-            $.ajax({
-                type: "PUT",
-                url: "http://localhost:8080/actualizarUsuario",
-                data: JSON.stringify(usuario),
-                contentType: "application/json",
-                success: function (response) {
-                    alert(response);
-                    // Aquí puedes manejar la respuesta del backend como desees
-                },
-                error: function (error) {
-                    console.error(error);
-                }
-            });
+          $.ajax({
+              type: "PUT",
+              url: "http://localhost:8080/actualizarUsuario",
+              data: JSON.stringify(usuario),
+              contentType: "application/json",
+              success: function (response) {
+                  alert(response);
+                  // Aquí puedes manejar la respuesta del backend como desees
+              },
+              error: function (error) {
+                  console.error(error);
+              }
+          });
         }
     </script>
+
 </head>
 <body>
-<h1>Actualizar Usuario</h1>
-<form>
-    <label>ID:</label>
-    <input type="text" id="id" required>
 
-    <label>Nombre:</label>
-    <input type="text" id="nombre" required>
+<header>
+    <div class="vaqui">
+        <a href="/Administrador/Login.html">Vaqui</a>
+    </div>
+</header>
+<hr>
 
-    <label>Apellido:</label>
-    <input type="text" id="apellido" required>
+<div class="principal">
+    <img src="/ImagenesEmpleados/actualizarEmpleado.svg" alt="añadir empleado">
 
-    <label>Teléfono:</label>
-    <input type="text" id="telefono" required>
+    <form>
+        <h2 class="form-title">Ingrese los datos actualizados</h2>
+        <div class="form-container">
+            <div class="form-group">
+                <input type="number" id="id" required class="form-input" placeholder=" ">
+                <label for="id" class="form-label">Numero de documento</label>
+                <span class="form-line"></span>
+            </div>
 
-    <label>Correo:</label>
-    <input type="email" id="correo" required>
+            <div class="form-group">
+                <input type="text" id="nombre" class="form-input" placeholder=" ">
+                <label for="nombre" class="form-label">Nombre</label>
+                <span class="form-line"></span>
+            </div>
 
-    <label>Contraseña:</label>
-    <input type="password" id="contrasena" required>
+            <div class="form-group">
+                <input type="text" id="apellido" class="form-input" placeholder=" ">
+                <label for="apellido" class="form-label">Apellido</label>
+                <span class="form-line"></span>
+            </div>
 
-    <label>Rol:</label>
-    <input type="text" id="rol" required>
+            <div class="form-group">
+                <input type="number" id="telefono" class="form-input" placeholder=" ">
+                <label for="telefono" class="form-label">Numero de telefono</label>
+                <span class="form-line"></span>
+            </div>
 
-    <label>Área:</label>
-    <input type="text" id="area">
+            <div class="form-group">
+                <input type="email" id="correo" class="form-input" placeholder=" ">
+                <label for="correo" class="form-label">Correo</label>
+                <span class="form-line"></span>
+            </div>
 
-    <label>Imagen:</label>
-    <input type="text" id="imagen">
+            <div class="form-group">
+                <input type="password" id="contrasena" class="form-input" placeholder=" ">
+                <label for="contrasena" class="form-label">Contraseña</label>
+                <span class="form-line"></span>
+            </div>
 
-    <button type="button" onclick="actualizarUsuario()">Actualizar Usuario</button>
-</form>
+            <div class="form-group">
+                <input type="text" id="rol" class="form-input" placeholder=" ">
+                <label for="rol" class="form-label">Rol del empleado</label>
+                <span class="form-line"></span>
+            </div>
+
+            <div class="form-group">
+                <input type="text" id="area" class="form-input" placeholder=" ">
+                <label for="area" class="form-label">Area</label>
+                <span class="form-line"></span>
+            </div>
+
+            <button type="button" onclick="actualizarUsuario()">Actualizar Usuario</button>
+
+        </div>
+
+    </form>
+</div>
+
+<!-- <script src="./JS/actualizarEmpleado.js"></script> -->
 </body>
 </html>
+

@@ -7,10 +7,10 @@ $(document).ready(function() {
     for (let i = 0; i < datos.length; i++) {
       let fila = $('<tr>');
       fila.html('<td>' + datos[i].id + '</td>' +
-                '<td>' + datos[i].fecha_ultParto + '</td>' +
+                '<td>' + datos[i].fecha_ultimo_parto + '</td>' +
                 '<td>' + datos[i].peso_kilos + '</td>' +
                 '<td>' + datos[i].fecha_revision + '</td>' +
-                '<td>' + datos[i].fecha_ultimoOrdeno + '</td>' +
+                '<td>' + datos[i].fecha_ordeno + '</td>' +
                 '<td>' + datos[i].categoria + '</td>' +
                 '<td><button class="delete-button" data-id="' + datos[i].id + '">Eliminar</button></td>');
       tbody.append(fila);

@@ -180,8 +180,7 @@ form a{
   }
 
   .btn-actualizar {
-    background-color: #4CAF50;
-    color: white;
+    background-color: red;
     padding: 8px 16px;
     border: none;
     cursor: pointer;
