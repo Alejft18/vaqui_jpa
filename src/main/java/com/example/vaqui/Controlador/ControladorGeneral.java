@@ -24,6 +24,9 @@ public class ControladorGeneral {
     @GetMapping("/ultimoIdGeneral")
     public General ultimoId(){return servicio.ultimoId();}
 
+//    @GetMapping("/ulti_id")
+//    public General ulti_id(){return servicio.ulti_id();}
+
     @GetMapping("/cantidadBovinos")
     public Integer cantidadBovinos(){return servicio.cantidadBovinos();}
 

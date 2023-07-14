@@ -22,6 +22,10 @@ public class ServicioGeneral {
         return repository.ultimoId();
     }
 
+//    public General ulti_id(){
+//        return repository.ulti_id();
+//    }
+
     public  String agregarGeneral(General general){
         repository.save(general);
         return "Ingreso exitoso";
