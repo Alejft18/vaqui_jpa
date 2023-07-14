@@ -24,6 +24,12 @@ public class ControladorUsuario {
         return servicio.listar();
     }
 
+    @GetMapping("/buscarUsuario/{id}")
+    public Usuario buscarUsuario(@PathVariable("id") BigInteger id){
+        return servicio.buscarUsuario(id);
+    }
+
+
     @GetMapping("/listarEmpleados")
     public List<Usuario> listarEmpleados(){return servicio.listarEmpleados();}
 

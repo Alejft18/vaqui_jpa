@@ -46,4 +46,25 @@ public class ServicioUsuario {
         return mensaje;
     }
 
+    public Usuario buscarUsuario(BigInteger id) {
+        Usuario usu = null;
+        if (repository.existsById(id)) {
+            Usuario usuario = repository.findById(id).get();
+            BigInteger id_usu = usuario.getId();
+            String nombre = usuario.getNombre();
+            String apellido = usuario.getApellido();
+            BigInteger telefono = usuario.getTelefono();
+            String correo = usuario.getCorreo();
+            String contrasena = usuario.getContrasena();
+            String rol = usuario.getRol();
+            String area = usuario.getArea();
+            String imagen = usuario.getImagen();
+
+            usu = new Usuario(id_usu, nombre, apellido, telefono, correo, contrasena, rol, area, imagen);
+
+        }
+
+        return usu;
+
+    }
 }
