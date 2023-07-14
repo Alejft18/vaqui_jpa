@@ -67,7 +67,7 @@ $("#agregarLechera").on('click', function() {
                 alert("Resultado de la API: " + resultadoJSON);
             } catch (error) {
                 alert("Mensaje satisfactorio: " + resultado);
-                window.location.href = "./Seleccionar categoria.html";
+                window.location.href = "./LandingPage.html";
             }
         },
         error: function(xhr, status, error) {
@@ -77,10 +77,191 @@ $("#agregarLechera").on('click', function() {
 });
 
 
+    // Agregar ENGORDE
+$("#agregarEngorde").on('click', function() {
+    categoria = "engorde";
+    let datos = {
+        id: $('#id').val(),
+        peso_kilos: $('#peso').val(),
+        fecha_revision: $('#fecha_reivision').val(),
+        alimento: $('#alimento').val(),
+        categoria: categoria
+    };
+
+    console.log(datos);
+    let datosEnvio = JSON.stringify(datos);
+    console.log(datosEnvio);
+
+    $.ajax({
+        url: "http://localhost:8080/ingresarEngorde/" + $('#id').val(),
+        type: "POST",
+        data: datosEnvio,
+        contentType: "application/json",
+        dataType: "text",
+        success: function(resultado) {
+            try {
+                let resultadoJSON = JSON.parse(resultado);
+                alert("Resultado de la API: " + resultadoJSON);
+            } catch (error) {
+                alert("Mensaje satisfactorio: " + resultado);
+                window.location.href = "./LandingPage.html";
+            }
+        },
+        error: function(xhr, status, error) {
+            alert("Error al llamar a la API: " + error);
+        }
+    });
+});
 
 
+    // Agregar TERNERO
+$("#agregarTernero").on('click', function() {
+    let categoria = "ternero";
+    let datos = {
+        id: $('#id').val(),
+        id_madre: $('#id_madre').val(),
+        peso_kilos: $('#peso').val(),
+        fecha_revision: $('#revision').val(),
+        categoria: categoria
+    };
+
+    let datosEnvio = JSON.stringify(datos);
+
+    $.ajax({
+        url: "http://localhost:8080/agregarTernero/" + $('#id').val() + "/" + $('#id_madre').val(),
+        type: "POST",
+        data: datosEnvio,
+        contentType: "application/json",
+        dataType: "text",
+        success: function(resultado) {
+            try {
+                let resultadoJSON = JSON.parse(resultado);
+                alert("Resultado de la API: " + resultadoJSON);
+            } catch (error) {
+                alert("Mensaje satisfactorio: " + resultado);
+                window.location.href = "./LandingPage.html";
+            }
+        },
+        error: function(xhr, status, error) {
+            alert("Error al llamar a la API: " + error);
+        }
+    });
+});
 
 
+    // Agregar GESTACION
+$("#agregarGestacion").on('click', function() {
+    categoria = "gestacion";
+    let datos = {
+        id: $('#id').val(),
+        peso_kilos: $('#peso').val(),
+        fecha_inseminacion: $('#inseminacion').val(),
+        fecha_aproxParto: $('#aproxParto').val(),
+        fecha_ultimoParto: $('#fecha_ult_parto').val(),
+        fecha_revision: $('#fecha_reivision').val(),
+        categoria: categoria
+    };
+
+    console.log(datos);
+    let datosEnvio = JSON.stringify(datos);
+    console.log(datosEnvio);
+
+    $.ajax({
+        url: "http://localhost:8080/agregarGestacion/" + $('#id').val(),
+        type: "POST",
+        data: datosEnvio,
+        contentType: "application/json",
+        dataType: "text",
+        success: function(resultado) {
+            try {
+                let resultadoJSON = JSON.parse(resultado);
+                alert("Resultado de la API: " + resultadoJSON);
+            } catch (error) {
+                alert("Mensaje satisfactorio: " + resultado);
+                window.location.href = "./LandingPage.html";
+            }
+        },
+        error: function(xhr, status, error) {
+            alert("Error al llamar a la API: " + error);
+        }
+    });
+});
+
+
+    // Agregar SECADO
+$("#agregarSecado").on('click', function() {
+    categoria = "secado";
+    let datos = {
+        id: $('#id').val(),
+        fecha_ultimo_parto: $('#ult_parto').val(),
+        peso_kilos: $('#peso').val(),
+        fecha_revision: $('#revision').val(),
+        fecha_ordeno: $('#fecha_ordeño').val(),
+        categoria: categoria
+    };
+
+    console.log(datos);
+    let datosEnvio = JSON.stringify(datos);
+    console.log(datosEnvio);
+
+    $.ajax({
+        url: "http://localhost:8080/agregarSecado/" + $('#id').val(),
+        type: "POST",
+        data: datosEnvio,
+        contentType: "application/json",
+        dataType: "text",
+        success: function(resultado) {
+            try {
+                let resultadoJSON = JSON.parse(resultado);
+                alert("Resultado de la API: " + resultadoJSON);
+            } catch (error) {
+                alert("Mensaje satisfactorio: " + resultado);
+                window.location.href = "./LandingPage.html";
+            }
+        },
+        error: function(xhr, status, error) {
+            alert("Error al llamar a la API: " + error);
+        }
+    });
+});
+
+
+    // Agregar TORO
+$("#agregarToro").on('click', function() {
+    categoria = "toro";
+    let datos = {
+        id: $('#id').val(),
+        peso_kilos: $('#peso').val(),
+        fecha_extraccion: $('#extraccion').val(),
+        vacas_montadas: $('#vacas_montadas').val(),
+        fecha_revision: $('#fecha_reivision').val(),
+        categoria: categoria
+    };
+
+    console.log(datos);
+    let datosEnvio = JSON.stringify(datos);
+    console.log(datosEnvio);
+
+    $.ajax({
+        url: "http://localhost:8080/agregarToro/" + $('#id').val(),
+        type: "POST",
+        data: datosEnvio,
+        contentType: "application/json",
+        dataType: "text",
+        success: function(resultado) {
+            try {
+                let resultadoJSON = JSON.parse(resultado);
+                alert("Resultado de la API: " + resultadoJSON);
+            } catch (error) {
+                alert("Mensaje satisfactorio: " + resultado);
+                window.location.href = "./LandingPage.html";
+            }
+        },
+        error: function(xhr, status, error) {
+            alert("Error al llamar a la API: " + error);
+        }
+    });
+});
 
 
 

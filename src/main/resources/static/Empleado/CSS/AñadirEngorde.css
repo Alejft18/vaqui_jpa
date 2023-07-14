@@ -106,7 +106,7 @@
     transition: transform .5s, color .3s;
   }
   
-  form a{
+  form button{
     display: inline-block;
     padding: 10px;
     text-decoration: none;
@@ -117,7 +117,7 @@
     transition: all 400ms ease;
   }
   
-  form a:hover{
+  form button:hover{
     background: #fff;
     color: #9DC08B;
   }
