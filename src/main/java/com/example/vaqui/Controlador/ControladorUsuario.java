@@ -29,7 +29,6 @@ public class ControladorUsuario {
         return servicio.buscarUsuario(id);
     }
 
-
     @GetMapping("/listarEmpleados")
     public List<Usuario> listarEmpleados(){return servicio.listarEmpleados();}
 

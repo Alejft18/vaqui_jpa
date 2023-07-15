@@ -2,7 +2,7 @@ function validarFormulario(event) {
     event.preventDefault(); // Evitar que el formulario se envíe automáticamente
 
     // Obtener los valores del formulario
-    var numeroDocumento = document.getElementById('number').value;
+    var numeroDocumento = document.getElementById('id').value;
     var contraseña = document.getElementById('contraseña').value;
 
     // Verificar las credenciales
@@ -20,3 +20,6 @@ function validarFormulario(event) {
         alert('Debes ingresar tu usuario para poder ingresar');
     }
 }
+
+
+

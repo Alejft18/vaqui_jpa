@@ -73,22 +73,27 @@ $(document).ready(function(){
           });
 
 
-    function eliminarFila() {
-        let id = $(this).data('id');
-    
-        if (confirm("¿Estás seguro de que deseas eliminar el bovino?")) {
-        $.ajax({
-            url: "http://localhost:8080/eliminarUsuario/" + id,
-            type: "DELETE",
-            dataType: "JSON",
-            success: function(respuesta) {
-            console.log(respuesta);
-            obtenerDatos(); // Actualizar la tabla después de eliminar la fila
-            },
-        });
+        function eliminarFila() {
+          let id = $(this).data('id');
+
+          if (confirm("¿Estás seguro de que deseas eliminar el bovino?")) {
+            $.ajax({
+              url: "http://localhost:8080/eliminarUsuario/" + id,
+              type: "DELETE",
+              dataType: "JSON",
+              success: function(respuesta) {
+                console.log(respuesta);
+                obtenerDatos(); // Actualizar la tabla después de eliminar la fila
+                alert("La fila se eliminó correctamente");
+                window.location.href = "./LandingPage.html"; // Reemplaza "otro.html" con la URL del HTML al que deseas redirigir
+                location.reload(); // Recargar la página actual
+              },
+            });
+          }
         }
-    }
-    
-    $(document).on('click', '.delete-button', eliminarFila);
+
+        $(document).on('click', '.delete-button', eliminarFila);
+
+
 
 });

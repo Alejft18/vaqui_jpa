@@ -67,3 +67,18 @@ function toggleMenu() {
     var menu = document.getElementById("menu");
     menu.classList.toggle("active");
 }
+
+function toggleSidebar() {
+  const sidebar = document.getElementById('sidebar');
+  sidebar.classList.toggle('active');
+}
+
+document.addEventListener('click', function(event) {
+  const sidebar = document.getElementById('sidebar');
+  const targetElement = event.target;
+
+  // Si el clic ocurre fuera de la barra lateral y del botón "perfil", y tampoco es la "X", se cierra la barra lateral
+  if (!sidebar.contains(targetElement) && targetElement !== document.querySelector('.perfil')) {
+      sidebar.classList.remove('active');
+  }
+});
