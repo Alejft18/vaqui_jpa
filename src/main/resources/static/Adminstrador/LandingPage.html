@@ -25,10 +25,10 @@
         </div>
         <ul class="menu" id="menu">
             <li><a href="#estadisticas">ESTADISTICAS</a></li>
-            <li><a href="#categoria">COLABORADORES</a></li>
+            <li><a href="#datos">INTERES</a></li>
+            <li><a href="#colaboradores">COLABORADORES</a></li>
             <li><a href="#gestion">GESTION</a></li>
-            <li><a href="./Buscar empleado.html">BUSCAR</a></li>
-            <li><a class="perfil" href="">PERFIL</a></li>
+            <li><a href="#" class="perfil" onclick="toggleSidebar()">PERFIL</a></li>
         </ul>
     </nav>
     <div class="header__slogan">
@@ -42,6 +42,29 @@
         <img class="cow" src="/ImagenesEmpleados/logoEmpleado.jpg" alt="fonde vaca">
     </div>
 </header>
+
+<div class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+        <span class="close-button" onclick="toggleSidebar()">&times;</span>
+    </div>
+    <hr>
+    <div class="sidebar-content">
+        <div class="profile-info">
+            <img src="/ImagenesEmpleados/EmpleadaSlider.jpg" alt="Imagen de perfil">
+            <h3>Nombre del Usuario</h3>
+            <p>Cargo del Usuario</p>
+        </div>
+        <hr>
+        <div class="profile-details">
+            <ul>
+                <li><strong>Número de Documento:</strong> 12345678</li>
+                <li><strong>Teléfono:</strong> (123) 456-7890</li>
+                <li><strong>Correo:</strong> usuario@example.com</li>
+                <li><strong>Área:</strong> Área de Trabajo</li>
+            </ul>
+        </div>
+    </div>
+</div>
 
 <section class="estadisticas" id="estadisticas">
     <div class="estadisticas__text">
@@ -80,7 +103,7 @@
     </div>
 </section>
 
-<section class="nosotros">
+<section class="nosotros" id="datos">
     <div class="nosotros__text">
         <h2 class="nosotros__title">Mundo de la cría bovina</h2>
         <p class="nosotros__paragraph">Te invitamos a sumergirte en el fascinante mundo de la cría bovina, donde encontrarás
@@ -124,7 +147,7 @@
     </div>
 </section>
 
-<section class="categoria" id="categoria">
+<section class="categoria" id="colaboradores">
     <div class="categoria__text">
         <h2 class="categoria__title">Colaboradores</h2>
         <p class="categoria__paragraph">Nuestro Equipo de Desarrollo es la fusión perfecta entre el mundo creativo
@@ -140,8 +163,9 @@
         <section class="slider__body slider__body--show" data-id="1">
             <div class="slider__texts">
                 <h2 class="subtitle">¡Hola! Mi nombre es Yury Rueda</h2>
-                <p class="slider__review">Encargarda de garantizar un proceso eficiente y seguro para la extracción
-                    de la leche de nuestras vacas.
+                <p class="slider__review">Encargarda de garantizar un proceso eficiente y seguro
+                    asegurándose de que los usuarios puedan interactuar de manera efectiva con el
+                    contenido y las funcionalidades del sitio.
                 </p>
             </div>
 
@@ -153,8 +177,8 @@
         <section class="slider__body" data-id="2">
             <div class="slider__texts">
                 <h2 class="subtitle">¡Hola! Mi nombre es David Mesa</h2>
-                <p class="slider__review">Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                    Dolorem tempora ex quia nisi magni nostrum?
+                <p class="slider__review">Desarrollador front-end engargado de crear y administrar
+                    la parte visual e interactiva del sitio web,(HTML, CSS, JS).
                 </p>
             </div>
 
@@ -166,8 +190,9 @@
         <section class="slider__body" data-id="3">
             <div class="slider__texts">
                 <h2 class="subtitle">¡Hola! Mi nombre es Eider Guerrero</h2>
-                <p class="slider__review">Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                    Dolorem tempora ex quia nisi magni nostrum?
+                <p class="slider__review">Encargado de garantizar que todo funcione correctamente
+                    detrás de la interfaz de usuario, su trabajo es esencial para que los usuarios
+                    interactúen con una aplicación web de manera eficiente y segura.
                 </p>
             </div>
 
@@ -179,8 +204,8 @@
         <section class="slider__body" data-id="4">
             <div class="slider__texts">
                 <h2 class="subtitle">¡Hola! Mi nombre es Josep Forero</h2>
-                <p class="slider__review">Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                    Dolorem tempora ex quia nisi magni nostrum?
+                <p class="slider__review">Encargado de trabajar en el servidor y en la lógica que
+                    permite que la aplicación funcione correctamente.
                 </p>
             </div>
 
@@ -278,9 +303,9 @@
             <h2 class="titulos-footer">Menu de navegacion</h2>
             <ul>
                 <li><a href="#estadisticas">Estadisticas</a></li>
-                <li><a href="#categoria">Categoria</a></li>
+                <li><a href="#datos">Interes</a></li>
+                <li><a href="#colaboradores">Colaboradores</a></li>
                 <li><a href="#gestion">Gestion</a></li>
-                <li><a href="./Buscar empleado.html" target="_blank">Buscar</a></li>
             </ul>
         </div>
 
@@ -309,6 +334,6 @@
 </footer>
 
 
-<script src="./JS/slider.js"></script>
+<script src="/Adminstrador/JS/slider.js"></script>
 </body>
 </html>
