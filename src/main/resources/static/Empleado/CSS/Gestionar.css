@@ -64,6 +64,9 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin: auto;
+    width: 340px;
+    height: 425px;
 }
 
 .container__cart{
@@ -105,6 +108,7 @@
 
 .container p{
     width: 80%;
+    height: 80px;
     margin: 30px;
     color: #9194a1;
 }
@@ -132,3 +136,24 @@
 }
 
 /* fin categoria */
+
+@media screen and (max-width: 768px){
+
+    .categoria__text p{
+        width: 300px;
+    }
+
+    .categoria__text hr{
+        width: 150px;
+    }
+
+    .container{
+        margin: 40px;
+    }
+
+
+    .firtsSeccion, .secondSeccion{
+        display: flex;
+        flex-direction: column;
+    }
+}
