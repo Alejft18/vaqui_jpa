@@ -34,7 +34,6 @@
             return;
         }
 
-        // Realizar la solicitud AJAX para buscar al usuario por ID
         const url = `http://localhost:8080/buscarUsuario/${id}`;
 
         fetch(url, {

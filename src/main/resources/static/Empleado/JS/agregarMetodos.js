@@ -263,50 +263,6 @@ $("#agregarToro").on('click', function() {
     });
 });
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     // Agregar USUARIO
         $("#registrar").on('click',function(){
             let datos = {
@@ -317,8 +273,8 @@ $("#agregarToro").on('click', function() {
                 correo: $('#correo').val(),
                 contrasena: $('#contraseña').val(),
                 rol: $('#rol').val(),
-                area: $('#area').val(),
-                imagen: $('#seleccionar__imagen').val(),
+                area: $('#area').val()
+//                imagen: $('#seleccionar__imagen').val(),
             }
 
             console.log(datos);
@@ -331,16 +287,22 @@ $("#agregarToro").on('click', function() {
                 data: datosEnvio,
                 contentType: "application/JSON",
                 dataType: "JSON",
-               success: function(xhr) {
-                  alert("El usuario se agregó exitosamente." + xhr.responseText); // Muestra un mensaje de éxito
-               },
-               error: function(response) {
-                  alert("Error al agregar el usuario: "); // Muestra un mensaje de error con el detalle del error
-               }
+                success: function(response) {
+                    console.log(response); // Muestra la respuesta del servidor en la consola para inspeccionarla
+
+                    try {
+                        let jsonResponse = JSON.parse(response); // Intenta parsear la respuesta como JSON
+                        alert("El usuario se agregó exitosamente."); // Muestra un mensaje de éxito
+                        window.location.href = "./LandingPage.html";
+                    } catch (error) {
+                        alert("Error al agregar el usuario: La respuesta del servidor no es un JSON válido."); // Muestra un mensaje de error si no se puede parsear como JSON
+                    }
+                },
            });
         });
 
 
+        //CARGAR EL ULTIMO ID
         $.ajax({
             url: 'http://localhost:8080/ultimoIdGeneral',
             type: 'GET',

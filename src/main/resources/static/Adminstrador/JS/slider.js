@@ -1,3 +1,4 @@
+//CODIGO PARA OBTENER LOS DATOS ESTADISTICOS
 $(document).ready(function() {
   function obtenerDatosPromedio() {
     $.ajax({
@@ -35,7 +36,7 @@ $(document).ready(function() {
 
 });
 
-
+//CODIGO PARA EL SLIDER "COLABORADORES"
 (function(){
     const sliders = [...document.querySelectorAll('.slider__body')];
     const arrowNext = document.querySelector('#next');
@@ -63,11 +64,13 @@ $(document).ready(function() {
     }
 })() 
 
+//CODIGO PARA EL NAV RESPONSIVE
 function toggleMenu() {
     var menu = document.getElementById("menu");
     menu.classList.toggle("active");
 }
 
+//CODIGO PARA EL PERFIL "BARRA LATERAL"
 function toggleSidebar() {
   const sidebar = document.getElementById('sidebar');
   sidebar.classList.toggle('active');

@@ -25,7 +25,7 @@ public class ServicioUsuario {
 
     public String agregarUsuario(Usuario usuario){
         repository.save(usuario);
-        return "Ingreso esitoso del usuario";
+        return "Ingreso exitoso del usuario";
     }
 
     public String actualizarUsuario(Usuario usuario){
