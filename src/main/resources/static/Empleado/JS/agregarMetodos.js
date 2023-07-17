@@ -289,7 +289,6 @@ $("#agregarToro").on('click', function() {
                 dataType: "JSON",
                 success: function(response) {
                     console.log(response); // Muestra la respuesta del servidor en la consola para inspeccionarla
-
                     try {
                         let jsonResponse = JSON.parse(response); // Intenta parsear la respuesta como JSON
                         alert("El usuario se agregó exitosamente."); // Muestra un mensaje de éxito

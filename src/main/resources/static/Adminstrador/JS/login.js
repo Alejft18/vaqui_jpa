@@ -51,11 +51,11 @@ function validarFormulario(event) {
         // Verificar si la contraseña coincide
         if (usuario.contrasena === contraseña) {
             // Verificar el rol del usuario
-            if (usuario.rol === 'empleada') {
+            if (usuario.rol === 'Empleada' || usuario.rol === 'empleada' || usuario.rol === 'Empleado' || usuario.rol === 'empleado') {
                 alert('Inicio de sesión exitoso como empleado');
                 // Redireccionar a la página de empleado después del inicio de sesión
                 window.location.href = '/Empleado/LandingPage.html';
-            } else if (usuario.rol === 'Administrador') {
+            } else if (usuario.rol === 'Administrador' || usuario.rol ==="administrador" || usuario.rol ==="Administradora" || usuario.rol ==="administradora") {
                 alert('Inicio de sesión exitoso como administrador');
                 // Redireccionar a la página de administrador después del inicio de sesión
                 window.location.href = '/Adminstrador/LandingPage.html';
