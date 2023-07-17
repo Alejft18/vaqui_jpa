@@ -90,6 +90,9 @@ function cargarPerfilUsuario(id) {
         return response.json();
     })
     .then(usuario => {
+        // Mostrar los datos del usuario en la consola
+        console.log('Datos del usuario:', usuario);
+
         // Mostrar los datos del usuario en el perfil
         document.getElementById('nombre').textContent = usuario.nombre;
         document.getElementById('apellido').textContent = usuario.apellido;
