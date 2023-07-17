@@ -11,7 +11,8 @@ $(document).ready(function() {
                 '<td>' + datos[i].fecha_revision + '</td>' +
                 '<td>' + datos[i].alimento + '</td>' +
                 '<td>' + datos[i].categoria + '</td>' +
-                '<td><button class="delete-button" data-id="' + datos[i].id_engorde + '">Eliminar</button></td>');
+                '<td><button class="delete-button" data-id="' + datos[i].id_engorde + '">Eliminar</button></td>'+
+                '<td><a class="btn-actualizar" href="/Empleado/ActualizarEngorde.html?id=' + datos[i].id + '">Actualizar</a></td>');
       tbody.append(fila);
     }
   }

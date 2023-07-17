@@ -13,7 +13,8 @@ $(document).ready(function() {
                 '<td>' + datos[i].fecha_ultimoParto + '</td>' +
                 '<td>' + datos[i].fecha_revision + '</td>' +
                 '<td>' + datos[i].categoria + '</td>' +
-                '<td><button class="delete-button" data-id="' + datos[i].id + '">Eliminar</button></td>');
+                '<td><button class="delete-button" data-id="' + datos[i].id + '">Eliminar</button></td>'+
+                '<td><a class="btn-actualizar" href="/Empleado/ActualizarGestacion.html?id=' + datos[i].id + '">Actualizar</a></td>');
       tbody.append(fila);
     }
   }
