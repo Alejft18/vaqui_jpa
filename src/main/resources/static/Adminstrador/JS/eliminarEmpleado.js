@@ -23,7 +23,7 @@ $(document).ready(function(){
     // Realizar la petición AJAX para obtener todos los datos
     function obtenerDatos() {
         $.ajax({
-        url: "http://localhost:8080/listarUsuario",
+        url: 'https://vaquijpa2-production.up.railway.app/listarUsuario',
         type: "GET",
         dataType: "JSON",
         success: function(respuesta) {
@@ -78,16 +78,19 @@ $(document).ready(function(){
 
           if (confirm("¿Estás seguro de que deseas eliminar el bovino?")) {
             $.ajax({
-              url: "http://localhost:8080/eliminarUsuario/" + id,
+              url: 'https://vaquijpa2-production.up.railway.app/eliminarUsuario/' + id,
               type: "DELETE",
               dataType: "JSON",
-              success: function(respuesta) {
-                console.log(respuesta);
-                obtenerDatos(); // Actualizar la tabla después de eliminar la fila
-                alert("La fila se eliminó correctamente");
-                window.location.href = "./LandingPage.html"; // Reemplaza "otro.html" con la URL del HTML al que deseas redirigir
-                location.reload(); // Recargar la página actual
-              },
+                success: function(response) {
+                    console.log(response); // Muestra la respuesta del servidor en la consola para inspeccionarla
+                    try {
+                        let jsonResponse = JSON.parse(response); // Intenta parsear la respuesta como JSON
+                        alert("El usuario se elimino exitosamente."); // Muestra un mensaje de éxito
+                        window.location.href = "./LandingPage.html";
+                    } catch (error) {
+                        alert("Error al agregar el usuario: La respuesta del servidor no es un JSON válido."); // Muestra un mensaje de error si no se puede parsear como JSON
+                    }
+                },
             });
           }
         }

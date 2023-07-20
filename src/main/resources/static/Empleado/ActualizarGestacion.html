@@ -19,7 +19,7 @@
 <hr>
 
 <div class="principal">
-    <img src="/ImagenesVacas/Bovino2.webp" alt="imagen ilustrativa a una vaca">
+    <img src="/ImagenesVacas/Bovino2.jpg" alt="imagen ilustrativa a una vaca">
 
     <form action="form">
         <h2 class="form-title">Ingrese los datos modificados del bovino</h2>
@@ -86,7 +86,7 @@ $("#actualizarGestacion").on('click', function() {
     console.log(datosEnvio);
 
     $.ajax({
-        url: "http://localhost:8080/actualizarGestacion/" + $('#id').val(),
+        url: 'https://vaquijpa2-production.up.railway.app/actualizarGestacion/' + $('#id').val(),
         type: "PUT",
         data: datosEnvio,
         contentType: "application/json",
