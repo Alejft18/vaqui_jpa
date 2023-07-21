@@ -76,18 +76,21 @@ $(document).ready(function(){
         function eliminarFila() {
           let id = $(this).data('id');
 
-          if (confirm("¿Estás seguro de que deseas eliminar el bovino?")) {
+          if (confirm("¿Estás seguro de que deseas eliminar el empleado?")) {
             $.ajax({
               url: "http://localhost:8080/eliminarUsuario/" + id,
               type: "DELETE",
               dataType: "JSON",
-              success: function(respuesta) {
-                console.log(respuesta);
-                obtenerDatos(); // Actualizar la tabla después de eliminar la fila
-                alert("La fila se eliminó correctamente");
-                window.location.href = "./LandingPage.html"; // Reemplaza "otro.html" con la URL del HTML al que deseas redirigir
-                location.reload(); // Recargar la página actual
-              },
+                success: function(response) {
+                    console.log(response); // Muestra la respuesta del servidor en la consola para inspeccionarla
+                    try {
+                        let jsonResponse = JSON.parse(response); // Intenta parsear la respuesta como JSON
+                        alert("El usuario se elimino exitosamente."); // Muestra un mensaje de éxito
+                        window.location.href = "./LandingPage.html";
+                    } catch (error) {
+                        alert("Error al agregar el usuario: La respuesta del servidor no es un JSON válido."); // Muestra un mensaje de error si no se puede parsear como JSON
+                    }
+                },
             });
           }
         }
